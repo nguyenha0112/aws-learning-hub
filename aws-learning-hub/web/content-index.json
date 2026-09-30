@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-09-30T03:04:28.126Z",
+  "lessons": [
+    {
+      "id": "ec2",
+      "title": "EC2: Compute có kiểm soát",
+      "domain": "Compute",
+      "duration_minutes": 40,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Mục tiêu học tập\n\n- Biết khi nào chọn EC2 thay vì serverless/container.\n- Hiểu AMI, instance type, EBS, Security Group và pricing.\n\n## EC2 là gì?\n\nEC2 là virtual server khi bạn cần kiểm soát operating system, runtime hoặc network ở mức máy chủ. AMI là template; instance type định nghĩa CPU, memory và network; EBS là persistent block storage.\n\n## Availability và scale\n\nMột instance không phải HA. Web tier production nên chạy trong Auto Scaling Group trải nhiều AZ và nằm sau Application Load Balancer. ASG giữ số instance tối thiểu/desired/max và thay instance lỗi.\n\n## Pricing\n\nOn-Demand cho workload khó dự báo. Savings Plans cho sử dụng ổn định. Spot cho batch/CI/render chịu gián đoạn.\n\n## Lab an toàn\n\n1. Launch instance sandbox.\n2. Chỉ dùng SSM Session Manager hoặc giới hạn SSH từ IP của bạn.\n3. Gắn IAM role read-only S3.\n4. Terminate instance, kiểm tra DeleteOnTermination của EBS.\n\n## Quiz\n\n<!-- quiz: Web tier cần tự thay instance lỗi và tăng instance khi traffic cao. Kiến trúc nào đúng? -->\n<!-- option: Một EC2 instance lớn hơn -->\n<!-- option: ALB + Auto Scaling Group đa AZ | correct -->\n<!-- option: Tăng dung lượng EBS -->\n<!-- explanation: ALB phân phối traffic còn ASG kiểm tra health, thay instance và scale capacity. -->\n",
+      "quiz": {
+        "question": "Web tier cần tự thay instance lỗi và tăng instance khi traffic cao. Kiến trúc nào đúng?",
+        "options": [
+          {
+            "text": "Một EC2 instance lớn hơn",
+            "correct": false
+          },
+          {
+            "text": "ALB + Auto Scaling Group đa AZ",
+            "correct": true
+          },
+          {
+            "text": "Tăng dung lượng EBS",
+            "correct": false
+          }
+        ],
+        "explanation": "ALB phân phối traffic còn ASG kiểm tra health, thay instance và scale capacity."
+      },
+      "source_file": "content/lessons/ec2.md"
+    },
+    {
+      "id": "vpc",
+      "title": "VPC: Mạng AWS từ gốc",
+      "domain": "Networking",
+      "duration_minutes": 50,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Mục tiêu học tập\n\n- Thiết kế public/private subnet qua route table.\n- Phân biệt Internet Gateway, NAT Gateway, Security Group và NACL.\n\n## VPC là gì?\n\nVPC là mạng riêng logic của bạn trong AWS. Bạn chọn CIDR, chia thành subnet theo Availability Zone, khai báo route và kiểm soát traffic.\n\n## Public và private subnet\n\nSubnet có route đến Internet Gateway là public. Private subnet không có direct route đến IGW. Instance trong private subnet có thể ra Internet qua NAT Gateway đặt tại public subnet, nhưng Internet không thể tự mở kết nối vào instance đó.\n\n## Security Group và NACL\n\nSecurity Group stateful và gắn vào resource/ENI. NACL stateless và gắn vào cả subnet. Thực tế, dùng Security Group làm lớp chính và NACL như defense-in-depth khi cần.\n\n## Scenario kiến trúc\n\nWebsite production: ALB ở public subnets của hai AZ; application EC2/ECS ở private subnets; RDS nằm trong private database subnets. App chỉ cho phép HTTP từ Security Group của ALB.\n\n## Lab an toàn\n\n1. Vẽ VPC hai AZ với public và private subnet.\n2. Tạo IGW, NAT Gateway và route tables.\n3. Mô tả inbound/outbound rules trước khi deploy.\n\n## Quiz\n\n<!-- quiz: EC2 private subnet cần tải update từ Internet. Chọn giải pháp nào? -->\n<!-- option: Gắn Internet Gateway trực tiếp vào EC2 -->\n<!-- option: NAT Gateway ở public subnet và route private subnet tới NAT | correct -->\n<!-- option: Mở inbound SSH từ 0.0.0.0/0 -->\n<!-- explanation: NAT cho private workload outbound Internet mà không mở unsolicited inbound traffic. -->\n",
+      "quiz": {
+        "question": "EC2 private subnet cần tải update từ Internet. Chọn giải pháp nào?",
+        "options": [
+          {
+            "text": "Gắn Internet Gateway trực tiếp vào EC2",
+            "correct": false
+          },
+          {
+            "text": "NAT Gateway ở public subnet và route private subnet tới NAT",
+            "correct": true
+          },
+          {
+            "text": "Mở inbound SSH từ 0.0.0.0/0",
+            "correct": false
+          }
+        ],
+        "explanation": "NAT cho private workload outbound Internet mà không mở unsolicited inbound traffic."
+      },
+      "source_file": "content/lessons/vpc.md"
+    },
+    {
+      "id": "iam",
+      "title": "IAM: Bảo mật và phân quyền AWS",
+      "domain": "Security",
+      "duration_minutes": 45,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Mục tiêu học tập\n\n- Phân biệt root user, IAM user, group, role và policy.\n- Giải thích implicit deny, explicit allow và explicit deny.\n- Dùng IAM role thay cho access key dài hạn.\n\n## IAM giải quyết vấn đề gì?\n\nMỗi request AWS đều có một principal, action và resource. IAM quyết định request đó có được phép hay không. IAM **không** phải network firewall; Security Group và NACL mới kiểm soát network traffic.\n\n## Danh tính và role\n\nRoot user có toàn quyền: bật MFA, không dùng thường ngày và không tạo root access key. IAM user là identity dài hạn, phù hợp legacy. IAM group gom users có chung quyền. IAM role là quyền tạm thời mà EC2, Lambda, SSO user hoặc account khác có thể assume.\n\n> Quy tắc vàng: ứng dụng chạy trong AWS phải dùng role và temporary credentials, không hard-code access key.\n\n## Đọc policy\n\nMặc định, request là implicit deny. Một explicit Allow đúng action/resource có thể cho phép. Một explicit Deny phù hợp luôn thắng bất kỳ Allow nào. Policy cần scope theo Action, Resource và Condition thay vì dùng `*` vô tội vạ.\n\n## Scenario kiến trúc\n\nEC2 cần đọc ảnh trong một S3 prefix: gắn instance profile có role chỉ allow `s3:GetObject` tại prefix đó. Không lưu credential trong source code hoặc instance.\n\n## Lab an toàn\n\n1. Tạo S3 bucket private và upload `training/hello.txt`.\n2. Tạo policy chỉ cho `s3:GetObject` tại `training/*`.\n3. Dùng IAM Policy Simulator hoặc EC2 role để kiểm tra allow/deny.\n4. Xóa resource sandbox khi hoàn thành.\n\n## Lỗi thường gặp\n\n- Cấp AdministratorAccess để chữa AccessDenied: thay vào đó kiểm tra policy evaluation, resource ARN và SCP.\n- Nhầm trust policy (ai assume role) với permission policy (role làm được gì).\n\n## Quiz\n\n<!-- quiz: EC2 cần đọc object S3. Cách cấp quyền nào phù hợp nhất? -->\n<!-- option: Tạo root access key trong source code -->\n<!-- option: Gắn IAM role vào EC2 instance profile | correct -->\n<!-- option: Mở public toàn bộ S3 bucket -->\n<!-- explanation: IAM role cấp temporary credentials tự động và tránh lộ long-term key. -->\n",
+      "quiz": {
+        "question": "EC2 cần đọc object S3. Cách cấp quyền nào phù hợp nhất?",
+        "options": [
+          {
+            "text": "Tạo root access key trong source code",
+            "correct": false
+          },
+          {
+            "text": "Gắn IAM role vào EC2 instance profile",
+            "correct": true
+          },
+          {
+            "text": "Mở public toàn bộ S3 bucket",
+            "correct": false
+          }
+        ],
+        "explanation": "IAM role cấp temporary credentials tự động và tránh lộ long-term key."
+      },
+      "source_file": "content/lessons/iam.md"
+    },
+    {
+      "id": "s3",
+      "title": "S3: Object storage bền vững",
+      "domain": "Storage",
+      "duration_minutes": 45,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Mục tiêu học tập\n\n- Biết object storage khác EBS/EFS như thế nào.\n- Bảo vệ bucket với Block Public Access, policy, encryption và versioning.\n\n## S3 là gì?\n\nS3 lưu object: static content, backup, log và data lake. S3 không phải file system POSIX. Một bucket chứa objects; access được kiểm soát qua IAM policy, bucket policy và các guardrail.\n\n## Bảo mật và phục hồi\n\nGiữ Block Public Access bật nếu không thật sự phải public. Dùng Versioning để phục hồi object bị xóa/ghi đè và Lifecycle để quản lý chi phí các version cũ. Chọn SSE-S3 hoặc SSE-KMS tùy yêu cầu kiểm soát key.\n\n## Scenario kiến trúc\n\nStatic site toàn cầu: S3 làm origin private, CloudFront cache tại edge, Origin Access Control cho phép CloudFront đọc bucket. Không mở public bucket nếu không cần.\n\n## Lab an toàn\n\n1. Tạo bucket, bật Versioning.\n2. Upload và ghi đè một file, rồi restore version cũ.\n3. Tạo Lifecycle rule test cho noncurrent versions.\n\n## Quiz\n\n<!-- quiz: Nhiều EC2 Linux cần mount cùng thư mục upload. Chọn storage nào? -->\n<!-- option: S3 -->\n<!-- option: EBS gắn lần lượt vào từng EC2 -->\n<!-- option: EFS | correct -->\n<!-- explanation: EFS là elastic NFS file system có thể được nhiều compute instance mount; S3 là object storage. -->\n",
+      "quiz": {
+        "question": "Nhiều EC2 Linux cần mount cùng thư mục upload. Chọn storage nào?",
+        "options": [
+          {
+            "text": "S3",
+            "correct": false
+          },
+          {
+            "text": "EBS gắn lần lượt vào từng EC2",
+            "correct": false
+          },
+          {
+            "text": "EFS",
+            "correct": true
+          }
+        ],
+        "explanation": "EFS là elastic NFS file system có thể được nhiều compute instance mount; S3 là object storage."
+      },
+      "source_file": "content/lessons/s3.md"
+    }
+  ]
+}

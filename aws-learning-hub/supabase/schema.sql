@@ -1,5 +1,18 @@
 -- Run this once in Supabase Dashboard → SQL Editor.
--- This database design stores only per-user learning progress.
+-- Content is authored in Markdown and can be synced by scripts/sync-supabase.mjs.
+create table if not exists public.lessons (
+  id text primary key,
+  title text not null,
+  domain text not null,
+  duration_minutes integer not null default 30 check (duration_minutes > 0),
+  level text not null default 'Foundation',
+  video_url text,
+  markdown text not null,
+  quiz jsonb,
+  published boolean not null default false,
+  updated_at timestamptz not null default now()
+);
+
 create table if not exists public.lesson_progress (
   user_id uuid not null references auth.users(id) on delete cascade,
   lesson_id text not null,
@@ -8,6 +21,11 @@ create table if not exists public.lesson_progress (
 );
 
 alter table public.lesson_progress enable row level security;
+alter table public.lessons enable row level security;
+
+create policy "Published lessons are readable by everyone"
+on public.lessons for select
+using (published = true);
 
 create policy "Users read their own learning progress"
 on public.lesson_progress for select to authenticated
