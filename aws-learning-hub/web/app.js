@@ -29,3 +29,21 @@ async function syncProgress(lessonId){if(!user||!supabaseClient)return;await sup
 async function setupAuth(){if(!supabaseClient)return;const {data:{session}}=await supabaseClient.auth.getSession();user=session?.user||null;$("#auth-button").textContent=user?"Đã đồng bộ ✓":"Đăng nhập để đồng bộ";if(user){const {data}=await supabaseClient.from("lesson_progress").select("lesson_id").eq("user_id",user.id);data?.forEach(x=>progress[x.lesson_id]=true);save();home();}}
 $("#auth-button").onclick=()=>{if(user){supabaseClient.auth.signOut();user=null;$("#auth-button").textContent="Đăng nhập để đồng bộ";return}$("#auth-dialog").showModal()};$("#send-link").onclick=async e=>{e.preventDefault();if(!supabaseClient){$("#auth-message").textContent="Chưa cấu hình Supabase.";return}const {error}=await supabaseClient.auth.signInWithOtp({email:$("#email").value,options:{emailRedirectTo:location.href}});$("#auth-message").textContent=error?error.message:"Đã gửi magic link. Kiểm tra email của bạn."};$("#theme-toggle").onclick=()=>document.body.classList.toggle("dark");document.querySelectorAll(".nav-link").forEach(b=>b.onclick=()=>navigate(b.dataset.view));$(".mobile-menu").onclick=()=>alert("Dùng các nút điều hướng trên đầu trang hoặc xoay màn hình rộng hơn để xem sidebar.");setupAuth();home();
 loadContent();
+async function loadContent(){
+  const normalize = item => ({
+    id:item.id,title:item.title,domain:item.domain,level:item.level,time:`${item.duration_minutes} phút`,icon:lessonIcon(item.domain),
+    summary:`Bài ${item.level.toLowerCase()} về ${item.domain}. Học từ Markdown, scenario, lab và quiz.`,
+    content:window.marked?window.marked.parse(item.markdown):`<pre>${item.markdown}</pre>`,videoUrl:item.video_url,
+    quiz:item.quiz?{q:item.quiz.question,options:item.quiz.options.map(option=>option.text),answer:item.quiz.options.findIndex(option=>option.correct),why:item.quiz.explanation}:{q:"Bài này chưa có quiz.",options:["Đọc lại nội dung bài học"],answer:0,why:"Hãy thêm quiz theo template Markdown."}
+  });
+  try {
+    if (supabaseClient) {
+      const {data,error}=await supabaseClient.from("lessons").select("*").eq("published",true).order("domain");
+      if (!error && data?.length) { lessons=data.map(normalize); home(); return; }
+    }
+    const response=await fetch("content-index.json");
+    if (!response.ok) throw new Error("content index unavailable");
+    const index=await response.json(); lessons=index.lessons.map(normalize);
+  } catch(error) { console.warn("Using bundled lesson fallback",error); }
+  home();
+}
