@@ -30,7 +30,8 @@ Nội dung Markdown...
 1. Sao chép `content/lesson-template.md`, viết nội dung và quiz.
 2. Chạy `node scripts/build-content.mjs`.
 3. Script tạo `web/content-index.json` cho website.
-4. Sau khi database đã có schema, chạy `node scripts/sync-supabase.mjs` để đồng bộ content metadata vào Supabase.
+4. Chạy `node scripts/apply-schema.mjs` một lần để tự tạo bảng qua Supabase Management API.
+5. Chạy `node scripts/sync-supabase.mjs` để đồng bộ content metadata vào Supabase.
 5. Mở website, kiểm tra preview, quiz và video; commit/push.
 
 ## Quy tắc nội dung

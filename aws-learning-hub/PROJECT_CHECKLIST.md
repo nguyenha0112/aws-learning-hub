@@ -13,7 +13,8 @@
 - [x] Thiết kế schema Supabase cho lessons, quiz JSON và progress.
 - [x] RLS: mọi người chỉ xem published lesson, user chỉ thao tác progress của mình.
 - [x] Magic-link authentication trong website.
-- [ ] Chạy `supabase/schema.sql` trên Supabase Dashboard.
+- [ ] Thêm `SUPABASE_ACCESS_TOKEN` (scoped PAT: Database Read-write) vào `.env`.
+- [ ] Chạy `node scripts/apply-schema.mjs` để tự tạo database schema.
 - [ ] Chạy `node scripts/sync-supabase.mjs` để seed 4 bài đầu tiên.
 - [ ] Thêm GitHub Pages URL vào Supabase Auth Redirect URLs.
 
