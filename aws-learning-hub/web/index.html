@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <title>AWS Learning Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">λ</span><span>AWS<br><b>Learning Hub</b></span></a>
+      <nav class="side-nav" aria-label="Điều hướng chính">
+        <button class="nav-link active" data-view="home"><span>⌂</span> Tổng quan</button>
+        <button class="nav-link" data-view="learn"><span>▤</span> Bài học</button>
+        <button class="nav-link" data-view="review"><span>◈</span> Ôn tập</button>
+      </nav>
+      <div class="side-bottom"><p>Học đều mỗi ngày</p><div class="streak"><span>🔥</span><b id="streak">0 ngày</b></div><small>Tiến độ của bạn được lưu cục bộ; đăng nhập để đồng bộ Supabase.</small></div>
+    </aside>
+    <main>
+      <header class="topbar"><button class="mobile-menu" aria-label="Mở menu">☰</button><div class="crumb">AWS / <b id="page-title">Tổng quan</b></div><div class="header-actions"><button id="theme-toggle" class="icon-button" title="Đổi giao diện">◐</button><button id="auth-button" class="primary-button">Đăng nhập để đồng bộ</button></div></header>
+      <div id="app" class="content" aria-live="polite"></div>
+    </main>
+  </div>
+  <dialog id="auth-dialog"><form method="dialog" class="dialog-card"><button class="close" value="cancel">×</button><div class="eyebrow">AWS LEARNING HUB</div><h2>Đồng bộ tiến độ</h2><p>Đăng nhập bằng email để lưu trạng thái học trên mọi thiết bị.</p><label>Email<input id="email" type="email" placeholder="you@example.com" required></label><button id="send-link" class="primary-button wide" value="default">Gửi magic link</button><p id="auth-message" class="muted"></p></form></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
