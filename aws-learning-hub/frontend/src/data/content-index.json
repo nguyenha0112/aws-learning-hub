@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T03:39:32.202Z",
+  "generated_at": "2026-09-30T04:02:39.929Z",
   "lessons": [
     {
       "id": "ec2",
@@ -29,6 +29,38 @@
         "explanation": "ALB phân phối traffic còn ASG kiểm tra health, thay instance và scale capacity."
       },
       "source_file": "content/lessons/ec2.md"
+    },
+    {
+      "id": "aws-core-services-summary",
+      "title": "AWS Core Services Summary (Practitioner & SAA)",
+      "domain": "Foundation",
+      "duration_minutes": 60,
+      "level": "Foundation",
+      "published": "true",
+      "markdown": "\n# Tổng hợp các Dịch vụ Cốt lõi của AWS / AWS Core Services Summary\n\n*(Nhấn nút Language ở góc trên màn hình để chuyển đổi ngôn ngữ giao diện)*\n\n## 1. Compute (Điện toán)\n**Amazon EC2 (Elastic Compute Cloud):**\n*   **VN:** Máy chủ ảo trên mây. Bạn có toàn quyền kiểm soát hệ điều hành. Phù hợp cho các ứng dụng web tĩnh, web động, xử lý batch.\n*   **EN:** Virtual servers in the cloud. You have full control over the OS. Suitable for web apps, batch processing.\n\n**AWS Lambda:**\n*   **VN:** Dịch vụ Serverless (không máy chủ). Chỉ chạy code khi có sự kiện (event) kích hoạt. Tính tiền theo mili-giây.\n*   **EN:** Serverless compute service. Runs code in response to events. Billed per millisecond.\n\n**Amazon ECS & EKS:**\n*   **VN:** Quản lý Container. ECS là giải pháp nội bộ của AWS, EKS dùng Kubernetes mã nguồn mở. Cả hai đều có thể dùng Fargate (Serverless cho container).\n*   **EN:** Container orchestration. ECS is AWS-native, EKS uses Kubernetes. Both can run on Fargate (Serverless compute for containers).\n\n## 2. Storage (Lưu trữ)\n**Amazon S3 (Simple Storage Service):**\n*   **VN:** Lưu trữ đối tượng (Object Storage). Phù hợp lưu trữ file, hình ảnh, video, log, backup. Rất rẻ và bền bỉ (99.999999999% durability).\n*   **EN:** Object storage. Ideal for files, images, videos, logs, and backups. Extremely durable.\n\n**Amazon EBS (Elastic Block Store):**\n*   **VN:** Lưu trữ khối (Block Storage). Ổ cứng mạng gắn trực tiếp vào máy chủ EC2. Cần thiết cho hệ điều hành và database.\n*   **EN:** Block storage network drive attached to EC2 instances. Required for OS and databases.\n\n**Amazon EFS (Elastic File System):**\n*   **VN:** Hệ thống file dùng chung (File Storage). Nhiều máy chủ EC2 (hệ điều hành Linux) có thể đọc/ghi cùng một lúc.\n*   **EN:** Shared network file system for Linux EC2 instances. Multiple instances can read/write simultaneously.\n\n## 3. Database (Cơ sở dữ liệu)\n**Amazon RDS (Relational Database Service):**\n*   **VN:** CSDL quan hệ có quản lý (SQL). Hỗ trợ MySQL, PostgreSQL, Oracle, SQL Server, Aurora. AWS lo việc backup và patch lỗi.\n*   **EN:** Managed relational database (SQL). Supports MySQL, PostgreSQL, Oracle, SQL Server, Aurora.\n\n**Amazon DynamoDB:**\n*   **VN:** CSDL phi quan hệ (NoSQL). Tốc độ cực nhanh (millisecond), có thể mở rộng vô hạn. Cấu trúc Key-Value.\n*   **EN:** Fast, scalable NoSQL key-value database. Millisecond latency at any scale.\n\n## 4. Networking (Mạng)\n**Amazon VPC (Virtual Private Cloud):**\n*   **VN:** Trung tâm mạng ảo của bạn trên AWS. Giúp cô lập tài nguyên, cấu hình Subnet, Route Table, Security Group.\n*   **EN:** Your private virtual network on AWS. Isolates resources, configures Subnets, Route Tables, and Security Groups.\n\n**Amazon Route 53:**\n*   **VN:** Dịch vụ DNS toàn cầu cực kỳ ổn định. Giúp định tuyến tên miền (domain) đến các dịch vụ AWS.\n*   **EN:** Highly available and scalable Cloud Domain Name System (DNS) web service.\n\n---\n\n## Quiz\n<!-- quiz: Dịch vụ lưu trữ nào phù hợp nhất để làm ổ đĩa hệ điều hành (OS Boot Drive) cho một máy chủ ảo EC2? -->\n<!-- option: Amazon S3 -->\n<!-- option: Amazon EFS -->\n<!-- option: Amazon EBS | correct -->\n<!-- option: Amazon DynamoDB -->\n<!-- explanation: Amazon EBS cung cấp block storage (lưu trữ khối), đây là định dạng bắt buộc để cài đặt hệ điều hành và dùng làm ổ đĩa boot cho EC2. S3 là Object Storage, không thể boot OS. -->\n",
+      "quiz": {
+        "question": "Dịch vụ lưu trữ nào phù hợp nhất để làm ổ đĩa hệ điều hành (OS Boot Drive) cho một máy chủ ảo EC2?",
+        "options": [
+          {
+            "text": "Amazon S3",
+            "correct": false
+          },
+          {
+            "text": "Amazon EFS",
+            "correct": false
+          },
+          {
+            "text": "Amazon EBS",
+            "correct": true
+          },
+          {
+            "text": "Amazon DynamoDB",
+            "correct": false
+          }
+        ],
+        "explanation": "Amazon EBS cung cấp block storage (lưu trữ khối), đây là định dạng bắt buộc để cài đặt hệ điều hành và dùng làm ổ đĩa boot cho EC2. S3 là Object Storage, không thể boot OS."
+      },
+      "source_file": "content/02-service-reference/aws-core-services-summary.md"
     },
     {
       "id": "vpc",
