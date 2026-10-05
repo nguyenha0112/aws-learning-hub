@@ -12,22 +12,16 @@ export function Header() {
             AWS Learning Hub
           </span>
         </Link>
-        <div className="flex items-center gap-4">
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <div className="flex items-center gap-3">
+          <nav className="flex items-center gap-3 text-sm font-medium md:gap-6">
             <Link href="/lessons" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors">
               Bài Học
             </Link>
             <Link href="/mock-exams" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors">
               Mock Exam
             </Link>
-            <Link href="/flashcards" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors">
-              Flashcards
-            </Link>
-            <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors">
-              Tiến Độ
-            </Link>
           </nav>
-          <div className="flex items-center border-l border-gray-200 dark:border-gray-800 pl-4 ml-2">
+          <div className="flex items-center border-l border-gray-200 dark:border-gray-800 pl-3 md:pl-4">
             <ThemeToggle />
           </div>
         </div>

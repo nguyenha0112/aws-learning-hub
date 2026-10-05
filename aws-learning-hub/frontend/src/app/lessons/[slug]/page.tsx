@@ -1,8 +1,8 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
 import { notFound } from "next/navigation";
+import { LessonQuiz } from "@/components/lesson/LessonQuiz";
 
 // Read the generated JSON directly since it's a server component
 import contentIndex from "@/data/content-index.json";
@@ -13,8 +13,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function LessonPage({ params }: { params: { slug: string } }) {
-  const lesson = contentIndex.lessons.find((l) => l.id === params.slug);
+export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const lesson = contentIndex.lessons.find((l) => l.id === slug);
 
   if (!lesson) {
     notFound();
@@ -49,28 +50,13 @@ export default function LessonPage({ params }: { params: { slug: string } }) {
       <article className="prose prose-gray dark:prose-invert max-w-none">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
         >
           {lesson.markdown}
         </ReactMarkdown>
       </article>
 
       {lesson.quiz && (
-        <div className="mt-12 p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
-          <h3 className="text-xl font-bold mb-4">Bài Tập Kiểm Tra (Quiz)</h3>
-          <p className="font-medium mb-4">{lesson.quiz.question}</p>
-          <div className="space-y-2">
-            {lesson.quiz.options.map((opt: any, idx: number) => (
-              <div
-                key={idx}
-                className="p-3 rounded border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 cursor-pointer"
-              >
-                {opt.text}
-              </div>
-            ))}
-          </div>
-          {/* Note: In reality, Quiz state (selected, reveal correct, explanation) needs a Client Component. We will refactor this to a Quiz component later. */}
-        </div>
+        <LessonQuiz quiz={lesson.quiz} />
       )}
     </div>
   );
