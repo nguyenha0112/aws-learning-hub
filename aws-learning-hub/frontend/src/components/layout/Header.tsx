@@ -17,6 +17,9 @@ export function Header() {
             <Link href="/lessons" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors">
               Bài Học
             </Link>
+            <Link href="/mock-exams" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors">
+              Mock Exam
+            </Link>
             <Link href="/flashcards" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors">
               Flashcards
             </Link>

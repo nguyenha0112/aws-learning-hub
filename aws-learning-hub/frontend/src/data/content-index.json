@@ -1,6 +1,125 @@
 {
-  "generated_at": "2026-09-30T04:02:39.929Z",
+  "generated_at": "2026-10-02T03:31:14.332Z",
   "lessons": [
+    {
+      "id": "clf-c02-cloud-concepts",
+      "title": "Cloud Concepts & Pricing (CLF-C02)",
+      "domain": "Cloud Concepts",
+      "duration_minutes": 45,
+      "level": "Foundation",
+      "published": "true",
+      "markdown": "\n# Khái niệm Đám mây & Tính cước phí (Cloud Concepts & Pricing)\n\n## 1. Cloud Concepts (Khái niệm Đám mây)\n\n**The 6 Advantages of Cloud Computing (6 Lợi ích của Điện toán Đám mây):**\n1. **Trade capital expense for variable expense (Đổi chi phí cố định lấy chi phí biến đổi):**\n   * **VN:** Không cần mua máy chủ vật lý đắt đỏ, chỉ trả tiền cho những gì bạn sử dụng (Pay-as-you-go).\n   * **EN:** Pay on-demand instead of massive upfront hardware investments (Capex to Opex).\n2. **Benefit from massive economies of scale (Hưởng lợi từ lợi thế kinh tế theo quy mô):**\n   * **VN:** Hàng trăm ngàn khách hàng dùng chung nền tảng AWS giúp AWS giảm chi phí và chia sẻ lại giá rẻ hơn cho bạn.\n   * **EN:** Usage from hundreds of thousands of customers is aggregated in the cloud, translating into lower pay-as-you-go prices.\n3. **Stop guessing capacity (Ngừng phỏng đoán dung lượng):**\n   * **VN:** Tránh việc mua dư thừa máy chủ (gây lãng phí) hoặc mua quá ít (gây sập web). Cloud cho phép mở rộng (Scale up/down) linh hoạt.\n   * **EN:** Eliminate guessing on your infrastructure capacity needs. Access as much or as little as you need.\n4. **Increase speed and agility (Tăng tốc độ và sự linh hoạt):**\n   * **VN:** Khởi tạo tài nguyên CNTT chỉ trong vài phút thay vì vài tuần chờ mua phần cứng.\n   * **EN:** IT resources are only a click away, which reduces the time it takes to make those resources available.\n5. **Stop spending money running and maintaining data centers (Ngừng tốn tiền vận hành và bảo trì Data Center):**\n   * **VN:** Tập trung vào các dự án mang lại giá trị cho doanh nghiệp thay vì phải lo quản lý máy chủ vật lý.\n   * **EN:** Focus on projects that differentiate your business, not the infrastructure.\n6. **Go global in minutes (Triển khai toàn cầu trong vài phút):**\n   * **VN:** Đưa ứng dụng của bạn đến gần khách hàng ở khắp nơi trên thế giới với độ trễ thấp thông qua mạng lưới AWS Regions.\n   * **EN:** Easily deploy your application in multiple regions around the world with just a few clicks.\n\n## 2. Billing & Pricing (Thanh toán & Cước phí)\n\n**AWS Pricing Models (Các mô hình tính phí AWS):**\n*   **On-Demand (Theo yêu cầu):** \n    *   **VN:** Trả đúng cho thời gian dùng (tính theo giây). Đắt nhất nhưng linh hoạt nhất, không có cam kết.\n    *   **EN:** Pay for compute or database capacity by the hour or second with no long-term commitments.\n*   **Reserved Instances (Chỗ dành riêng - RI):** \n    *   **VN:** Cam kết sử dụng 1 hoặc 3 năm. Giảm giá lớn (đến 75%) so với On-Demand.\n    *   **EN:** Discount (up to 75%) compared to On-Demand pricing by committing to a 1 or 3-year term.\n*   **Savings Plans:** \n    *   **VN:** Linh hoạt hơn RI, cam kết một lượng chi tiêu ($/giờ) trong 1 hoặc 3 năm.\n    *   **EN:** Flexible pricing model offering lower prices compared to On-Demand pricing in exchange for a specific usage commitment.\n*   **Spot Instances:** \n    *   **VN:** Dùng tài nguyên thừa của AWS với giá cực rẻ (giảm đến 90%), nhưng có thể bị lấy lại bất cứ lúc nào (sau 2 phút thông báo).\n    *   **EN:** Utilize spare EC2 capacity at steep discounts. Can be interrupted with 2 minutes notice.\n\n---\n\n## Quiz\n<!-- quiz: Mô hình thanh toán (Pricing Model) nào phù hợp nhất cho các công việc không quan trọng, có thể bị gián đoạn và cần tiết kiệm chi phí tối đa? -->\n<!-- option: On-Demand Instances -->\n<!-- option: Reserved Instances -->\n<!-- option: Spot Instances | correct -->\n<!-- option: Dedicated Hosts -->\n<!-- explanation: Spot Instances cung cấp mức giảm giá lớn nhất (đến 90%) cho các tài nguyên chưa sử dụng của AWS, cực kỳ phù hợp cho các công việc có thể bị gián đoạn như xử lý batch, render video. -->\n",
+      "quiz": {
+        "question": "Mô hình thanh toán (Pricing Model) nào phù hợp nhất cho các công việc không quan trọng, có thể bị gián đoạn và cần tiết kiệm chi phí tối đa?",
+        "options": [
+          {
+            "text": "On-Demand Instances",
+            "correct": false
+          },
+          {
+            "text": "Reserved Instances",
+            "correct": false
+          },
+          {
+            "text": "Spot Instances",
+            "correct": true
+          },
+          {
+            "text": "Dedicated Hosts",
+            "correct": false
+          }
+        ],
+        "explanation": "Spot Instances cung cấp mức giảm giá lớn nhất (đến 90%) cho các tài nguyên chưa sử dụng của AWS, cực kỳ phù hợp cho các công việc có thể bị gián đoạn như xử lý batch, render video."
+      },
+      "source_file": "content/01-certification-paths/clf-c02-cloud-concepts.md"
+    },
+    {
+      "id": "clf-c02-ai-analytics",
+      "title": "AI, ML & Analytics Services (CLF-C02)",
+      "domain": "Cloud Technology",
+      "duration_minutes": 45,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# AI, ML & Analytics — keyword map cho CLF-C02\n\n## AI/ML services thường gặp\n\n| Bài toán | Service |\n|---|---|\n| Foundation models / generative AI | Amazon Bedrock |\n| Product/content recommendation | Amazon Personalize |\n| Text to speech | Amazon Polly |\n| Chatbot voice/text | Amazon Lex |\n| Extract text/tables từ tài liệu | Amazon Textract |\n\nĐề CLF-C02 thường kiểm tra mapping bài toán → service, không yêu cầu bạn tự train model. Đọc keyword: \"recommendation\" → Personalize; \"speech from text\" → Polly; \"OCR/table from document\" → Textract; \"foundation model\" → Bedrock.\n\n## Analytics services thường gặp\n\n| Bài toán | Service |\n|---|---|\n| Query SQL trực tiếp dữ liệu S3 | Amazon Athena |\n| Serverless ETL/data integration | AWS Glue |\n| Spark/Hadoop big data cluster | Amazon EMR |\n| Streaming data real time | Amazon Kinesis |\n| Business intelligence dashboard | Amazon QuickSight |\n\n## Scenario\n\nBusiness analyst cần query CSV/Parquet trên S3 bằng SQL mà không provision database: Athena. Cần transform data catalog/ETL serverless: Glue. Cần dashboard cho business user: QuickSight. Cần tiếp nhận stream click events: Kinesis.\n\n## Quiz\n\n<!-- quiz: Service nào cho phép query SQL trực tiếp trên dữ liệu lưu trong S3? -->\n<!-- option: Amazon Athena | correct -->\n<!-- option: Amazon EMR -->\n<!-- option: Amazon Personalize -->\n<!-- explanation: Athena là serverless query service cho dữ liệu trong S3; EMR chạy framework big data, Personalize làm recommendation. -->\n",
+      "quiz": {
+        "question": "Service nào cho phép query SQL trực tiếp trên dữ liệu lưu trong S3?",
+        "options": [
+          {
+            "text": "Amazon Athena",
+            "correct": true
+          },
+          {
+            "text": "Amazon EMR",
+            "correct": false
+          },
+          {
+            "text": "Amazon Personalize",
+            "correct": false
+          }
+        ],
+        "explanation": "Athena là serverless query service cho dữ liệu trong S3; EMR chạy framework big data, Personalize làm recommendation."
+      },
+      "source_file": "content/01-certification-paths/clf-c02-ai-analytics.md"
+    },
+    {
+      "id": "clf-c02-core-services",
+      "title": "Core Services & Global Infrastructure (CLF-C02)",
+      "domain": "Cloud Technology",
+      "duration_minutes": 65,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Core Services & Global Infrastructure — ôn CLF-C02\n\n## Global Infrastructure\n\n**Region** là khu vực địa lý AWS độc lập. **Availability Zone (AZ)** là một hoặc nhiều data center độc lập trong Region, tách biệt về điện, mạng và cooling. Thiết kế đa AZ tăng availability trong một Region. **Edge Locations/Points of Presence** phục vụ CloudFront để phân phối content gần người dùng và giảm latency.\n\n## Compute\n\n- **EC2**: virtual server, cần kiểm soát OS/runtime.\n- **Lambda**: serverless, chạy code theo event, không quản server.\n- **ECS/EKS**: chạy và quản lý container; EKS dùng Kubernetes.\n- **Elastic Beanstalk**: PaaS, deploy code còn AWS điều phối nhiều hạ tầng bên dưới.\n\n## Storage\n\n| Nhu cầu | Service |\n|---|---|\n| Object: file, image, backup, static asset | S3 |\n| Block disk gắn EC2 | EBS |\n| Shared Linux file system cho nhiều EC2 | EFS |\n| Archive ít truy cập, chi phí thấp | S3 Glacier storage classes |\n\nS3 nổi bật với object durability 99.999999999% (11 nines). S3 không phải file system POSIX; hãy chọn EFS nếu nhiều Linux instance cần mount cùng thư mục.\n\n## Database và Networking\n\nRDS/Aurora cho relational SQL; DynamoDB cho NoSQL serverless/key-value latency thấp; ElastiCache dùng in-memory cache (Redis/Memcached). VPC là mạng ảo riêng; Security Group là stateful firewall ở resource/instance; NACL là stateless firewall ở subnet. Route 53 là DNS; Direct Connect là private dedicated connection từ on-premises tới AWS; CloudFront là CDN.\n\n## Scenario\n\nWebsite toàn cầu tải ảnh chậm: S3 origin + CloudFront. Nhiều EC2 cần shared upload directory: EFS. On-premises cần đường truyền private, ổn định hơn public Internet: Direct Connect. Cần DNS/routing domain: Route 53.\n\n## Quiz\n\n<!-- quiz: Nhiều EC2 Linux cần cùng mount một thư mục file dùng chung. Chọn service nào? -->\n<!-- option: Amazon EBS -->\n<!-- option: Amazon EFS | correct -->\n<!-- option: Amazon S3 Glacier -->\n<!-- explanation: EFS là managed elastic NFS file system có thể được nhiều instance mount; EBS là block storage, Glacier là archive storage. -->\n",
+      "quiz": {
+        "question": "Nhiều EC2 Linux cần cùng mount một thư mục file dùng chung. Chọn service nào?",
+        "options": [
+          {
+            "text": "Amazon EBS",
+            "correct": false
+          },
+          {
+            "text": "Amazon EFS",
+            "correct": true
+          },
+          {
+            "text": "Amazon S3 Glacier",
+            "correct": false
+          }
+        ],
+        "explanation": "EFS là managed elastic NFS file system có thể được nhiều instance mount; EBS là block storage, Glacier là archive storage."
+      },
+      "source_file": "content/01-certification-paths/clf-c02-core-services.md"
+    },
+    {
+      "id": "lambda",
+      "title": "AWS Lambda: Serverless theo sự kiện",
+      "domain": "Compute",
+      "duration_minutes": 50,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Mục tiêu học tập\n\n- Chọn Lambda đúng lúc thay vì EC2 hoặc container.\n- Hiểu event source, execution role, concurrency, retry và lỗi xử lý bất đồng bộ.\n\n## Lambda giải quyết vấn đề gì?\n\nLambda chạy code khi có event hoặc theo lịch. AWS quản lý server, capacity và scaling; bạn tập trung vào function, configuration và quyền truy cập. Lambda phù hợp với workload ngắn, event-driven, traffic biến động hoặc automation.\n\n## Khi nào dùng và khi nào không?\n\nDùng Lambda để xử lý S3 upload, API nhỏ qua API Gateway, SQS worker, DynamoDB Streams, EventBridge schedule và automation. Không chọn nó cho process cần chạy liên tục, kết nối dài, quyền kiểm soát OS/GPU hoặc job vượt giới hạn thời gian chạy Lambda (tối đa 15 phút).\n\n## Execution role và event source\n\nEvent source kích hoạt function, nhưng không tự cấp quyền cho code. Lambda execution role cần các action tối thiểu: ghi CloudWatch Logs, đọc object nguồn, ghi result đích hoặc nhận message queue. Luôn giới hạn Resource theo bucket/prefix/table thực tế.\n\n## Concurrency và xử lý lỗi\n\nConcurrency là số execution environment chạy song song. Reserved concurrency dùng để cô lập capacity hoặc hạn chế function làm quá tải downstream database. Với event bất đồng bộ, cần thiết kế retry và destination/DLQ để giữ event thất bại phục vụ điều tra; với SQS, visibility timeout và DLQ phải phù hợp với thời gian function xử lý.\n\n## Scenario kiến trúc\n\nNgười dùng upload ảnh: S3 event → Lambda thumbnail function → bucket đích. Function role chỉ đọc source prefix và ghi destination prefix; lỗi xử lý được quan sát trong CloudWatch Logs và chuyển sang failure destination khi cần.\n\n## Lab an toàn\n\n1. Tạo hai S3 prefix `uploads/` và `thumbnails/` trong sandbox bucket.\n2. Tạo Lambda đơn giản log event và cấp execution role tối thiểu.\n3. Tạo S3 event notification cho `uploads/`.\n4. Upload test object, xem CloudWatch Logs và xóa resource sau khi học.\n\n## Lỗi thường gặp\n\n- Nhét access key vào environment variable thay vì dùng role.\n- Không giới hạn concurrency khi downstream RDS/API có capacity thấp.\n- Không có DLQ/destination nên event lỗi bị khó điều tra.\n\n## Quiz\n\n<!-- quiz: Ảnh upload vào S3 cần tạo thumbnail tự động, không cần server chạy liên tục. Giải pháp phù hợp nhất? -->\n<!-- option: Một EC2 instance luôn chạy để poll S3 -->\n<!-- option: S3 event kích hoạt Lambda với execution role giới hạn | correct -->\n<!-- option: Lưu ảnh vào RDS Multi-AZ -->\n<!-- explanation: Lambda phù hợp xử lý ngắn theo event; S3 event trigger function và IAM role cấp quyền tối thiểu. -->\n",
+      "quiz": {
+        "question": "Ảnh upload vào S3 cần tạo thumbnail tự động, không cần server chạy liên tục. Giải pháp phù hợp nhất?",
+        "options": [
+          {
+            "text": "Một EC2 instance luôn chạy để poll S3",
+            "correct": false
+          },
+          {
+            "text": "S3 event kích hoạt Lambda với execution role giới hạn",
+            "correct": true
+          },
+          {
+            "text": "Lưu ảnh vào RDS Multi-AZ",
+            "correct": false
+          }
+        ],
+        "explanation": "Lambda phù hợp xử lý ngắn theo event; S3 event trigger function và IAM role cấp quyền tối thiểu."
+      },
+      "source_file": "content/lessons/lambda.md"
+    },
     {
       "id": "ec2",
       "title": "EC2: Compute có kiểm soát",
@@ -29,6 +148,64 @@
         "explanation": "ALB phân phối traffic còn ASG kiểm tra health, thay instance và scale capacity."
       },
       "source_file": "content/lessons/ec2.md"
+    },
+    {
+      "id": "dynamodb",
+      "title": "DynamoDB: Thiết kế NoSQL theo access pattern",
+      "domain": "Database",
+      "duration_minutes": 60,
+      "level": "Associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Mục tiêu học tập\n\n- Biết khi nào DynamoDB phù hợp hơn RDS.\n- Thiết kế partition key, sort key và GSI từ access pattern.\n\n## DynamoDB là gì?\n\nDynamoDB là database NoSQL managed/serverless cho workload cần độ trễ thấp ở quy mô lớn. Table chứa items; item chứa attributes. Thay vì thiết kế trước theo tables/joins, hãy liệt kê các access pattern rồi chọn key/index đáp ứng query đó.\n\n## Primary key và data distribution\n\nPartition key quyết định nơi DynamoDB lưu item. Chọn key có giá trị phân bố tốt để tránh hot partition. Sort key cho phép nhóm và query theo thứ tự trong cùng partition key, ví dụ tất cả order của một customer theo thời gian.\n\n## Query trước, Scan sau\n\n`Query` sử dụng primary key hoặc index và là cách đọc mục tiêu. `Scan` duyệt dữ liệu rộng hơn, chỉ dùng có chủ đích. Nếu ứng dụng cần query bằng thuộc tính khác key gốc, tạo Global Secondary Index (GSI) với alternate partition/sort key. GSI cập nhật bất đồng bộ và có thể trả dữ liệu eventually consistent.\n\n## Capacity và events\n\nOn-demand phù hợp workload mới/khó dự báo; provisioned phù hợp tải đã biết và tối ưu chi phí. DynamoDB Streams phát sự kiện khi item thay đổi, thường kết hợp Lambda để làm side effect như cập nhật search index hoặc audit.\n\n## Scenario kiến trúc\n\nLưu shopping cart/session ở quy mô lớn: table dùng `USER#id` làm partition key, sort key theo loại entity. Cần tìm đơn theo trạng thái: thiết kế GSI status + created timestamp trước khi build. Không cố join/scans toàn table như RDS.\n\n## Lab an toàn\n\n1. Viết ba access patterns trước khi tạo table.\n2. Tạo table có partition/sort key phù hợp, thêm data test.\n3. Thực hành Query theo key; thêm GSI cho access pattern thứ hai.\n4. Bật Streams và xem Lambda event mẫu nếu có sandbox.\n\n## Lỗi thường gặp\n\n- Chọn partition key có ít giá trị (ví dụ `status`) gây hot partition.\n- Bắt đầu với Scan khi thiếu access pattern/index.\n- Quên GSI replication có thể eventually consistent.\n\n## Quiz\n\n<!-- quiz: Cần query orders theo status và thời gian, nhưng base table key là customer ID + order time. Cách thiết kế phù hợp? -->\n<!-- option: Scan toàn table mỗi lần -->\n<!-- option: Tạo GSI với status làm partition key và thời gian làm sort key | correct -->\n<!-- option: Thêm read replica cho DynamoDB -->\n<!-- explanation: GSI cho một access pattern alternate key; Scan không hiệu quả cho query thường xuyên trên table lớn. -->\n",
+      "quiz": {
+        "question": "Cần query orders theo status và thời gian, nhưng base table key là customer ID + order time. Cách thiết kế phù hợp?",
+        "options": [
+          {
+            "text": "Scan toàn table mỗi lần",
+            "correct": false
+          },
+          {
+            "text": "Tạo GSI với status làm partition key và thời gian làm sort key",
+            "correct": true
+          },
+          {
+            "text": "Thêm read replica cho DynamoDB",
+            "correct": false
+          }
+        ],
+        "explanation": "GSI cho một access pattern alternate key; Scan không hiệu quả cho query thường xuyên trên table lớn."
+      },
+      "source_file": "content/lessons/dynamodb.md"
+    },
+    {
+      "id": "rds-aurora",
+      "title": "RDS và Aurora: Database quan hệ managed",
+      "domain": "Database",
+      "duration_minutes": 60,
+      "level": "Associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Mục tiêu học tập\n\n- Chọn RDS/Aurora cho SQL, transaction và relational workload.\n- Phân biệt Multi-AZ, read replica, backup và failover.\n\n## RDS và Aurora dùng khi nào?\n\nChọn RDS/Aurora khi ứng dụng cần relational schema, SQL query, joins và transaction ACID nhưng không muốn tự vận hành database server. RDS hỗ trợ nhiều engine phổ biến; Aurora là database cloud-native tương thích MySQL/PostgreSQL của AWS.\n\n## High availability không đồng nghĩa read scaling\n\nMulti-AZ DB instance deployment có standby đồng bộ ở AZ khác để failover, nhưng standby này không phục vụ read traffic. Nếu cần tăng read throughput, dùng read replica bất đồng bộ hoặc Multi-AZ DB cluster/Aurora reader phù hợp với engine và kiến trúc. Hãy đọc kỹ loại deployment trong đề thi trước khi kết luận.\n\n## Backup và security\n\nAutomated backups cho phép point-in-time restore trong thời gian retention cấu hình; snapshot manual phù hợp lưu lâu hoặc copy. Đặt database trong private subnets qua DB subnet group, giới hạn inbound theo Security Group của application, mã hóa at rest bằng KMS và lưu database credentials trong Secrets Manager.\n\n## Scenario kiến trúc\n\nỨng dụng ecommerce cần transaction và HA: app trong private subnet kết nối RDS Multi-AZ trong DB subnet group nhiều AZ. Nếu dashboard/reporting làm nặng truy vấn đọc, route phần read-only workload đến read replica, chấp nhận replica có thể lag.\n\n## Lab an toàn\n\n1. Dùng sandbox/free-tier phù hợp và tạo RDS private nếu tài khoản/network sẵn sàng.\n2. Bật automated backups, cấu hình security group không public.\n3. Thực hành tạo snapshot; không để DB chạy ngoài thời gian học nếu có phí.\n4. Ghi RTO/RPO của lab vào nhật ký.\n\n## Lỗi thường gặp\n\n- Dùng Multi-AZ standby để scale read: standby DB instance không nhận read traffic.\n- Mở public RDS và cho phép database port từ `0.0.0.0/0`.\n- Dùng read replica như backup mà quên replica lag và quyền promote.\n\n## Quiz\n\n<!-- quiz: Ứng dụng SQL cần tự failover khi AZ gặp sự cố, nhưng không cần tăng read throughput. Chọn gì? -->\n<!-- option: RDS Multi-AZ DB instance deployment | correct -->\n<!-- option: Một read replica duy nhất -->\n<!-- option: DynamoDB table -->\n<!-- explanation: Multi-AZ DB instance deployment duy trì standby đồng bộ để high availability/failover; read replica chủ yếu scale đọc và replication bất đồng bộ. -->\n",
+      "quiz": {
+        "question": "Ứng dụng SQL cần tự failover khi AZ gặp sự cố, nhưng không cần tăng read throughput. Chọn gì?",
+        "options": [
+          {
+            "text": "RDS Multi-AZ DB instance deployment",
+            "correct": true
+          },
+          {
+            "text": "Một read replica duy nhất",
+            "correct": false
+          },
+          {
+            "text": "DynamoDB table",
+            "correct": false
+          }
+        ],
+        "explanation": "Multi-AZ DB instance deployment duy trì standby đồng bộ để high availability/failover; read replica chủ yếu scale đọc và replication bất đồng bộ."
+      },
+      "source_file": "content/lessons/rds-aurora.md"
     },
     {
       "id": "aws-core-services-summary",
@@ -119,6 +296,35 @@
         "explanation": "IAM role cấp temporary credentials tự động và tránh lộ long-term key."
       },
       "source_file": "content/lessons/iam.md"
+    },
+    {
+      "id": "clf-c02-security-compliance",
+      "title": "Security & Compliance (CLF-C02)",
+      "domain": "Security",
+      "duration_minutes": 55,
+      "level": "Foundation",
+      "video_url": "",
+      "published": "true",
+      "markdown": "\n# Security & Compliance — ôn CLF-C02\n\n## Mục tiêu\n\n- Phân định chính xác trách nhiệm AWS và khách hàng.\n- Chọn dịch vụ security/compliance theo keyword trong đề.\n- Phân biệt IAM, KMS, Secrets Manager, WAF, Shield, GuardDuty và Inspector.\n\n## Shared Responsibility Model\n\nAWS chịu trách nhiệm **Security OF the Cloud**: data center, physical server, physical network, hypervisor và hạ tầng nền của cloud. Khách hàng chịu trách nhiệm **Security IN the Cloud**: dữ liệu, IAM, cấu hình service, firewall và encryption theo workload.\n\nVí dụ quan trọng: AWS bảo vệ phần cứng nền tảng; khách hàng vá OS của EC2, cấu hình Security Group/NACL, quản lý quyền IAM và phân loại/bảo vệ dữ liệu của mình. Với managed service, phần AWS vận hành tăng lên, nhưng khách hàng vẫn chịu trách nhiệm dữ liệu và access control.\n\n## Identity và quyền truy cập\n\nIAM quản lý user, group, role và policy. Least privilege là nguyên tắc chỉ cấp đúng action/resource cần thiết. Bật MFA và không dùng root user cho việc hằng ngày. Workload EC2/Lambda dùng IAM role/temporary credentials thay vì access key cố định.\n\n## Chọn dịch vụ theo tình huống\n\n| Keyword trong đề | Service phù hợp |\n|---|---|\n| DDoS protection | AWS Shield |\n| Chặn SQL injection, XSS tại HTTP/HTTPS | AWS WAF |\n| Encryption keys | AWS KMS |\n| Database password/API key, automatic rotation | AWS Secrets Manager |\n| Compliance reports, agreements | AWS Artifact |\n| Threat detection từ log/activity | Amazon GuardDuty |\n| Scan vulnerability EC2, container, Lambda | Amazon Inspector |\n| Quét PII/sensitive data trong S3 | Amazon Macie |\n| Ai gọi API nào | AWS CloudTrail |\n\n## Scenario\n\nMột web application bị SQL injection và XSS: đặt AWS WAF trước ALB/CloudFront/API Gateway. Một hệ thống cần lưu DB credentials và tự xoay vòng: dùng Secrets Manager, không hard-code mật khẩu. Khi auditor cần tải SOC/ISO report của AWS: dùng Artifact.\n\n## Lab an toàn\n\n1. Bật MFA cho root user (không chia sẻ MFA/secret).\n2. Tạo IAM policy read-only có scope vào test bucket.\n3. Mở CloudTrail Event history và tìm một API call sandbox.\n4. Dùng Security Hub/Inspector/GuardDuty trial chỉ khi biết rõ chi phí và cách cleanup.\n\n## Quiz\n\n<!-- quiz: Dịch vụ nào lưu database password và có thể tự động rotate credential? -->\n<!-- option: AWS KMS -->\n<!-- option: AWS Secrets Manager | correct -->\n<!-- option: Amazon GuardDuty -->\n<!-- explanation: Secrets Manager được dùng cho secrets như DB password/API key và hỗ trợ rotation; KMS quản lý encryption keys. -->\n",
+      "quiz": {
+        "question": "Dịch vụ nào lưu database password và có thể tự động rotate credential?",
+        "options": [
+          {
+            "text": "AWS KMS",
+            "correct": false
+          },
+          {
+            "text": "AWS Secrets Manager",
+            "correct": true
+          },
+          {
+            "text": "Amazon GuardDuty",
+            "correct": false
+          }
+        ],
+        "explanation": "Secrets Manager được dùng cho secrets như DB password/API key và hỗ trợ rotation; KMS quản lý encryption keys."
+      },
+      "source_file": "content/01-certification-paths/clf-c02-security-compliance.md"
     },
     {
       "id": "s3",
