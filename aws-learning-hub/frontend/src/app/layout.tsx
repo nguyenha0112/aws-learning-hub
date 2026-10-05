@@ -20,14 +20,14 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased`}
+        className={`${inter.className} min-h-screen bg-[#f6f7fb] text-slate-900 antialiased dark:bg-[#090b12] dark:text-slate-100`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row gap-6 lg:gap-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-6 md:flex-row md:gap-8">
               <Sidebar />
-              <main className="flex-1 py-6 lg:py-8 min-w-0">
+              <main className="min-w-0 flex-1 py-6 lg:py-10">
                 {children}
               </main>
             </div>
