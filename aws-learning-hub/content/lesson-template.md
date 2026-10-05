@@ -17,6 +17,34 @@ published: false
 
 Giải thích từ gốc.
 
+<!-- section-quiz: Service này giải quyết vấn đề gì? -->
+<!-- question: Câu kiểm tra số 1? -->
+<!-- option: Phương án sai -->
+<!-- option: Phương án đúng | correct -->
+<!-- explanation: Giải thích ngắn gọn. -->
+<!-- /question -->
+<!-- question: Câu kiểm tra số 2? -->
+<!-- option: Phương án đúng | correct -->
+<!-- option: Phương án sai -->
+<!-- explanation: Giải thích ngắn gọn. -->
+<!-- /question -->
+<!-- question: Câu kiểm tra số 3? -->
+<!-- option: Phương án sai -->
+<!-- option: Phương án đúng | correct -->
+<!-- explanation: Giải thích ngắn gọn. -->
+<!-- /question -->
+<!-- question: Câu kiểm tra số 4? -->
+<!-- option: Phương án đúng | correct -->
+<!-- option: Phương án sai -->
+<!-- explanation: Giải thích ngắn gọn. -->
+<!-- /question -->
+<!-- question: Câu kiểm tra số 5? -->
+<!-- option: Phương án sai -->
+<!-- option: Phương án đúng | correct -->
+<!-- explanation: Giải thích ngắn gọn. -->
+<!-- /question -->
+<!-- /section-quiz -->
+
 ## Khi nào dùng / không dùng
 
 Nêu trade-off.

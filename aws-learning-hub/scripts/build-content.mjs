@@ -33,6 +33,27 @@ function parseQuiz(markdown) {
   return question && options.length ? { question: question[1], options, explanation: explanation?.[1] || "" } : null;
 }
 
+function parseSectionQuizzes(markdown) {
+  return [...markdown.matchAll(/<!-- section-quiz: ([\s\S]*?) -->([\s\S]*?)<!-- \/section-quiz -->/g)].map(match => {
+    const questions = [...match[2].matchAll(/<!-- question: ([\s\S]*?) -->([\s\S]*?)<!-- \/question -->/g)].map(question => ({
+      question: question[1].trim(),
+      options: [...question[2].matchAll(/<!-- option: ([\s\S]*?)( \| correct)? -->/g)].map(option => ({
+        text: option[1].trim(),
+        correct: Boolean(option[2]),
+      })),
+      explanation: question[2].match(/<!-- explanation: ([\s\S]*?) -->/)?.[1].trim() || "",
+    })).filter(question => question.options.length > 0);
+    return { section: match[1].trim(), questions };
+  }).filter(group => group.questions.length > 0);
+}
+
+function stripQuizMarkup(markdown) {
+  return markdown
+    .replace(/\n?<!-- section-quiz: [\s\S]*?<!-- \/section-quiz -->\s*/g, "\n")
+    .replace(/\n## Quiz\s*\n(?:<!--[\s\S]*?-->\s*)+$/m, "\n")
+    .trim();
+}
+
 const lessons = [];
 for (const file of files) {
   const content = await readFile(file, "utf8");
@@ -45,8 +66,9 @@ for (const file of files) {
   lessons.push({ 
     ...metadata, 
     duration_minutes: Number(metadata.duration_minutes || 30), 
-    markdown, 
-    quiz: parseQuiz(markdown), 
+    markdown: stripQuizMarkup(markdown),
+    quiz: parseQuiz(markdown),
+    section_quizzes: parseSectionQuizzes(markdown),
     source_file: relPath 
   });
 }

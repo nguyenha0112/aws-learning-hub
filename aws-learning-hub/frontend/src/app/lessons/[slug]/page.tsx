@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { notFound } from "next/navigation";
 import { LessonQuiz } from "@/components/lesson/LessonQuiz";
+import { SectionKnowledgeCheck } from "@/components/lesson/SectionKnowledgeCheck";
 import Link from "next/link";
 import { ArrowLeft, BookOpenCheck, Clock3, GraduationCap, Layers3, PlayCircle } from "lucide-react";
 
@@ -22,6 +23,8 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   if (!lesson) {
     notFound();
   }
+
+  const contentBlocks = lesson.markdown.split(/(?=^## )/m);
 
   return (
     <div className="mx-auto max-w-4xl pb-10">
@@ -63,14 +66,14 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
       )}
 
       <article className="lesson-prose prose mt-7 max-w-none rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-[0_16px_50px_-32px_rgba(15,23,42,0.28)] dark:prose-invert dark:border-white/10 dark:bg-[#111520] sm:px-10 sm:py-10">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            h1: ({ children }) => <h2>{children}</h2>,
-          }}
-        >
-          {lesson.markdown}
-        </ReactMarkdown>
+        {contentBlocks.map((block, index) => {
+          const sectionTitle = block.match(/^## (.+)$/m)?.[1];
+          const sectionQuiz = sectionTitle ? lesson.section_quizzes?.find(group => group.section === sectionTitle) : undefined;
+          return <React.Fragment key={`${sectionTitle ?? "intro"}-${index}`}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ h1: ({ children }) => <h2>{children}</h2> }}>{block}</ReactMarkdown>
+            {sectionQuiz && <SectionKnowledgeCheck section={sectionQuiz.section} questions={sectionQuiz.questions} />}
+          </React.Fragment>;
+        })}
       </article>
 
       {lesson.quiz && (

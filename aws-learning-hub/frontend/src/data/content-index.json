@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T03:31:14.332Z",
+  "generated_at": "2026-10-05T10:05:50.073Z",
   "lessons": [
     {
       "id": "clf-c02-cloud-concepts",
@@ -8,7 +8,7 @@
       "duration_minutes": 45,
       "level": "Foundation",
       "published": "true",
-      "markdown": "\n# Khái niệm Đám mây & Tính cước phí (Cloud Concepts & Pricing)\n\n## 1. Cloud Concepts (Khái niệm Đám mây)\n\n**The 6 Advantages of Cloud Computing (6 Lợi ích của Điện toán Đám mây):**\n1. **Trade capital expense for variable expense (Đổi chi phí cố định lấy chi phí biến đổi):**\n   * **VN:** Không cần mua máy chủ vật lý đắt đỏ, chỉ trả tiền cho những gì bạn sử dụng (Pay-as-you-go).\n   * **EN:** Pay on-demand instead of massive upfront hardware investments (Capex to Opex).\n2. **Benefit from massive economies of scale (Hưởng lợi từ lợi thế kinh tế theo quy mô):**\n   * **VN:** Hàng trăm ngàn khách hàng dùng chung nền tảng AWS giúp AWS giảm chi phí và chia sẻ lại giá rẻ hơn cho bạn.\n   * **EN:** Usage from hundreds of thousands of customers is aggregated in the cloud, translating into lower pay-as-you-go prices.\n3. **Stop guessing capacity (Ngừng phỏng đoán dung lượng):**\n   * **VN:** Tránh việc mua dư thừa máy chủ (gây lãng phí) hoặc mua quá ít (gây sập web). Cloud cho phép mở rộng (Scale up/down) linh hoạt.\n   * **EN:** Eliminate guessing on your infrastructure capacity needs. Access as much or as little as you need.\n4. **Increase speed and agility (Tăng tốc độ và sự linh hoạt):**\n   * **VN:** Khởi tạo tài nguyên CNTT chỉ trong vài phút thay vì vài tuần chờ mua phần cứng.\n   * **EN:** IT resources are only a click away, which reduces the time it takes to make those resources available.\n5. **Stop spending money running and maintaining data centers (Ngừng tốn tiền vận hành và bảo trì Data Center):**\n   * **VN:** Tập trung vào các dự án mang lại giá trị cho doanh nghiệp thay vì phải lo quản lý máy chủ vật lý.\n   * **EN:** Focus on projects that differentiate your business, not the infrastructure.\n6. **Go global in minutes (Triển khai toàn cầu trong vài phút):**\n   * **VN:** Đưa ứng dụng của bạn đến gần khách hàng ở khắp nơi trên thế giới với độ trễ thấp thông qua mạng lưới AWS Regions.\n   * **EN:** Easily deploy your application in multiple regions around the world with just a few clicks.\n\n## 2. Billing & Pricing (Thanh toán & Cước phí)\n\n**AWS Pricing Models (Các mô hình tính phí AWS):**\n*   **On-Demand (Theo yêu cầu):** \n    *   **VN:** Trả đúng cho thời gian dùng (tính theo giây). Đắt nhất nhưng linh hoạt nhất, không có cam kết.\n    *   **EN:** Pay for compute or database capacity by the hour or second with no long-term commitments.\n*   **Reserved Instances (Chỗ dành riêng - RI):** \n    *   **VN:** Cam kết sử dụng 1 hoặc 3 năm. Giảm giá lớn (đến 75%) so với On-Demand.\n    *   **EN:** Discount (up to 75%) compared to On-Demand pricing by committing to a 1 or 3-year term.\n*   **Savings Plans:** \n    *   **VN:** Linh hoạt hơn RI, cam kết một lượng chi tiêu ($/giờ) trong 1 hoặc 3 năm.\n    *   **EN:** Flexible pricing model offering lower prices compared to On-Demand pricing in exchange for a specific usage commitment.\n*   **Spot Instances:** \n    *   **VN:** Dùng tài nguyên thừa của AWS với giá cực rẻ (giảm đến 90%), nhưng có thể bị lấy lại bất cứ lúc nào (sau 2 phút thông báo).\n    *   **EN:** Utilize spare EC2 capacity at steep discounts. Can be interrupted with 2 minutes notice.\n\n---\n\n## Quiz\n<!-- quiz: Mô hình thanh toán (Pricing Model) nào phù hợp nhất cho các công việc không quan trọng, có thể bị gián đoạn và cần tiết kiệm chi phí tối đa? -->\n<!-- option: On-Demand Instances -->\n<!-- option: Reserved Instances -->\n<!-- option: Spot Instances | correct -->\n<!-- option: Dedicated Hosts -->\n<!-- explanation: Spot Instances cung cấp mức giảm giá lớn nhất (đến 90%) cho các tài nguyên chưa sử dụng của AWS, cực kỳ phù hợp cho các công việc có thể bị gián đoạn như xử lý batch, render video. -->\n",
+      "markdown": "# Khái niệm Đám mây & Tính cước phí (Cloud Concepts & Pricing)\n\n## 1. Cloud Concepts (Khái niệm Đám mây)\n\n**The 6 Advantages of Cloud Computing (6 Lợi ích của Điện toán Đám mây):**\n1. **Trade capital expense for variable expense (Đổi chi phí cố định lấy chi phí biến đổi):**\n   * **VN:** Không cần mua máy chủ vật lý đắt đỏ, chỉ trả tiền cho những gì bạn sử dụng (Pay-as-you-go).\n   * **EN:** Pay on-demand instead of massive upfront hardware investments (Capex to Opex).\n2. **Benefit from massive economies of scale (Hưởng lợi từ lợi thế kinh tế theo quy mô):**\n   * **VN:** Hàng trăm ngàn khách hàng dùng chung nền tảng AWS giúp AWS giảm chi phí và chia sẻ lại giá rẻ hơn cho bạn.\n   * **EN:** Usage from hundreds of thousands of customers is aggregated in the cloud, translating into lower pay-as-you-go prices.\n3. **Stop guessing capacity (Ngừng phỏng đoán dung lượng):**\n   * **VN:** Tránh việc mua dư thừa máy chủ (gây lãng phí) hoặc mua quá ít (gây sập web). Cloud cho phép mở rộng (Scale up/down) linh hoạt.\n   * **EN:** Eliminate guessing on your infrastructure capacity needs. Access as much or as little as you need.\n4. **Increase speed and agility (Tăng tốc độ và sự linh hoạt):**\n   * **VN:** Khởi tạo tài nguyên CNTT chỉ trong vài phút thay vì vài tuần chờ mua phần cứng.\n   * **EN:** IT resources are only a click away, which reduces the time it takes to make those resources available.\n5. **Stop spending money running and maintaining data centers (Ngừng tốn tiền vận hành và bảo trì Data Center):**\n   * **VN:** Tập trung vào các dự án mang lại giá trị cho doanh nghiệp thay vì phải lo quản lý máy chủ vật lý.\n   * **EN:** Focus on projects that differentiate your business, not the infrastructure.\n6. **Go global in minutes (Triển khai toàn cầu trong vài phút):**\n   * **VN:** Đưa ứng dụng của bạn đến gần khách hàng ở khắp nơi trên thế giới với độ trễ thấp thông qua mạng lưới AWS Regions.\n   * **EN:** Easily deploy your application in multiple regions around the world with just a few clicks.\n\n## 2. Billing & Pricing (Thanh toán & Cước phí)\n\n**AWS Pricing Models (Các mô hình tính phí AWS):**\n*   **On-Demand (Theo yêu cầu):** \n    *   **VN:** Trả đúng cho thời gian dùng (tính theo giây). Đắt nhất nhưng linh hoạt nhất, không có cam kết.\n    *   **EN:** Pay for compute or database capacity by the hour or second with no long-term commitments.\n*   **Reserved Instances (Chỗ dành riêng - RI):** \n    *   **VN:** Cam kết sử dụng 1 hoặc 3 năm. Giảm giá lớn (đến 75%) so với On-Demand.\n    *   **EN:** Discount (up to 75%) compared to On-Demand pricing by committing to a 1 or 3-year term.\n*   **Savings Plans:** \n    *   **VN:** Linh hoạt hơn RI, cam kết một lượng chi tiêu ($/giờ) trong 1 hoặc 3 năm.\n    *   **EN:** Flexible pricing model offering lower prices compared to On-Demand pricing in exchange for a specific usage commitment.\n*   **Spot Instances:** \n    *   **VN:** Dùng tài nguyên thừa của AWS với giá cực rẻ (giảm đến 90%), nhưng có thể bị lấy lại bất cứ lúc nào (sau 2 phút thông báo).\n    *   **EN:** Utilize spare EC2 capacity at steep discounts. Can be interrupted with 2 minutes notice.\n\n---",
       "quiz": {
         "question": "Mô hình thanh toán (Pricing Model) nào phù hợp nhất cho các công việc không quan trọng, có thể bị gián đoạn và cần tiết kiệm chi phí tối đa?",
         "options": [
@@ -31,6 +31,7 @@
         ],
         "explanation": "Spot Instances cung cấp mức giảm giá lớn nhất (đến 90%) cho các tài nguyên chưa sử dụng của AWS, cực kỳ phù hợp cho các công việc có thể bị gián đoạn như xử lý batch, render video."
       },
+      "section_quizzes": [],
       "source_file": "content/01-certification-paths/clf-c02-cloud-concepts.md"
     },
     {
@@ -41,7 +42,7 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# AI, ML & Analytics — keyword map cho CLF-C02\n\n## AI/ML services thường gặp\n\n| Bài toán | Service |\n|---|---|\n| Foundation models / generative AI | Amazon Bedrock |\n| Product/content recommendation | Amazon Personalize |\n| Text to speech | Amazon Polly |\n| Chatbot voice/text | Amazon Lex |\n| Extract text/tables từ tài liệu | Amazon Textract |\n\nĐề CLF-C02 thường kiểm tra mapping bài toán → service, không yêu cầu bạn tự train model. Đọc keyword: \"recommendation\" → Personalize; \"speech from text\" → Polly; \"OCR/table from document\" → Textract; \"foundation model\" → Bedrock.\n\n## Analytics services thường gặp\n\n| Bài toán | Service |\n|---|---|\n| Query SQL trực tiếp dữ liệu S3 | Amazon Athena |\n| Serverless ETL/data integration | AWS Glue |\n| Spark/Hadoop big data cluster | Amazon EMR |\n| Streaming data real time | Amazon Kinesis |\n| Business intelligence dashboard | Amazon QuickSight |\n\n## Scenario\n\nBusiness analyst cần query CSV/Parquet trên S3 bằng SQL mà không provision database: Athena. Cần transform data catalog/ETL serverless: Glue. Cần dashboard cho business user: QuickSight. Cần tiếp nhận stream click events: Kinesis.\n\n## Quiz\n\n<!-- quiz: Service nào cho phép query SQL trực tiếp trên dữ liệu lưu trong S3? -->\n<!-- option: Amazon Athena | correct -->\n<!-- option: Amazon EMR -->\n<!-- option: Amazon Personalize -->\n<!-- explanation: Athena là serverless query service cho dữ liệu trong S3; EMR chạy framework big data, Personalize làm recommendation. -->\n",
+      "markdown": "# AI, ML & Analytics — keyword map cho CLF-C02\n\n## AI/ML services thường gặp\n\n| Bài toán | Service |\n|---|---|\n| Foundation models / generative AI | Amazon Bedrock |\n| Product/content recommendation | Amazon Personalize |\n| Text to speech | Amazon Polly |\n| Chatbot voice/text | Amazon Lex |\n| Extract text/tables từ tài liệu | Amazon Textract |\n\nĐề CLF-C02 thường kiểm tra mapping bài toán → service, không yêu cầu bạn tự train model. Đọc keyword: \"recommendation\" → Personalize; \"speech from text\" → Polly; \"OCR/table from document\" → Textract; \"foundation model\" → Bedrock.\n\n## Analytics services thường gặp\n\n| Bài toán | Service |\n|---|---|\n| Query SQL trực tiếp dữ liệu S3 | Amazon Athena |\n| Serverless ETL/data integration | AWS Glue |\n| Spark/Hadoop big data cluster | Amazon EMR |\n| Streaming data real time | Amazon Kinesis |\n| Business intelligence dashboard | Amazon QuickSight |\n\n## Scenario\n\nBusiness analyst cần query CSV/Parquet trên S3 bằng SQL mà không provision database: Athena. Cần transform data catalog/ETL serverless: Glue. Cần dashboard cho business user: QuickSight. Cần tiếp nhận stream click events: Kinesis.",
       "quiz": {
         "question": "Service nào cho phép query SQL trực tiếp trên dữ liệu lưu trong S3?",
         "options": [
@@ -60,6 +61,7 @@
         ],
         "explanation": "Athena là serverless query service cho dữ liệu trong S3; EMR chạy framework big data, Personalize làm recommendation."
       },
+      "section_quizzes": [],
       "source_file": "content/01-certification-paths/clf-c02-ai-analytics.md"
     },
     {
@@ -70,7 +72,7 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Core Services & Global Infrastructure — ôn CLF-C02\n\n## Global Infrastructure\n\n**Region** là khu vực địa lý AWS độc lập. **Availability Zone (AZ)** là một hoặc nhiều data center độc lập trong Region, tách biệt về điện, mạng và cooling. Thiết kế đa AZ tăng availability trong một Region. **Edge Locations/Points of Presence** phục vụ CloudFront để phân phối content gần người dùng và giảm latency.\n\n## Compute\n\n- **EC2**: virtual server, cần kiểm soát OS/runtime.\n- **Lambda**: serverless, chạy code theo event, không quản server.\n- **ECS/EKS**: chạy và quản lý container; EKS dùng Kubernetes.\n- **Elastic Beanstalk**: PaaS, deploy code còn AWS điều phối nhiều hạ tầng bên dưới.\n\n## Storage\n\n| Nhu cầu | Service |\n|---|---|\n| Object: file, image, backup, static asset | S3 |\n| Block disk gắn EC2 | EBS |\n| Shared Linux file system cho nhiều EC2 | EFS |\n| Archive ít truy cập, chi phí thấp | S3 Glacier storage classes |\n\nS3 nổi bật với object durability 99.999999999% (11 nines). S3 không phải file system POSIX; hãy chọn EFS nếu nhiều Linux instance cần mount cùng thư mục.\n\n## Database và Networking\n\nRDS/Aurora cho relational SQL; DynamoDB cho NoSQL serverless/key-value latency thấp; ElastiCache dùng in-memory cache (Redis/Memcached). VPC là mạng ảo riêng; Security Group là stateful firewall ở resource/instance; NACL là stateless firewall ở subnet. Route 53 là DNS; Direct Connect là private dedicated connection từ on-premises tới AWS; CloudFront là CDN.\n\n## Scenario\n\nWebsite toàn cầu tải ảnh chậm: S3 origin + CloudFront. Nhiều EC2 cần shared upload directory: EFS. On-premises cần đường truyền private, ổn định hơn public Internet: Direct Connect. Cần DNS/routing domain: Route 53.\n\n## Quiz\n\n<!-- quiz: Nhiều EC2 Linux cần cùng mount một thư mục file dùng chung. Chọn service nào? -->\n<!-- option: Amazon EBS -->\n<!-- option: Amazon EFS | correct -->\n<!-- option: Amazon S3 Glacier -->\n<!-- explanation: EFS là managed elastic NFS file system có thể được nhiều instance mount; EBS là block storage, Glacier là archive storage. -->\n",
+      "markdown": "# Core Services & Global Infrastructure — ôn CLF-C02\n\n## Global Infrastructure\n\n**Region** là khu vực địa lý AWS độc lập. **Availability Zone (AZ)** là một hoặc nhiều data center độc lập trong Region, tách biệt về điện, mạng và cooling. Thiết kế đa AZ tăng availability trong một Region. **Edge Locations/Points of Presence** phục vụ CloudFront để phân phối content gần người dùng và giảm latency.\n\n## Compute\n\n- **EC2**: virtual server, cần kiểm soát OS/runtime.\n- **Lambda**: serverless, chạy code theo event, không quản server.\n- **ECS/EKS**: chạy và quản lý container; EKS dùng Kubernetes.\n- **Elastic Beanstalk**: PaaS, deploy code còn AWS điều phối nhiều hạ tầng bên dưới.\n\n## Storage\n\n| Nhu cầu | Service |\n|---|---|\n| Object: file, image, backup, static asset | S3 |\n| Block disk gắn EC2 | EBS |\n| Shared Linux file system cho nhiều EC2 | EFS |\n| Archive ít truy cập, chi phí thấp | S3 Glacier storage classes |\n\nS3 nổi bật với object durability 99.999999999% (11 nines). S3 không phải file system POSIX; hãy chọn EFS nếu nhiều Linux instance cần mount cùng thư mục.\n\n## Database và Networking\n\nRDS/Aurora cho relational SQL; DynamoDB cho NoSQL serverless/key-value latency thấp; ElastiCache dùng in-memory cache (Redis/Memcached). VPC là mạng ảo riêng; Security Group là stateful firewall ở resource/instance; NACL là stateless firewall ở subnet. Route 53 là DNS; Direct Connect là private dedicated connection từ on-premises tới AWS; CloudFront là CDN.\n\n## Scenario\n\nWebsite toàn cầu tải ảnh chậm: S3 origin + CloudFront. Nhiều EC2 cần shared upload directory: EFS. On-premises cần đường truyền private, ổn định hơn public Internet: Direct Connect. Cần DNS/routing domain: Route 53.",
       "quiz": {
         "question": "Nhiều EC2 Linux cần cùng mount một thư mục file dùng chung. Chọn service nào?",
         "options": [
@@ -89,6 +91,7 @@
         ],
         "explanation": "EFS là managed elastic NFS file system có thể được nhiều instance mount; EBS là block storage, Glacier là archive storage."
       },
+      "section_quizzes": [],
       "source_file": "content/01-certification-paths/clf-c02-core-services.md"
     },
     {
@@ -99,7 +102,7 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Mục tiêu học tập\n\n- Chọn Lambda đúng lúc thay vì EC2 hoặc container.\n- Hiểu event source, execution role, concurrency, retry và lỗi xử lý bất đồng bộ.\n\n## Lambda giải quyết vấn đề gì?\n\nLambda chạy code khi có event hoặc theo lịch. AWS quản lý server, capacity và scaling; bạn tập trung vào function, configuration và quyền truy cập. Lambda phù hợp với workload ngắn, event-driven, traffic biến động hoặc automation.\n\n## Khi nào dùng và khi nào không?\n\nDùng Lambda để xử lý S3 upload, API nhỏ qua API Gateway, SQS worker, DynamoDB Streams, EventBridge schedule và automation. Không chọn nó cho process cần chạy liên tục, kết nối dài, quyền kiểm soát OS/GPU hoặc job vượt giới hạn thời gian chạy Lambda (tối đa 15 phút).\n\n## Execution role và event source\n\nEvent source kích hoạt function, nhưng không tự cấp quyền cho code. Lambda execution role cần các action tối thiểu: ghi CloudWatch Logs, đọc object nguồn, ghi result đích hoặc nhận message queue. Luôn giới hạn Resource theo bucket/prefix/table thực tế.\n\n## Concurrency và xử lý lỗi\n\nConcurrency là số execution environment chạy song song. Reserved concurrency dùng để cô lập capacity hoặc hạn chế function làm quá tải downstream database. Với event bất đồng bộ, cần thiết kế retry và destination/DLQ để giữ event thất bại phục vụ điều tra; với SQS, visibility timeout và DLQ phải phù hợp với thời gian function xử lý.\n\n## Scenario kiến trúc\n\nNgười dùng upload ảnh: S3 event → Lambda thumbnail function → bucket đích. Function role chỉ đọc source prefix và ghi destination prefix; lỗi xử lý được quan sát trong CloudWatch Logs và chuyển sang failure destination khi cần.\n\n## Lab an toàn\n\n1. Tạo hai S3 prefix `uploads/` và `thumbnails/` trong sandbox bucket.\n2. Tạo Lambda đơn giản log event và cấp execution role tối thiểu.\n3. Tạo S3 event notification cho `uploads/`.\n4. Upload test object, xem CloudWatch Logs và xóa resource sau khi học.\n\n## Lỗi thường gặp\n\n- Nhét access key vào environment variable thay vì dùng role.\n- Không giới hạn concurrency khi downstream RDS/API có capacity thấp.\n- Không có DLQ/destination nên event lỗi bị khó điều tra.\n\n## Quiz\n\n<!-- quiz: Ảnh upload vào S3 cần tạo thumbnail tự động, không cần server chạy liên tục. Giải pháp phù hợp nhất? -->\n<!-- option: Một EC2 instance luôn chạy để poll S3 -->\n<!-- option: S3 event kích hoạt Lambda với execution role giới hạn | correct -->\n<!-- option: Lưu ảnh vào RDS Multi-AZ -->\n<!-- explanation: Lambda phù hợp xử lý ngắn theo event; S3 event trigger function và IAM role cấp quyền tối thiểu. -->\n",
+      "markdown": "# Mục tiêu học tập\n\n- Chọn Lambda đúng lúc thay vì EC2 hoặc container.\n- Hiểu event source, execution role, concurrency, retry và lỗi xử lý bất đồng bộ.\n\n## Lambda giải quyết vấn đề gì?\n\nLambda chạy code khi có event hoặc theo lịch. AWS quản lý server, capacity và scaling; bạn tập trung vào function, configuration và quyền truy cập. Lambda phù hợp với workload ngắn, event-driven, traffic biến động hoặc automation.\n\n## Khi nào dùng và khi nào không?\n\nDùng Lambda để xử lý S3 upload, API nhỏ qua API Gateway, SQS worker, DynamoDB Streams, EventBridge schedule và automation. Không chọn nó cho process cần chạy liên tục, kết nối dài, quyền kiểm soát OS/GPU hoặc job vượt giới hạn thời gian chạy Lambda (tối đa 15 phút).\n\n## Execution role và event source\n\nEvent source kích hoạt function, nhưng không tự cấp quyền cho code. Lambda execution role cần các action tối thiểu: ghi CloudWatch Logs, đọc object nguồn, ghi result đích hoặc nhận message queue. Luôn giới hạn Resource theo bucket/prefix/table thực tế.\n\n## Concurrency và xử lý lỗi\n\nConcurrency là số execution environment chạy song song. Reserved concurrency dùng để cô lập capacity hoặc hạn chế function làm quá tải downstream database. Với event bất đồng bộ, cần thiết kế retry và destination/DLQ để giữ event thất bại phục vụ điều tra; với SQS, visibility timeout và DLQ phải phù hợp với thời gian function xử lý.\n\n## Scenario kiến trúc\n\nNgười dùng upload ảnh: S3 event → Lambda thumbnail function → bucket đích. Function role chỉ đọc source prefix và ghi destination prefix; lỗi xử lý được quan sát trong CloudWatch Logs và chuyển sang failure destination khi cần.\n\n## Lab an toàn\n\n1. Tạo hai S3 prefix `uploads/` và `thumbnails/` trong sandbox bucket.\n2. Tạo Lambda đơn giản log event và cấp execution role tối thiểu.\n3. Tạo S3 event notification cho `uploads/`.\n4. Upload test object, xem CloudWatch Logs và xóa resource sau khi học.\n\n## Lỗi thường gặp\n\n- Nhét access key vào environment variable thay vì dùng role.\n- Không giới hạn concurrency khi downstream RDS/API có capacity thấp.\n- Không có DLQ/destination nên event lỗi bị khó điều tra.",
       "quiz": {
         "question": "Ảnh upload vào S3 cần tạo thumbnail tự động, không cần server chạy liên tục. Giải pháp phù hợp nhất?",
         "options": [
@@ -118,6 +121,7 @@
         ],
         "explanation": "Lambda phù hợp xử lý ngắn theo event; S3 event trigger function và IAM role cấp quyền tối thiểu."
       },
+      "section_quizzes": [],
       "source_file": "content/lessons/lambda.md"
     },
     {
@@ -128,7 +132,7 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Mục tiêu học tập\n\n- Biết khi nào chọn EC2 thay vì serverless/container.\n- Hiểu AMI, instance type, EBS, Security Group và pricing.\n\n## EC2 là gì?\n\nEC2 là virtual server khi bạn cần kiểm soát operating system, runtime hoặc network ở mức máy chủ. AMI là template; instance type định nghĩa CPU, memory và network; EBS là persistent block storage.\n\n## Availability và scale\n\nMột instance không phải HA. Web tier production nên chạy trong Auto Scaling Group trải nhiều AZ và nằm sau Application Load Balancer. ASG giữ số instance tối thiểu/desired/max và thay instance lỗi.\n\n## Pricing\n\nOn-Demand cho workload khó dự báo. Savings Plans cho sử dụng ổn định. Spot cho batch/CI/render chịu gián đoạn.\n\n## Lab an toàn\n\n1. Launch instance sandbox.\n2. Chỉ dùng SSM Session Manager hoặc giới hạn SSH từ IP của bạn.\n3. Gắn IAM role read-only S3.\n4. Terminate instance, kiểm tra DeleteOnTermination của EBS.\n\n## Quiz\n\n<!-- quiz: Web tier cần tự thay instance lỗi và tăng instance khi traffic cao. Kiến trúc nào đúng? -->\n<!-- option: Một EC2 instance lớn hơn -->\n<!-- option: ALB + Auto Scaling Group đa AZ | correct -->\n<!-- option: Tăng dung lượng EBS -->\n<!-- explanation: ALB phân phối traffic còn ASG kiểm tra health, thay instance và scale capacity. -->\n",
+      "markdown": "# Mục tiêu học tập\n\n- Biết khi nào chọn EC2 thay vì serverless/container.\n- Hiểu AMI, instance type, EBS, Security Group và pricing.\n\n## EC2 là gì?\n\nEC2 là virtual server khi bạn cần kiểm soát operating system, runtime hoặc network ở mức máy chủ. AMI là template; instance type định nghĩa CPU, memory và network; EBS là persistent block storage.\n\n## Availability và scale\n\nMột instance không phải HA. Web tier production nên chạy trong Auto Scaling Group trải nhiều AZ và nằm sau Application Load Balancer. ASG giữ số instance tối thiểu/desired/max và thay instance lỗi.\n\n## Pricing\n\nOn-Demand cho workload khó dự báo. Savings Plans cho sử dụng ổn định. Spot cho batch/CI/render chịu gián đoạn.\n\n## Lab an toàn\n\n1. Launch instance sandbox.\n2. Chỉ dùng SSM Session Manager hoặc giới hạn SSH từ IP của bạn.\n3. Gắn IAM role read-only S3.\n4. Terminate instance, kiểm tra DeleteOnTermination của EBS.",
       "quiz": {
         "question": "Web tier cần tự thay instance lỗi và tăng instance khi traffic cao. Kiến trúc nào đúng?",
         "options": [
@@ -147,6 +151,7 @@
         ],
         "explanation": "ALB phân phối traffic còn ASG kiểm tra health, thay instance và scale capacity."
       },
+      "section_quizzes": [],
       "source_file": "content/lessons/ec2.md"
     },
     {
@@ -157,7 +162,7 @@
       "level": "Associate",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Mục tiêu học tập\n\n- Biết khi nào DynamoDB phù hợp hơn RDS.\n- Thiết kế partition key, sort key và GSI từ access pattern.\n\n## DynamoDB là gì?\n\nDynamoDB là database NoSQL managed/serverless cho workload cần độ trễ thấp ở quy mô lớn. Table chứa items; item chứa attributes. Thay vì thiết kế trước theo tables/joins, hãy liệt kê các access pattern rồi chọn key/index đáp ứng query đó.\n\n## Primary key và data distribution\n\nPartition key quyết định nơi DynamoDB lưu item. Chọn key có giá trị phân bố tốt để tránh hot partition. Sort key cho phép nhóm và query theo thứ tự trong cùng partition key, ví dụ tất cả order của một customer theo thời gian.\n\n## Query trước, Scan sau\n\n`Query` sử dụng primary key hoặc index và là cách đọc mục tiêu. `Scan` duyệt dữ liệu rộng hơn, chỉ dùng có chủ đích. Nếu ứng dụng cần query bằng thuộc tính khác key gốc, tạo Global Secondary Index (GSI) với alternate partition/sort key. GSI cập nhật bất đồng bộ và có thể trả dữ liệu eventually consistent.\n\n## Capacity và events\n\nOn-demand phù hợp workload mới/khó dự báo; provisioned phù hợp tải đã biết và tối ưu chi phí. DynamoDB Streams phát sự kiện khi item thay đổi, thường kết hợp Lambda để làm side effect như cập nhật search index hoặc audit.\n\n## Scenario kiến trúc\n\nLưu shopping cart/session ở quy mô lớn: table dùng `USER#id` làm partition key, sort key theo loại entity. Cần tìm đơn theo trạng thái: thiết kế GSI status + created timestamp trước khi build. Không cố join/scans toàn table như RDS.\n\n## Lab an toàn\n\n1. Viết ba access patterns trước khi tạo table.\n2. Tạo table có partition/sort key phù hợp, thêm data test.\n3. Thực hành Query theo key; thêm GSI cho access pattern thứ hai.\n4. Bật Streams và xem Lambda event mẫu nếu có sandbox.\n\n## Lỗi thường gặp\n\n- Chọn partition key có ít giá trị (ví dụ `status`) gây hot partition.\n- Bắt đầu với Scan khi thiếu access pattern/index.\n- Quên GSI replication có thể eventually consistent.\n\n## Quiz\n\n<!-- quiz: Cần query orders theo status và thời gian, nhưng base table key là customer ID + order time. Cách thiết kế phù hợp? -->\n<!-- option: Scan toàn table mỗi lần -->\n<!-- option: Tạo GSI với status làm partition key và thời gian làm sort key | correct -->\n<!-- option: Thêm read replica cho DynamoDB -->\n<!-- explanation: GSI cho một access pattern alternate key; Scan không hiệu quả cho query thường xuyên trên table lớn. -->\n",
+      "markdown": "# Mục tiêu học tập\n\n- Biết khi nào DynamoDB phù hợp hơn RDS.\n- Thiết kế partition key, sort key và GSI từ access pattern.\n\n## DynamoDB là gì?\n\nDynamoDB là database NoSQL managed/serverless cho workload cần độ trễ thấp ở quy mô lớn. Table chứa items; item chứa attributes. Thay vì thiết kế trước theo tables/joins, hãy liệt kê các access pattern rồi chọn key/index đáp ứng query đó.\n\n## Primary key và data distribution\n\nPartition key quyết định nơi DynamoDB lưu item. Chọn key có giá trị phân bố tốt để tránh hot partition. Sort key cho phép nhóm và query theo thứ tự trong cùng partition key, ví dụ tất cả order của một customer theo thời gian.\n\n## Query trước, Scan sau\n\n`Query` sử dụng primary key hoặc index và là cách đọc mục tiêu. `Scan` duyệt dữ liệu rộng hơn, chỉ dùng có chủ đích. Nếu ứng dụng cần query bằng thuộc tính khác key gốc, tạo Global Secondary Index (GSI) với alternate partition/sort key. GSI cập nhật bất đồng bộ và có thể trả dữ liệu eventually consistent.\n\n## Capacity và events\n\nOn-demand phù hợp workload mới/khó dự báo; provisioned phù hợp tải đã biết và tối ưu chi phí. DynamoDB Streams phát sự kiện khi item thay đổi, thường kết hợp Lambda để làm side effect như cập nhật search index hoặc audit.\n\n## Scenario kiến trúc\n\nLưu shopping cart/session ở quy mô lớn: table dùng `USER#id` làm partition key, sort key theo loại entity. Cần tìm đơn theo trạng thái: thiết kế GSI status + created timestamp trước khi build. Không cố join/scans toàn table như RDS.\n\n## Lab an toàn\n\n1. Viết ba access patterns trước khi tạo table.\n2. Tạo table có partition/sort key phù hợp, thêm data test.\n3. Thực hành Query theo key; thêm GSI cho access pattern thứ hai.\n4. Bật Streams và xem Lambda event mẫu nếu có sandbox.\n\n## Lỗi thường gặp\n\n- Chọn partition key có ít giá trị (ví dụ `status`) gây hot partition.\n- Bắt đầu với Scan khi thiếu access pattern/index.\n- Quên GSI replication có thể eventually consistent.",
       "quiz": {
         "question": "Cần query orders theo status và thời gian, nhưng base table key là customer ID + order time. Cách thiết kế phù hợp?",
         "options": [
@@ -176,6 +181,7 @@
         ],
         "explanation": "GSI cho một access pattern alternate key; Scan không hiệu quả cho query thường xuyên trên table lớn."
       },
+      "section_quizzes": [],
       "source_file": "content/lessons/dynamodb.md"
     },
     {
@@ -186,7 +192,7 @@
       "level": "Associate",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Mục tiêu học tập\n\n- Chọn RDS/Aurora cho SQL, transaction và relational workload.\n- Phân biệt Multi-AZ, read replica, backup và failover.\n\n## RDS và Aurora dùng khi nào?\n\nChọn RDS/Aurora khi ứng dụng cần relational schema, SQL query, joins và transaction ACID nhưng không muốn tự vận hành database server. RDS hỗ trợ nhiều engine phổ biến; Aurora là database cloud-native tương thích MySQL/PostgreSQL của AWS.\n\n## High availability không đồng nghĩa read scaling\n\nMulti-AZ DB instance deployment có standby đồng bộ ở AZ khác để failover, nhưng standby này không phục vụ read traffic. Nếu cần tăng read throughput, dùng read replica bất đồng bộ hoặc Multi-AZ DB cluster/Aurora reader phù hợp với engine và kiến trúc. Hãy đọc kỹ loại deployment trong đề thi trước khi kết luận.\n\n## Backup và security\n\nAutomated backups cho phép point-in-time restore trong thời gian retention cấu hình; snapshot manual phù hợp lưu lâu hoặc copy. Đặt database trong private subnets qua DB subnet group, giới hạn inbound theo Security Group của application, mã hóa at rest bằng KMS và lưu database credentials trong Secrets Manager.\n\n## Scenario kiến trúc\n\nỨng dụng ecommerce cần transaction và HA: app trong private subnet kết nối RDS Multi-AZ trong DB subnet group nhiều AZ. Nếu dashboard/reporting làm nặng truy vấn đọc, route phần read-only workload đến read replica, chấp nhận replica có thể lag.\n\n## Lab an toàn\n\n1. Dùng sandbox/free-tier phù hợp và tạo RDS private nếu tài khoản/network sẵn sàng.\n2. Bật automated backups, cấu hình security group không public.\n3. Thực hành tạo snapshot; không để DB chạy ngoài thời gian học nếu có phí.\n4. Ghi RTO/RPO của lab vào nhật ký.\n\n## Lỗi thường gặp\n\n- Dùng Multi-AZ standby để scale read: standby DB instance không nhận read traffic.\n- Mở public RDS và cho phép database port từ `0.0.0.0/0`.\n- Dùng read replica như backup mà quên replica lag và quyền promote.\n\n## Quiz\n\n<!-- quiz: Ứng dụng SQL cần tự failover khi AZ gặp sự cố, nhưng không cần tăng read throughput. Chọn gì? -->\n<!-- option: RDS Multi-AZ DB instance deployment | correct -->\n<!-- option: Một read replica duy nhất -->\n<!-- option: DynamoDB table -->\n<!-- explanation: Multi-AZ DB instance deployment duy trì standby đồng bộ để high availability/failover; read replica chủ yếu scale đọc và replication bất đồng bộ. -->\n",
+      "markdown": "# Mục tiêu học tập\n\n- Chọn RDS/Aurora cho SQL, transaction và relational workload.\n- Phân biệt Multi-AZ, read replica, backup và failover.\n\n## RDS và Aurora dùng khi nào?\n\nChọn RDS/Aurora khi ứng dụng cần relational schema, SQL query, joins và transaction ACID nhưng không muốn tự vận hành database server. RDS hỗ trợ nhiều engine phổ biến; Aurora là database cloud-native tương thích MySQL/PostgreSQL của AWS.\n\n## High availability không đồng nghĩa read scaling\n\nMulti-AZ DB instance deployment có standby đồng bộ ở AZ khác để failover, nhưng standby này không phục vụ read traffic. Nếu cần tăng read throughput, dùng read replica bất đồng bộ hoặc Multi-AZ DB cluster/Aurora reader phù hợp với engine và kiến trúc. Hãy đọc kỹ loại deployment trong đề thi trước khi kết luận.\n\n## Backup và security\n\nAutomated backups cho phép point-in-time restore trong thời gian retention cấu hình; snapshot manual phù hợp lưu lâu hoặc copy. Đặt database trong private subnets qua DB subnet group, giới hạn inbound theo Security Group của application, mã hóa at rest bằng KMS và lưu database credentials trong Secrets Manager.\n\n## Scenario kiến trúc\n\nỨng dụng ecommerce cần transaction và HA: app trong private subnet kết nối RDS Multi-AZ trong DB subnet group nhiều AZ. Nếu dashboard/reporting làm nặng truy vấn đọc, route phần read-only workload đến read replica, chấp nhận replica có thể lag.\n\n## Lab an toàn\n\n1. Dùng sandbox/free-tier phù hợp và tạo RDS private nếu tài khoản/network sẵn sàng.\n2. Bật automated backups, cấu hình security group không public.\n3. Thực hành tạo snapshot; không để DB chạy ngoài thời gian học nếu có phí.\n4. Ghi RTO/RPO của lab vào nhật ký.\n\n## Lỗi thường gặp\n\n- Dùng Multi-AZ standby để scale read: standby DB instance không nhận read traffic.\n- Mở public RDS và cho phép database port từ `0.0.0.0/0`.\n- Dùng read replica như backup mà quên replica lag và quyền promote.",
       "quiz": {
         "question": "Ứng dụng SQL cần tự failover khi AZ gặp sự cố, nhưng không cần tăng read throughput. Chọn gì?",
         "options": [
@@ -205,6 +211,7 @@
         ],
         "explanation": "Multi-AZ DB instance deployment duy trì standby đồng bộ để high availability/failover; read replica chủ yếu scale đọc và replication bất đồng bộ."
       },
+      "section_quizzes": [],
       "source_file": "content/lessons/rds-aurora.md"
     },
     {
@@ -214,7 +221,7 @@
       "duration_minutes": 60,
       "level": "Foundation",
       "published": "true",
-      "markdown": "\n# Tổng hợp các Dịch vụ Cốt lõi của AWS / AWS Core Services Summary\n\n*(Nhấn nút Language ở góc trên màn hình để chuyển đổi ngôn ngữ giao diện)*\n\n## 1. Compute (Điện toán)\n**Amazon EC2 (Elastic Compute Cloud):**\n*   **VN:** Máy chủ ảo trên mây. Bạn có toàn quyền kiểm soát hệ điều hành. Phù hợp cho các ứng dụng web tĩnh, web động, xử lý batch.\n*   **EN:** Virtual servers in the cloud. You have full control over the OS. Suitable for web apps, batch processing.\n\n**AWS Lambda:**\n*   **VN:** Dịch vụ Serverless (không máy chủ). Chỉ chạy code khi có sự kiện (event) kích hoạt. Tính tiền theo mili-giây.\n*   **EN:** Serverless compute service. Runs code in response to events. Billed per millisecond.\n\n**Amazon ECS & EKS:**\n*   **VN:** Quản lý Container. ECS là giải pháp nội bộ của AWS, EKS dùng Kubernetes mã nguồn mở. Cả hai đều có thể dùng Fargate (Serverless cho container).\n*   **EN:** Container orchestration. ECS is AWS-native, EKS uses Kubernetes. Both can run on Fargate (Serverless compute for containers).\n\n## 2. Storage (Lưu trữ)\n**Amazon S3 (Simple Storage Service):**\n*   **VN:** Lưu trữ đối tượng (Object Storage). Phù hợp lưu trữ file, hình ảnh, video, log, backup. Rất rẻ và bền bỉ (99.999999999% durability).\n*   **EN:** Object storage. Ideal for files, images, videos, logs, and backups. Extremely durable.\n\n**Amazon EBS (Elastic Block Store):**\n*   **VN:** Lưu trữ khối (Block Storage). Ổ cứng mạng gắn trực tiếp vào máy chủ EC2. Cần thiết cho hệ điều hành và database.\n*   **EN:** Block storage network drive attached to EC2 instances. Required for OS and databases.\n\n**Amazon EFS (Elastic File System):**\n*   **VN:** Hệ thống file dùng chung (File Storage). Nhiều máy chủ EC2 (hệ điều hành Linux) có thể đọc/ghi cùng một lúc.\n*   **EN:** Shared network file system for Linux EC2 instances. Multiple instances can read/write simultaneously.\n\n## 3. Database (Cơ sở dữ liệu)\n**Amazon RDS (Relational Database Service):**\n*   **VN:** CSDL quan hệ có quản lý (SQL). Hỗ trợ MySQL, PostgreSQL, Oracle, SQL Server, Aurora. AWS lo việc backup và patch lỗi.\n*   **EN:** Managed relational database (SQL). Supports MySQL, PostgreSQL, Oracle, SQL Server, Aurora.\n\n**Amazon DynamoDB:**\n*   **VN:** CSDL phi quan hệ (NoSQL). Tốc độ cực nhanh (millisecond), có thể mở rộng vô hạn. Cấu trúc Key-Value.\n*   **EN:** Fast, scalable NoSQL key-value database. Millisecond latency at any scale.\n\n## 4. Networking (Mạng)\n**Amazon VPC (Virtual Private Cloud):**\n*   **VN:** Trung tâm mạng ảo của bạn trên AWS. Giúp cô lập tài nguyên, cấu hình Subnet, Route Table, Security Group.\n*   **EN:** Your private virtual network on AWS. Isolates resources, configures Subnets, Route Tables, and Security Groups.\n\n**Amazon Route 53:**\n*   **VN:** Dịch vụ DNS toàn cầu cực kỳ ổn định. Giúp định tuyến tên miền (domain) đến các dịch vụ AWS.\n*   **EN:** Highly available and scalable Cloud Domain Name System (DNS) web service.\n\n---\n\n## Quiz\n<!-- quiz: Dịch vụ lưu trữ nào phù hợp nhất để làm ổ đĩa hệ điều hành (OS Boot Drive) cho một máy chủ ảo EC2? -->\n<!-- option: Amazon S3 -->\n<!-- option: Amazon EFS -->\n<!-- option: Amazon EBS | correct -->\n<!-- option: Amazon DynamoDB -->\n<!-- explanation: Amazon EBS cung cấp block storage (lưu trữ khối), đây là định dạng bắt buộc để cài đặt hệ điều hành và dùng làm ổ đĩa boot cho EC2. S3 là Object Storage, không thể boot OS. -->\n",
+      "markdown": "# Tổng hợp các Dịch vụ Cốt lõi của AWS / AWS Core Services Summary\n\n*(Nhấn nút Language ở góc trên màn hình để chuyển đổi ngôn ngữ giao diện)*\n\n## 1. Compute (Điện toán)\n**Amazon EC2 (Elastic Compute Cloud):**\n*   **VN:** Máy chủ ảo trên mây. Bạn có toàn quyền kiểm soát hệ điều hành. Phù hợp cho các ứng dụng web tĩnh, web động, xử lý batch.\n*   **EN:** Virtual servers in the cloud. You have full control over the OS. Suitable for web apps, batch processing.\n\n**AWS Lambda:**\n*   **VN:** Dịch vụ Serverless (không máy chủ). Chỉ chạy code khi có sự kiện (event) kích hoạt. Tính tiền theo mili-giây.\n*   **EN:** Serverless compute service. Runs code in response to events. Billed per millisecond.\n\n**Amazon ECS & EKS:**\n*   **VN:** Quản lý Container. ECS là giải pháp nội bộ của AWS, EKS dùng Kubernetes mã nguồn mở. Cả hai đều có thể dùng Fargate (Serverless cho container).\n*   **EN:** Container orchestration. ECS is AWS-native, EKS uses Kubernetes. Both can run on Fargate (Serverless compute for containers).\n\n## 2. Storage (Lưu trữ)\n**Amazon S3 (Simple Storage Service):**\n*   **VN:** Lưu trữ đối tượng (Object Storage). Phù hợp lưu trữ file, hình ảnh, video, log, backup. Rất rẻ và bền bỉ (99.999999999% durability).\n*   **EN:** Object storage. Ideal for files, images, videos, logs, and backups. Extremely durable.\n\n**Amazon EBS (Elastic Block Store):**\n*   **VN:** Lưu trữ khối (Block Storage). Ổ cứng mạng gắn trực tiếp vào máy chủ EC2. Cần thiết cho hệ điều hành và database.\n*   **EN:** Block storage network drive attached to EC2 instances. Required for OS and databases.\n\n**Amazon EFS (Elastic File System):**\n*   **VN:** Hệ thống file dùng chung (File Storage). Nhiều máy chủ EC2 (hệ điều hành Linux) có thể đọc/ghi cùng một lúc.\n*   **EN:** Shared network file system for Linux EC2 instances. Multiple instances can read/write simultaneously.\n\n## 3. Database (Cơ sở dữ liệu)\n**Amazon RDS (Relational Database Service):**\n*   **VN:** CSDL quan hệ có quản lý (SQL). Hỗ trợ MySQL, PostgreSQL, Oracle, SQL Server, Aurora. AWS lo việc backup và patch lỗi.\n*   **EN:** Managed relational database (SQL). Supports MySQL, PostgreSQL, Oracle, SQL Server, Aurora.\n\n**Amazon DynamoDB:**\n*   **VN:** CSDL phi quan hệ (NoSQL). Tốc độ cực nhanh (millisecond), có thể mở rộng vô hạn. Cấu trúc Key-Value.\n*   **EN:** Fast, scalable NoSQL key-value database. Millisecond latency at any scale.\n\n## 4. Networking (Mạng)\n**Amazon VPC (Virtual Private Cloud):**\n*   **VN:** Trung tâm mạng ảo của bạn trên AWS. Giúp cô lập tài nguyên, cấu hình Subnet, Route Table, Security Group.\n*   **EN:** Your private virtual network on AWS. Isolates resources, configures Subnets, Route Tables, and Security Groups.\n\n**Amazon Route 53:**\n*   **VN:** Dịch vụ DNS toàn cầu cực kỳ ổn định. Giúp định tuyến tên miền (domain) đến các dịch vụ AWS.\n*   **EN:** Highly available and scalable Cloud Domain Name System (DNS) web service.\n\n---",
       "quiz": {
         "question": "Dịch vụ lưu trữ nào phù hợp nhất để làm ổ đĩa hệ điều hành (OS Boot Drive) cho một máy chủ ảo EC2?",
         "options": [
@@ -237,6 +244,7 @@
         ],
         "explanation": "Amazon EBS cung cấp block storage (lưu trữ khối), đây là định dạng bắt buộc để cài đặt hệ điều hành và dùng làm ổ đĩa boot cho EC2. S3 là Object Storage, không thể boot OS."
       },
+      "section_quizzes": [],
       "source_file": "content/02-service-reference/aws-core-services-summary.md"
     },
     {
@@ -247,10 +255,250 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Mục tiêu học tập\n\n- Thiết kế public/private subnet qua route table.\n- Phân biệt Internet Gateway, NAT Gateway, Security Group và NACL.\n\n## VPC là gì?\n\nVPC là mạng riêng logic của bạn trong AWS. Bạn chọn CIDR, chia thành subnet theo Availability Zone, khai báo route và kiểm soát traffic.\n\n## Public và private subnet\n\nSubnet có route đến Internet Gateway là public. Private subnet không có direct route đến IGW. Instance trong private subnet có thể ra Internet qua NAT Gateway đặt tại public subnet, nhưng Internet không thể tự mở kết nối vào instance đó.\n\n## Security Group và NACL\n\nSecurity Group stateful và gắn vào resource/ENI. NACL stateless và gắn vào cả subnet. Thực tế, dùng Security Group làm lớp chính và NACL như defense-in-depth khi cần.\n\n## Scenario kiến trúc\n\nWebsite production: ALB ở public subnets của hai AZ; application EC2/ECS ở private subnets; RDS nằm trong private database subnets. App chỉ cho phép HTTP từ Security Group của ALB.\n\n## Lab an toàn\n\n1. Vẽ VPC hai AZ với public và private subnet.\n2. Tạo IGW, NAT Gateway và route tables.\n3. Mô tả inbound/outbound rules trước khi deploy.\n\n## Quiz\n\n<!-- quiz: EC2 private subnet cần tải update từ Internet. Chọn giải pháp nào? -->\n<!-- option: Gắn Internet Gateway trực tiếp vào EC2 -->\n<!-- option: NAT Gateway ở public subnet và route private subnet tới NAT | correct -->\n<!-- option: Mở inbound SSH từ 0.0.0.0/0 -->\n<!-- explanation: NAT cho private workload outbound Internet mà không mở unsolicited inbound traffic. -->\n",
+      "markdown": "# Mục tiêu học tập\n\n- Thiết kế public/private subnet qua route table.\n- Phân biệt Internet Gateway, NAT Gateway, Security Group và NACL.\n\n## VPC là gì?\n\nVPC là mạng riêng logic của bạn trong AWS. Bạn chọn CIDR, chia thành subnet theo Availability Zone, khai báo route và kiểm soát traffic. Mỗi VPC thuộc một Region; subnet thuộc đúng một Availability Zone.\n\nKhi bắt đầu, hãy chọn CIDR đủ rộng để có chỗ mở rộng (ví dụ `10.0.0.0/16`) rồi phân bổ subnet theo vai trò và AZ, không chỉ theo từng ứng dụng. Route table quyết định packet đi đâu; Security Group/NACL quyết định traffic đó có được phép hay không.\n\n## Public và private subnet\n\nSubnet có route đến Internet Gateway là public. Private subnet không có direct route đến IGW. Instance trong private subnet có thể ra Internet qua NAT Gateway đặt tại public subnet, nhưng Internet không thể tự mở kết nối vào instance đó.\n\nPublic subnet không đồng nghĩa mọi instance tự có Internet: instance vẫn cần public IPv4/EIP (hoặc IPv6 phù hợp), route tới IGW và Security Group cho phép traffic cần thiết. NAT Gateway dùng cho outbound IPv4 của private subnet; đặt NAT Gateway theo AZ để tránh single point of failure và chi phí cross-AZ không cần thiết.\n\n## Security Group và NACL\n\nSecurity Group stateful và gắn vào resource/ENI. NACL stateless và gắn vào cả subnet. Thực tế, dùng Security Group làm lớp chính và NACL như defense-in-depth khi cần.\n\nVới Security Group, response traffic tự động được cho phép nếu request ban đầu hợp lệ. Với NACL, bạn phải khai báo cả inbound lẫn outbound, bao gồm ephemeral ports cho traffic trả về. Quy tắc Security Group chỉ có `allow`; NACL có thể `allow` hoặc `deny` và rule number thấp hơn được xét trước.\n\n## Scenario kiến trúc\n\nWebsite production: ALB ở public subnets của hai AZ; application EC2/ECS ở private subnets; RDS nằm trong private database subnets. App chỉ cho phép HTTP từ Security Group của ALB.\n\nLuồng tham chiếu: Internet → ALB (public subnet) → application (private subnet) → RDS (private database subnet). Không mở database ra Internet. Thay vì allow một dải IP rộng, hãy dùng Security Group reference: application SG chỉ nhận từ ALB SG; database SG chỉ nhận cổng database từ application SG.\n\n## Lab an toàn\n\n1. Vẽ VPC hai AZ với public và private subnet.\n2. Tạo IGW, NAT Gateway và route tables.\n3. Mô tả inbound/outbound rules trước khi deploy.",
       "quiz": {
         "question": "EC2 private subnet cần tải update từ Internet. Chọn giải pháp nào?",
         "options": [
+          {
+            "text": "Một Availability Zone",
+            "correct": false
+          },
+          {
+            "text": "Một Region",
+            "correct": true
+          },
+          {
+            "text": "Toàn bộ AWS account ở mọi Region",
+            "correct": false
+          },
+          {
+            "text": "Một Availability Zone",
+            "correct": true
+          },
+          {
+            "text": "Nhiều Availability Zone",
+            "correct": false
+          },
+          {
+            "text": "Nhiều Region",
+            "correct": false
+          },
+          {
+            "text": "Route table",
+            "correct": true
+          },
+          {
+            "text": "IAM policy",
+            "correct": false
+          },
+          {
+            "text": "AWS Budgets",
+            "correct": false
+          },
+          {
+            "text": "Dải địa chỉ IP của VPC",
+            "correct": true
+          },
+          {
+            "text": "Tên DNS của VPC",
+            "correct": false
+          },
+          {
+            "text": "Loại Security Group",
+            "correct": false
+          },
+          {
+            "text": "Tăng khả năng chịu lỗi khi một AZ có sự cố",
+            "correct": true
+          },
+          {
+            "text": "Làm IAM policy ngắn hơn",
+            "correct": false
+          },
+          {
+            "text": "Không phải dùng route table",
+            "correct": false
+          },
+          {
+            "text": "Có route mặc định tới Internet Gateway",
+            "correct": true
+          },
+          {
+            "text": "Có Security Group mở port 80",
+            "correct": false
+          },
+          {
+            "text": "Có NAT Gateway bên trong subnet đó",
+            "correct": false
+          },
+          {
+            "text": "NAT Gateway ở public subnet và route private subnet tới NAT",
+            "correct": true
+          },
+          {
+            "text": "Gắn IGW trực tiếp vào EC2",
+            "correct": false
+          },
+          {
+            "text": "Mở inbound SSH từ 0.0.0.0/0",
+            "correct": false
+          },
+          {
+            "text": "Public subnet",
+            "correct": true
+          },
+          {
+            "text": "Private database subnet",
+            "correct": false
+          },
+          {
+            "text": "Bất kỳ subnet nào không cần route",
+            "correct": false
+          },
+          {
+            "text": "Không",
+            "correct": true
+          },
+          {
+            "text": "Có, nếu NACL allow all",
+            "correct": false
+          },
+          {
+            "text": "Có, nếu route 0.0.0.0/0 tồn tại",
+            "correct": false
+          },
+          {
+            "text": "Tăng availability và giảm traffic cross-AZ",
+            "correct": true
+          },
+          {
+            "text": "Bắt buộc để dùng ALB",
+            "correct": false
+          },
+          {
+            "text": "Để Security Group trở thành stateless",
+            "correct": false
+          },
+          {
+            "text": "ENI/resource",
+            "correct": true
+          },
+          {
+            "text": "Toàn bộ Region",
+            "correct": false
+          },
+          {
+            "text": "Route table",
+            "correct": false
+          },
+          {
+            "text": "Response cho traffic được phép sẽ tự được cho phép",
+            "correct": true
+          },
+          {
+            "text": "Phải tạo rule inbound và outbound giống nhau",
+            "correct": false
+          },
+          {
+            "text": "Có rule deny explicit",
+            "correct": false
+          },
+          {
+            "text": "Stateless và áp dụng ở subnet",
+            "correct": true
+          },
+          {
+            "text": "Stateful và áp dụng ở IAM user",
+            "correct": false
+          },
+          {
+            "text": "Chỉ kiểm soát outbound traffic",
+            "correct": false
+          },
+          {
+            "text": "NACL với rule deny",
+            "correct": true
+          },
+          {
+            "text": "Security Group rule deny",
+            "correct": false
+          },
+          {
+            "text": "Route table local route",
+            "correct": false
+          },
+          {
+            "text": "Security Group",
+            "correct": true
+          },
+          {
+            "text": "NACL duy nhất cho mọi rule ứng dụng",
+            "correct": false
+          },
+          {
+            "text": "Internet Gateway",
+            "correct": false
+          },
+          {
+            "text": "Application Load Balancer",
+            "correct": true
+          },
+          {
+            "text": "RDS database",
+            "correct": false
+          },
+          {
+            "text": "Backend application chỉ phục vụ nội bộ",
+            "correct": false
+          },
+          {
+            "text": "Cho phép HTTP/HTTPS từ ALB Security Group",
+            "correct": true
+          },
+          {
+            "text": "Cho phép HTTP từ 0.0.0.0/0 trực tiếp tới app",
+            "correct": false
+          },
+          {
+            "text": "Cho phép database port từ Internet",
+            "correct": false
+          },
+          {
+            "text": "Application Security Group trên đúng database port",
+            "correct": true
+          },
+          {
+            "text": "0.0.0.0/0 trên mọi port",
+            "correct": false
+          },
+          {
+            "text": "Internet Gateway",
+            "correct": false
+          },
+          {
+            "text": "Phân phối traffic và tăng khả năng chịu lỗi",
+            "correct": true
+          },
+          {
+            "text": "Thay thế Security Group",
+            "correct": false
+          },
+          {
+            "text": "Tạo IAM users tự động",
+            "correct": false
+          },
+          {
+            "text": "RDS database",
+            "correct": true
+          },
+          {
+            "text": "Internet-facing ALB",
+            "correct": false
+          },
+          {
+            "text": "Internet Gateway",
+            "correct": false
+          },
           {
             "text": "Gắn Internet Gateway trực tiếp vào EC2",
             "correct": false
@@ -264,8 +512,390 @@
             "correct": false
           }
         ],
-        "explanation": "NAT cho private workload outbound Internet mà không mở unsolicited inbound traffic."
+        "explanation": "VPC là tài nguyên cấp Region; subnet mới là tài nguyên cấp Availability Zone."
       },
+      "section_quizzes": [
+        {
+          "section": "VPC là gì?",
+          "questions": [
+            {
+              "question": "VPC thuộc phạm vi nào trong AWS?",
+              "options": [
+                {
+                  "text": "Một Availability Zone",
+                  "correct": false
+                },
+                {
+                  "text": "Một Region",
+                  "correct": true
+                },
+                {
+                  "text": "Toàn bộ AWS account ở mọi Region",
+                  "correct": false
+                }
+              ],
+              "explanation": "VPC là tài nguyên cấp Region; subnet mới là tài nguyên cấp Availability Zone."
+            },
+            {
+              "question": "Subnet thuộc phạm vi nào?",
+              "options": [
+                {
+                  "text": "Một Availability Zone",
+                  "correct": true
+                },
+                {
+                  "text": "Nhiều Availability Zone",
+                  "correct": false
+                },
+                {
+                  "text": "Nhiều Region",
+                  "correct": false
+                }
+              ],
+              "explanation": "Một subnet không thể trải qua nhiều AZ; thiết kế HA cần subnet tương ứng ở từng AZ."
+            },
+            {
+              "question": "Thành phần nào quyết định next hop cho traffic trong VPC?",
+              "options": [
+                {
+                  "text": "Route table",
+                  "correct": true
+                },
+                {
+                  "text": "IAM policy",
+                  "correct": false
+                },
+                {
+                  "text": "AWS Budgets",
+                  "correct": false
+                }
+              ],
+              "explanation": "Route table chứa các route và target/next hop của traffic."
+            },
+            {
+              "question": "CIDR 10.0.0.0/16 chủ yếu thể hiện điều gì?",
+              "options": [
+                {
+                  "text": "Dải địa chỉ IP của VPC",
+                  "correct": true
+                },
+                {
+                  "text": "Tên DNS của VPC",
+                  "correct": false
+                },
+                {
+                  "text": "Loại Security Group",
+                  "correct": false
+                }
+              ],
+              "explanation": "CIDR xác định không gian địa chỉ IP private có thể dùng trong VPC."
+            },
+            {
+              "question": "Lý do nên chia subnet theo AZ là gì?",
+              "options": [
+                {
+                  "text": "Tăng khả năng chịu lỗi khi một AZ có sự cố",
+                  "correct": true
+                },
+                {
+                  "text": "Làm IAM policy ngắn hơn",
+                  "correct": false
+                },
+                {
+                  "text": "Không phải dùng route table",
+                  "correct": false
+                }
+              ],
+              "explanation": "Các workload triển khai đa AZ tiếp tục phục vụ khi một AZ không sẵn sàng."
+            }
+          ]
+        },
+        {
+          "section": "Public và private subnet",
+          "questions": [
+            {
+              "question": "Điều gì làm một subnet trở thành public subnet?",
+              "options": [
+                {
+                  "text": "Có route mặc định tới Internet Gateway",
+                  "correct": true
+                },
+                {
+                  "text": "Có Security Group mở port 80",
+                  "correct": false
+                },
+                {
+                  "text": "Có NAT Gateway bên trong subnet đó",
+                  "correct": false
+                }
+              ],
+              "explanation": "Route table có route tới IGW là dấu hiệu của public subnet."
+            },
+            {
+              "question": "Private EC2 cần tải bản vá từ Internet qua IPv4. Giải pháp phù hợp là gì?",
+              "options": [
+                {
+                  "text": "NAT Gateway ở public subnet và route private subnet tới NAT",
+                  "correct": true
+                },
+                {
+                  "text": "Gắn IGW trực tiếp vào EC2",
+                  "correct": false
+                },
+                {
+                  "text": "Mở inbound SSH từ 0.0.0.0/0",
+                  "correct": false
+                }
+              ],
+              "explanation": "NAT cho phép kết nối outbound từ private workload mà không nhận kết nối unsolicited inbound từ Internet."
+            },
+            {
+              "question": "NAT Gateway nên đặt ở đâu để dùng Internet Gateway?",
+              "options": [
+                {
+                  "text": "Public subnet",
+                  "correct": true
+                },
+                {
+                  "text": "Private database subnet",
+                  "correct": false
+                },
+                {
+                  "text": "Bất kỳ subnet nào không cần route",
+                  "correct": false
+                }
+              ],
+              "explanation": "NAT Gateway cần route tới Internet Gateway nên nằm ở public subnet."
+            },
+            {
+              "question": "Internet có thể tự khởi tạo kết nối tới EC2 private subnet qua NAT Gateway không?",
+              "options": [
+                {
+                  "text": "Không",
+                  "correct": true
+                },
+                {
+                  "text": "Có, nếu NACL allow all",
+                  "correct": false
+                },
+                {
+                  "text": "Có, nếu route 0.0.0.0/0 tồn tại",
+                  "correct": false
+                }
+              ],
+              "explanation": "NAT là luồng outbound và chỉ cho response của kết nối đã được khởi tạo từ bên trong."
+            },
+            {
+              "question": "Tại sao production thường triển khai NAT Gateway theo từng AZ?",
+              "options": [
+                {
+                  "text": "Tăng availability và giảm traffic cross-AZ",
+                  "correct": true
+                },
+                {
+                  "text": "Bắt buộc để dùng ALB",
+                  "correct": false
+                },
+                {
+                  "text": "Để Security Group trở thành stateless",
+                  "correct": false
+                }
+              ],
+              "explanation": "Mỗi private subnet route tới NAT cùng AZ sẽ giảm dependency và phí cross-AZ."
+            }
+          ]
+        },
+        {
+          "section": "Security Group và NACL",
+          "questions": [
+            {
+              "question": "Security Group gắn với thành phần nào?",
+              "options": [
+                {
+                  "text": "ENI/resource",
+                  "correct": true
+                },
+                {
+                  "text": "Toàn bộ Region",
+                  "correct": false
+                },
+                {
+                  "text": "Route table",
+                  "correct": false
+                }
+              ],
+              "explanation": "Security Group là firewall ở mức resource/ENI, không gắn trực tiếp vào subnet."
+            },
+            {
+              "question": "Security Group là stateful có ý nghĩa gì?",
+              "options": [
+                {
+                  "text": "Response cho traffic được phép sẽ tự được cho phép",
+                  "correct": true
+                },
+                {
+                  "text": "Phải tạo rule inbound và outbound giống nhau",
+                  "correct": false
+                },
+                {
+                  "text": "Có rule deny explicit",
+                  "correct": false
+                }
+              ],
+              "explanation": "Stateful tracking khiến return traffic không cần rule response riêng."
+            },
+            {
+              "question": "NACL có đặc điểm nào?",
+              "options": [
+                {
+                  "text": "Stateless và áp dụng ở subnet",
+                  "correct": true
+                },
+                {
+                  "text": "Stateful và áp dụng ở IAM user",
+                  "correct": false
+                },
+                {
+                  "text": "Chỉ kiểm soát outbound traffic",
+                  "correct": false
+                }
+              ],
+              "explanation": "NACL đánh giá từng chiều độc lập và áp dụng cho mọi resource trong subnet."
+            },
+            {
+              "question": "Khi cần chặn một CIDR cụ thể ở mức subnet, công cụ phù hợp là gì?",
+              "options": [
+                {
+                  "text": "NACL với rule deny",
+                  "correct": true
+                },
+                {
+                  "text": "Security Group rule deny",
+                  "correct": false
+                },
+                {
+                  "text": "Route table local route",
+                  "correct": false
+                }
+              ],
+              "explanation": "Security Group chỉ có allow rules; NACL hỗ trợ deny rule."
+            },
+            {
+              "question": "Lớp kiểm soát chính cho một EC2 application thường là gì?",
+              "options": [
+                {
+                  "text": "Security Group",
+                  "correct": true
+                },
+                {
+                  "text": "NACL duy nhất cho mọi rule ứng dụng",
+                  "correct": false
+                },
+                {
+                  "text": "Internet Gateway",
+                  "correct": false
+                }
+              ],
+              "explanation": "Security Group dễ quản lý theo workload và hỗ trợ tham chiếu SG-to-SG."
+            }
+          ]
+        },
+        {
+          "section": "Scenario kiến trúc",
+          "questions": [
+            {
+              "question": "Thành phần nào phù hợp đặt ở public subnet trong web architecture phổ biến?",
+              "options": [
+                {
+                  "text": "Application Load Balancer",
+                  "correct": true
+                },
+                {
+                  "text": "RDS database",
+                  "correct": false
+                },
+                {
+                  "text": "Backend application chỉ phục vụ nội bộ",
+                  "correct": false
+                }
+              ],
+              "explanation": "ALB nhận traffic từ Internet; backend và database giữ private để giảm bề mặt tấn công."
+            },
+            {
+              "question": "Rule inbound tốt nhất cho application Security Group là gì?",
+              "options": [
+                {
+                  "text": "Cho phép HTTP/HTTPS từ ALB Security Group",
+                  "correct": true
+                },
+                {
+                  "text": "Cho phép HTTP từ 0.0.0.0/0 trực tiếp tới app",
+                  "correct": false
+                },
+                {
+                  "text": "Cho phép database port từ Internet",
+                  "correct": false
+                }
+              ],
+              "explanation": "Tham chiếu SG của ALB giữ app không exposed trực tiếp ra Internet."
+            },
+            {
+              "question": "Database Security Group nên cho phép inbound từ đâu?",
+              "options": [
+                {
+                  "text": "Application Security Group trên đúng database port",
+                  "correct": true
+                },
+                {
+                  "text": "0.0.0.0/0 trên mọi port",
+                  "correct": false
+                },
+                {
+                  "text": "Internet Gateway",
+                  "correct": false
+                }
+              ],
+              "explanation": "Database chỉ nhận kết nối từ tier ứng dụng cần thiết."
+            },
+            {
+              "question": "Lợi ích của ALB ở hai AZ là gì?",
+              "options": [
+                {
+                  "text": "Phân phối traffic và tăng khả năng chịu lỗi",
+                  "correct": true
+                },
+                {
+                  "text": "Thay thế Security Group",
+                  "correct": false
+                },
+                {
+                  "text": "Tạo IAM users tự động",
+                  "correct": false
+                }
+              ],
+              "explanation": "ALB đa AZ route tới target healthy và cải thiện availability."
+            },
+            {
+              "question": "Thành phần nào không nên public trực tiếp trong kiến trúc này?",
+              "options": [
+                {
+                  "text": "RDS database",
+                  "correct": true
+                },
+                {
+                  "text": "Internet-facing ALB",
+                  "correct": false
+                },
+                {
+                  "text": "Internet Gateway",
+                  "correct": false
+                }
+              ],
+              "explanation": "Database nằm private subnet và không nhận kết nối trực tiếp từ Internet."
+            }
+          ]
+        }
+      ],
       "source_file": "content/lessons/vpc.md"
     },
     {
@@ -276,7 +906,7 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Mục tiêu học tập\n\n- Phân biệt root user, IAM user, group, role và policy.\n- Giải thích implicit deny, explicit allow và explicit deny.\n- Dùng IAM role thay cho access key dài hạn.\n\n## IAM giải quyết vấn đề gì?\n\nMỗi request AWS đều có một principal, action và resource. IAM quyết định request đó có được phép hay không. IAM **không** phải network firewall; Security Group và NACL mới kiểm soát network traffic.\n\n## Danh tính và role\n\nRoot user có toàn quyền: bật MFA, không dùng thường ngày và không tạo root access key. IAM user là identity dài hạn, phù hợp legacy. IAM group gom users có chung quyền. IAM role là quyền tạm thời mà EC2, Lambda, SSO user hoặc account khác có thể assume.\n\n> Quy tắc vàng: ứng dụng chạy trong AWS phải dùng role và temporary credentials, không hard-code access key.\n\n## Đọc policy\n\nMặc định, request là implicit deny. Một explicit Allow đúng action/resource có thể cho phép. Một explicit Deny phù hợp luôn thắng bất kỳ Allow nào. Policy cần scope theo Action, Resource và Condition thay vì dùng `*` vô tội vạ.\n\n## Scenario kiến trúc\n\nEC2 cần đọc ảnh trong một S3 prefix: gắn instance profile có role chỉ allow `s3:GetObject` tại prefix đó. Không lưu credential trong source code hoặc instance.\n\n## Lab an toàn\n\n1. Tạo S3 bucket private và upload `training/hello.txt`.\n2. Tạo policy chỉ cho `s3:GetObject` tại `training/*`.\n3. Dùng IAM Policy Simulator hoặc EC2 role để kiểm tra allow/deny.\n4. Xóa resource sandbox khi hoàn thành.\n\n## Lỗi thường gặp\n\n- Cấp AdministratorAccess để chữa AccessDenied: thay vào đó kiểm tra policy evaluation, resource ARN và SCP.\n- Nhầm trust policy (ai assume role) với permission policy (role làm được gì).\n\n## Quiz\n\n<!-- quiz: EC2 cần đọc object S3. Cách cấp quyền nào phù hợp nhất? -->\n<!-- option: Tạo root access key trong source code -->\n<!-- option: Gắn IAM role vào EC2 instance profile | correct -->\n<!-- option: Mở public toàn bộ S3 bucket -->\n<!-- explanation: IAM role cấp temporary credentials tự động và tránh lộ long-term key. -->\n",
+      "markdown": "# Mục tiêu học tập\n\n- Phân biệt root user, IAM user, group, role và policy.\n- Giải thích implicit deny, explicit allow và explicit deny.\n- Dùng IAM role thay cho access key dài hạn.\n\n## IAM giải quyết vấn đề gì?\n\nMỗi request AWS đều có một principal, action và resource. IAM quyết định request đó có được phép hay không. IAM **không** phải network firewall; Security Group và NACL mới kiểm soát network traffic.\n\n## Danh tính và role\n\nRoot user có toàn quyền: bật MFA, không dùng thường ngày và không tạo root access key. IAM user là identity dài hạn, phù hợp legacy. IAM group gom users có chung quyền. IAM role là quyền tạm thời mà EC2, Lambda, SSO user hoặc account khác có thể assume.\n\n> Quy tắc vàng: ứng dụng chạy trong AWS phải dùng role và temporary credentials, không hard-code access key.\n\n## Đọc policy\n\nMặc định, request là implicit deny. Một explicit Allow đúng action/resource có thể cho phép. Một explicit Deny phù hợp luôn thắng bất kỳ Allow nào. Policy cần scope theo Action, Resource và Condition thay vì dùng `*` vô tội vạ.\n\n## Scenario kiến trúc\n\nEC2 cần đọc ảnh trong một S3 prefix: gắn instance profile có role chỉ allow `s3:GetObject` tại prefix đó. Không lưu credential trong source code hoặc instance.\n\n## Lab an toàn\n\n1. Tạo S3 bucket private và upload `training/hello.txt`.\n2. Tạo policy chỉ cho `s3:GetObject` tại `training/*`.\n3. Dùng IAM Policy Simulator hoặc EC2 role để kiểm tra allow/deny.\n4. Xóa resource sandbox khi hoàn thành.\n\n## Lỗi thường gặp\n\n- Cấp AdministratorAccess để chữa AccessDenied: thay vào đó kiểm tra policy evaluation, resource ARN và SCP.\n- Nhầm trust policy (ai assume role) với permission policy (role làm được gì).",
       "quiz": {
         "question": "EC2 cần đọc object S3. Cách cấp quyền nào phù hợp nhất?",
         "options": [
@@ -295,6 +925,7 @@
         ],
         "explanation": "IAM role cấp temporary credentials tự động và tránh lộ long-term key."
       },
+      "section_quizzes": [],
       "source_file": "content/lessons/iam.md"
     },
     {
@@ -305,7 +936,7 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Security & Compliance — ôn CLF-C02\n\n## Mục tiêu\n\n- Phân định chính xác trách nhiệm AWS và khách hàng.\n- Chọn dịch vụ security/compliance theo keyword trong đề.\n- Phân biệt IAM, KMS, Secrets Manager, WAF, Shield, GuardDuty và Inspector.\n\n## Shared Responsibility Model\n\nAWS chịu trách nhiệm **Security OF the Cloud**: data center, physical server, physical network, hypervisor và hạ tầng nền của cloud. Khách hàng chịu trách nhiệm **Security IN the Cloud**: dữ liệu, IAM, cấu hình service, firewall và encryption theo workload.\n\nVí dụ quan trọng: AWS bảo vệ phần cứng nền tảng; khách hàng vá OS của EC2, cấu hình Security Group/NACL, quản lý quyền IAM và phân loại/bảo vệ dữ liệu của mình. Với managed service, phần AWS vận hành tăng lên, nhưng khách hàng vẫn chịu trách nhiệm dữ liệu và access control.\n\n## Identity và quyền truy cập\n\nIAM quản lý user, group, role và policy. Least privilege là nguyên tắc chỉ cấp đúng action/resource cần thiết. Bật MFA và không dùng root user cho việc hằng ngày. Workload EC2/Lambda dùng IAM role/temporary credentials thay vì access key cố định.\n\n## Chọn dịch vụ theo tình huống\n\n| Keyword trong đề | Service phù hợp |\n|---|---|\n| DDoS protection | AWS Shield |\n| Chặn SQL injection, XSS tại HTTP/HTTPS | AWS WAF |\n| Encryption keys | AWS KMS |\n| Database password/API key, automatic rotation | AWS Secrets Manager |\n| Compliance reports, agreements | AWS Artifact |\n| Threat detection từ log/activity | Amazon GuardDuty |\n| Scan vulnerability EC2, container, Lambda | Amazon Inspector |\n| Quét PII/sensitive data trong S3 | Amazon Macie |\n| Ai gọi API nào | AWS CloudTrail |\n\n## Scenario\n\nMột web application bị SQL injection và XSS: đặt AWS WAF trước ALB/CloudFront/API Gateway. Một hệ thống cần lưu DB credentials và tự xoay vòng: dùng Secrets Manager, không hard-code mật khẩu. Khi auditor cần tải SOC/ISO report của AWS: dùng Artifact.\n\n## Lab an toàn\n\n1. Bật MFA cho root user (không chia sẻ MFA/secret).\n2. Tạo IAM policy read-only có scope vào test bucket.\n3. Mở CloudTrail Event history và tìm một API call sandbox.\n4. Dùng Security Hub/Inspector/GuardDuty trial chỉ khi biết rõ chi phí và cách cleanup.\n\n## Quiz\n\n<!-- quiz: Dịch vụ nào lưu database password và có thể tự động rotate credential? -->\n<!-- option: AWS KMS -->\n<!-- option: AWS Secrets Manager | correct -->\n<!-- option: Amazon GuardDuty -->\n<!-- explanation: Secrets Manager được dùng cho secrets như DB password/API key và hỗ trợ rotation; KMS quản lý encryption keys. -->\n",
+      "markdown": "# Security & Compliance — ôn CLF-C02\n\n## Mục tiêu\n\n- Phân định chính xác trách nhiệm AWS và khách hàng.\n- Chọn dịch vụ security/compliance theo keyword trong đề.\n- Phân biệt IAM, KMS, Secrets Manager, WAF, Shield, GuardDuty và Inspector.\n\n## Shared Responsibility Model\n\nAWS chịu trách nhiệm **Security OF the Cloud**: data center, physical server, physical network, hypervisor và hạ tầng nền của cloud. Khách hàng chịu trách nhiệm **Security IN the Cloud**: dữ liệu, IAM, cấu hình service, firewall và encryption theo workload.\n\nVí dụ quan trọng: AWS bảo vệ phần cứng nền tảng; khách hàng vá OS của EC2, cấu hình Security Group/NACL, quản lý quyền IAM và phân loại/bảo vệ dữ liệu của mình. Với managed service, phần AWS vận hành tăng lên, nhưng khách hàng vẫn chịu trách nhiệm dữ liệu và access control.\n\n## Identity và quyền truy cập\n\nIAM quản lý user, group, role và policy. Least privilege là nguyên tắc chỉ cấp đúng action/resource cần thiết. Bật MFA và không dùng root user cho việc hằng ngày. Workload EC2/Lambda dùng IAM role/temporary credentials thay vì access key cố định.\n\n## Chọn dịch vụ theo tình huống\n\n| Keyword trong đề | Service phù hợp |\n|---|---|\n| DDoS protection | AWS Shield |\n| Chặn SQL injection, XSS tại HTTP/HTTPS | AWS WAF |\n| Encryption keys | AWS KMS |\n| Database password/API key, automatic rotation | AWS Secrets Manager |\n| Compliance reports, agreements | AWS Artifact |\n| Threat detection từ log/activity | Amazon GuardDuty |\n| Scan vulnerability EC2, container, Lambda | Amazon Inspector |\n| Quét PII/sensitive data trong S3 | Amazon Macie |\n| Ai gọi API nào | AWS CloudTrail |\n\n## Scenario\n\nMột web application bị SQL injection và XSS: đặt AWS WAF trước ALB/CloudFront/API Gateway. Một hệ thống cần lưu DB credentials và tự xoay vòng: dùng Secrets Manager, không hard-code mật khẩu. Khi auditor cần tải SOC/ISO report của AWS: dùng Artifact.\n\n## Lab an toàn\n\n1. Bật MFA cho root user (không chia sẻ MFA/secret).\n2. Tạo IAM policy read-only có scope vào test bucket.\n3. Mở CloudTrail Event history và tìm một API call sandbox.\n4. Dùng Security Hub/Inspector/GuardDuty trial chỉ khi biết rõ chi phí và cách cleanup.",
       "quiz": {
         "question": "Dịch vụ nào lưu database password và có thể tự động rotate credential?",
         "options": [
@@ -324,6 +955,7 @@
         ],
         "explanation": "Secrets Manager được dùng cho secrets như DB password/API key và hỗ trợ rotation; KMS quản lý encryption keys."
       },
+      "section_quizzes": [],
       "source_file": "content/01-certification-paths/clf-c02-security-compliance.md"
     },
     {
@@ -334,7 +966,7 @@
       "level": "Foundation",
       "video_url": "",
       "published": "true",
-      "markdown": "\n# Mục tiêu học tập\n\n- Biết object storage khác EBS/EFS như thế nào.\n- Bảo vệ bucket với Block Public Access, policy, encryption và versioning.\n\n## S3 là gì?\n\nS3 lưu object: static content, backup, log và data lake. S3 không phải file system POSIX. Một bucket chứa objects; access được kiểm soát qua IAM policy, bucket policy và các guardrail.\n\n## Bảo mật và phục hồi\n\nGiữ Block Public Access bật nếu không thật sự phải public. Dùng Versioning để phục hồi object bị xóa/ghi đè và Lifecycle để quản lý chi phí các version cũ. Chọn SSE-S3 hoặc SSE-KMS tùy yêu cầu kiểm soát key.\n\n## Scenario kiến trúc\n\nStatic site toàn cầu: S3 làm origin private, CloudFront cache tại edge, Origin Access Control cho phép CloudFront đọc bucket. Không mở public bucket nếu không cần.\n\n## Lab an toàn\n\n1. Tạo bucket, bật Versioning.\n2. Upload và ghi đè một file, rồi restore version cũ.\n3. Tạo Lifecycle rule test cho noncurrent versions.\n\n## Quiz\n\n<!-- quiz: Nhiều EC2 Linux cần mount cùng thư mục upload. Chọn storage nào? -->\n<!-- option: S3 -->\n<!-- option: EBS gắn lần lượt vào từng EC2 -->\n<!-- option: EFS | correct -->\n<!-- explanation: EFS là elastic NFS file system có thể được nhiều compute instance mount; S3 là object storage. -->\n",
+      "markdown": "# Mục tiêu học tập\n\n- Biết object storage khác EBS/EFS như thế nào.\n- Bảo vệ bucket với Block Public Access, policy, encryption và versioning.\n\n## S3 là gì?\n\nS3 lưu object: static content, backup, log và data lake. S3 không phải file system POSIX. Một bucket chứa objects; access được kiểm soát qua IAM policy, bucket policy và các guardrail.\n\n## Bảo mật và phục hồi\n\nGiữ Block Public Access bật nếu không thật sự phải public. Dùng Versioning để phục hồi object bị xóa/ghi đè và Lifecycle để quản lý chi phí các version cũ. Chọn SSE-S3 hoặc SSE-KMS tùy yêu cầu kiểm soát key.\n\n## Scenario kiến trúc\n\nStatic site toàn cầu: S3 làm origin private, CloudFront cache tại edge, Origin Access Control cho phép CloudFront đọc bucket. Không mở public bucket nếu không cần.\n\n## Lab an toàn\n\n1. Tạo bucket, bật Versioning.\n2. Upload và ghi đè một file, rồi restore version cũ.\n3. Tạo Lifecycle rule test cho noncurrent versions.",
       "quiz": {
         "question": "Nhiều EC2 Linux cần mount cùng thư mục upload. Chọn storage nào?",
         "options": [
@@ -353,6 +985,7 @@
         ],
         "explanation": "EFS là elastic NFS file system có thể được nhiều compute instance mount; S3 là object storage."
       },
+      "section_quizzes": [],
       "source_file": "content/lessons/s3.md"
     }
   ]
