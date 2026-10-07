@@ -2,6 +2,7 @@
 
 import { CheckCircle2, CircleHelp, RotateCcw } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 type Question = { question: string; options: { text: string; correct: boolean }[]; explanation?: string };
 
@@ -9,12 +10,13 @@ export function SectionKnowledgeCheck({ section, questions }: { section: string;
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const answeredCount = Object.keys(answers).length;
   const score = Object.entries(answers).filter(([questionIndex, optionIndex]) => questions[Number(questionIndex)].options[optionIndex].correct).length;
+  const { t } = useLanguage();
 
   return (
     <section className="my-9 overflow-hidden rounded-2xl border border-sky-200 bg-sky-50/70 dark:border-sky-400/20 dark:bg-sky-500/[0.07]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-sky-200/80 bg-white/70 px-5 py-4 dark:border-sky-400/15 dark:bg-white/[0.03]">
-        <div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-sky-600 text-white shadow-sm"><CircleHelp className="h-5 w-5" /></span><div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">Section knowledge check</p><h3 className="text-sm font-bold text-slate-900 dark:text-white">Củng cố: {section}</h3></div></div>
-        <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800 dark:bg-sky-400/15 dark:text-sky-200">{answeredCount}/{questions.length} câu</span>
+        <div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-xl bg-sky-600 text-white shadow-sm"><CircleHelp className="h-5 w-5" /></span><div><p className="text-xs font-extrabold uppercase tracking-[0.14em] text-sky-700 dark:text-sky-300">{t("sectionCheck")}</p><h3 className="text-sm font-bold text-slate-900 dark:text-white">{t("reinforce")}: {section}</h3></div></div>
+        <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800 dark:bg-sky-400/15 dark:text-sky-200">{answeredCount}/{questions.length} {t("questions")}</span>
       </div>
       <div className="space-y-6 p-5 sm:p-6">
         {questions.map((item, questionIndex) => {
@@ -33,7 +35,7 @@ export function SectionKnowledgeCheck({ section, questions }: { section: string;
           </div>;
         })}
       </div>
-      {answeredCount === questions.length && <div className="flex flex-wrap items-center justify-between gap-3 border-t border-sky-200/80 bg-white/60 px-5 py-4 text-sm dark:border-sky-400/15 dark:bg-white/[0.03]"><span className="inline-flex items-center gap-2 font-bold text-slate-800 dark:text-white"><CheckCircle2 className="h-5 w-5 text-emerald-500" /> Bạn đúng {score}/{questions.length} câu</span><button type="button" onClick={() => setAnswers({})} className="inline-flex items-center gap-1.5 font-semibold text-sky-700 hover:text-sky-900 dark:text-sky-300 dark:hover:text-sky-100"><RotateCcw className="h-4 w-4" /> Làm lại phần này</button></div>}
+      {answeredCount === questions.length && <div className="flex flex-wrap items-center justify-between gap-3 border-t border-sky-200/80 bg-white/60 px-5 py-4 text-sm dark:border-sky-400/15 dark:bg-white/[0.03]"><span className="inline-flex items-center gap-2 font-bold text-slate-800 dark:text-white"><CheckCircle2 className="h-5 w-5 text-emerald-500" /> {t("score")} {score}/{questions.length} {t("questions")}</span><button type="button" onClick={() => setAnswers({})} className="inline-flex items-center gap-1.5 font-semibold text-sky-700 hover:text-sky-900 dark:text-sky-300 dark:hover:text-sky-100"><RotateCcw className="h-4 w-4" /> {t("redo")}</button></div>}
     </section>
   );
 }
