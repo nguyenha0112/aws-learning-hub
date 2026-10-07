@@ -4,17 +4,19 @@ import { useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 
 type QuizOption = { text: string; correct: boolean };
-type Quiz = { question: string; options: QuizOption[]; explanation?: string };
+type Quiz = { question: string; question_en?: string; options: QuizOption[]; explanation?: string; explanation_en?: string };
 
 export function LessonQuiz({ quiz }: { quiz: Quiz }) {
   const [selected, setSelected] = useState<number | null>(null);
   const answered = selected !== null;
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const question = locale === "en" && quiz.question_en ? quiz.question_en : quiz.question;
+  const explanation = locale === "en" && quiz.explanation_en ? quiz.explanation_en : quiz.explanation;
 
   return (
     <section className="mt-7 rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50/70 p-6 shadow-[0_16px_50px_-32px_rgba(234,88,12,0.5)] dark:border-orange-500/20 dark:from-orange-950/30 dark:to-[#111520] sm:p-8">
       <div className="mb-5 flex items-center justify-between gap-3"><div><p className="mb-1 text-xs font-extrabold tracking-[0.16em] text-orange-600 dark:text-orange-400">{t("knowledgeCheck")}</p><h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">{t("checkNow")}</h2></div><span className="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-orange-700 shadow-sm dark:bg-orange-500/15 dark:text-orange-300">1 {t("question")}</span></div>
-      <p className="mt-4 font-medium text-gray-800 dark:text-gray-200">{quiz.question}</p>
+      <p className="mt-4 font-medium text-gray-800 dark:text-gray-200">{question}</p>
       <div className="mt-5 space-y-3">
         {quiz.options.map((option, index) => {
           const isSelected = selected === index;
@@ -44,7 +46,7 @@ export function LessonQuiz({ quiz }: { quiz: Quiz }) {
           <p className="font-semibold text-gray-900 dark:text-gray-100">
             {quiz.options[selected]?.correct ? t("correct") : t("incorrect")}
           </p>
-          {quiz.explanation && <p className="mt-1 leading-6">{quiz.explanation}</p>}
+          {explanation && <p className="mt-1 leading-6">{explanation}</p>}
           <button type="button" onClick={() => setSelected(null)} className="mt-3 font-semibold text-orange-700 hover:text-orange-800 dark:text-orange-400">
             {t("retry")}
           </button>

@@ -30,7 +30,9 @@ function parseQuiz(markdown) {
   const question = markdown.match(/<!-- quiz: ([\s\S]*?) -->/);
   const options = [...markdown.matchAll(/<!-- option: ([\s\S]*?)( \| correct)? -->/g)].map(match => ({ text: match[1], correct: Boolean(match[2]) }));
   const explanation = markdown.match(/<!-- explanation: ([\s\S]*?) -->/);
-  return question && options.length ? { question: question[1], options, explanation: explanation?.[1] || "" } : null;
+  const questionEn = markdown.match(/<!-- quiz-en: ([\s\S]*?) -->/);
+  const explanationEn = markdown.match(/<!-- explanation-en: ([\s\S]*?) -->/);
+  return question && options.length ? { question: question[1], question_en: questionEn?.[1] || "", options, explanation: explanation?.[1] || "", explanation_en: explanationEn?.[1] || "" } : null;
 }
 
 function parseSectionQuizzes(markdown) {

@@ -1,9 +1,8 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { notFound } from "next/navigation";
 import { LessonQuiz } from "@/components/lesson/LessonQuiz";
 import { SectionKnowledgeCheck } from "@/components/lesson/SectionKnowledgeCheck";
+import { LocalizedMarkdown } from "@/components/lesson/LocalizedMarkdown";
 import Link from "next/link";
 import { ArrowLeft, BookOpenCheck, Clock3, GraduationCap, Layers3, PlayCircle } from "lucide-react";
 
@@ -70,7 +69,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
           const sectionTitle = block.match(/^## (.+)$/m)?.[1];
           const sectionQuiz = sectionTitle ? lesson.section_quizzes?.find(group => group.section === sectionTitle) : undefined;
           return <React.Fragment key={`${sectionTitle ?? "intro"}-${index}`}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ h1: ({ children }) => <h2>{children}</h2> }}>{block}</ReactMarkdown>
+            <LocalizedMarkdown markdown={block} />
             {sectionQuiz && <SectionKnowledgeCheck section={sectionQuiz.section} questions={sectionQuiz.questions} />}
           </React.Fragment>;
         })}

@@ -51,8 +51,10 @@ published: true
 
 ## Quiz
 <!-- quiz: Mô hình thanh toán (Pricing Model) nào phù hợp nhất cho các công việc không quan trọng, có thể bị gián đoạn và cần tiết kiệm chi phí tối đa? -->
+<!-- quiz-en: Which pricing model is best for non-critical, interruptible workloads that need the greatest possible cost savings? -->
 <!-- option: On-Demand Instances -->
 <!-- option: Reserved Instances -->
 <!-- option: Spot Instances | correct -->
 <!-- option: Dedicated Hosts -->
 <!-- explanation: Spot Instances cung cấp mức giảm giá lớn nhất (đến 90%) cho các tài nguyên chưa sử dụng của AWS, cực kỳ phù hợp cho các công việc có thể bị gián đoạn như xử lý batch, render video. -->
+<!-- explanation-en: Spot Instances offer the largest discounts, up to 90%, on unused AWS capacity. They are ideal for interruptible workloads such as batch processing and video rendering. -->
