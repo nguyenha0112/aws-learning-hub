@@ -1,3 +1,3 @@
-import { LessonCatalog } from "@/components/lesson/LessonCatalog";
+import { CourseCatalog } from "@/components/course/CourseCatalog";
 
-export default function Home() { return <LessonCatalog />; }
+export default function Home() { return <CourseCatalog />; }

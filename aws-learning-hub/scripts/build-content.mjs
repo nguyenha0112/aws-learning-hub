@@ -67,6 +67,7 @@ for (const file of files) {
   const relPath = relative(root, file).replace(/\\/g, '/');
   lessons.push({ 
     ...metadata, 
+    course_id: metadata.course_id || "aws-cloud-practitioner",
     duration_minutes: Number(metadata.duration_minutes || 30), 
     markdown: stripQuizMarkup(markdown),
     quiz: parseQuiz(markdown),
