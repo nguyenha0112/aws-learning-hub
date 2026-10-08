@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LessonQuiz } from "@/components/lesson/LessonQuiz";
 import { SectionKnowledgeCheck } from "@/components/lesson/SectionKnowledgeCheck";
 import { LocalizedMarkdown } from "@/components/lesson/LocalizedMarkdown";
+import { LessonCompletion } from "@/components/lesson/LessonCompletion";
 import Link from "next/link";
 import { ArrowLeft, BookOpenCheck, Clock3, GraduationCap, Layers3, PlayCircle } from "lucide-react";
 
@@ -27,11 +28,11 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
   return (
     <div className="mx-auto max-w-4xl pb-10">
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
         <Link href="/lessons" className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition hover:text-orange-600 dark:text-slate-400 dark:hover:text-orange-300">
           <ArrowLeft className="h-4 w-4" /> Tất cả bài học
         </Link>
-        <span className="hidden text-xs font-semibold text-slate-400 sm:inline">AWS Learning Hub / {lesson.domain}</span>
+        <div className="flex items-center gap-3"><span className="hidden text-xs font-semibold text-slate-400 sm:inline">AWS Learning Hub / {lesson.domain}</span><LessonCompletion lessonId={lesson.id} /></div>
       </div>
 
       <section className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-7 shadow-[0_16px_50px_-28px_rgba(15,23,42,0.32)] dark:border-white/10 dark:bg-gradient-to-br dark:from-[#141824] dark:to-[#0d1019] sm:px-9 sm:py-9">
