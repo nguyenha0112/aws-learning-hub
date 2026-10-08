@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
+import { AIExplainer } from "@/components/ai/AIExplainer";
 
 type QuizOption = { text: string; correct: boolean };
 type Quiz = { question: string; question_en?: string; options: QuizOption[]; explanation?: string; explanation_en?: string };
@@ -47,6 +48,7 @@ export function LessonQuiz({ quiz }: { quiz: Quiz }) {
             {quiz.options[selected]?.correct ? t("correct") : t("incorrect")}
           </p>
           {explanation && <p className="mt-1 leading-6">{explanation}</p>}
+          <AIExplainer question={question} options={quiz.options.map((option) => option.text)} selectedIndex={selected} correctIndex={quiz.options.findIndex((option) => option.correct)} explanation={explanation} />
           <button type="button" onClick={() => setSelected(null)} className="mt-3 font-semibold text-orange-700 hover:text-orange-800 dark:text-orange-400">
             {t("retry")}
           </button>

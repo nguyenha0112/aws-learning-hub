@@ -37,7 +37,11 @@ function getStoredLocale(): Locale {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>(getStoredLocale);
+  // Always begin with the server-rendered Vietnamese fallback. Reading browser
+  // storage during the first client render caused a hydration mismatch when a
+  // learner had previously selected English.
+  const [locale, setLocale] = useState<Locale>("vi");
+  useEffect(() => { setLocale(getStoredLocale()); }, []);
   useEffect(() => {
     document.cookie = `aws-learning-locale=${locale}; path=/; max-age=31536000; samesite=lax`;
     try { window.localStorage.setItem("aws-learning-locale", locale); } catch { /* cookie is the fallback */ }

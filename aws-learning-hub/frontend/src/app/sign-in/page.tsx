@@ -1,0 +1,2 @@
+import { AuthForm } from "@/components/auth/AuthForm";
+export default function SignInPage() { return <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6"><p className="text-sm font-extrabold tracking-[.18em] text-orange-600">AWS LEARNING HUB</p><h1 className="mt-2 text-4xl font-black tracking-tight">Học có tiến độ, quản lý được.</h1><p className="mt-3 max-w-xl text-slate-600 dark:text-slate-300">Tài khoản tách vai trò người học và quản trị. Khóa API AI của bạn không nằm trong tài khoản hay cơ sở dữ liệu.</p><AuthForm /></main>; }

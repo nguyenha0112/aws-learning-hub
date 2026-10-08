@@ -1,0 +1,2 @@
+import { AISettingsPanel } from "@/components/ai/AISettingsPanel";
+export default function AIPage() { return <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6"><p className="text-sm font-extrabold tracking-[.16em] text-orange-600">PERSONAL AI TUTOR</p><h1 className="mt-2 text-4xl font-black tracking-tight">Học cùng AI bằng khóa của bạn.</h1><p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">Chọn provider, model và thiết lập cách trả lời. Sau khi làm quiz, AI sẽ phân tích đáp án của bạn với ngữ cảnh bài học.</p><AISettingsPanel /></main>; }

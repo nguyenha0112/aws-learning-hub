@@ -1,0 +1,2 @@
+import { AdminPanel } from "@/components/admin/AdminPanel";
+export default function AdminPage() { return <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6"><p className="text-sm font-extrabold tracking-[.16em] text-orange-600">ADMIN WORKSPACE</p><h1 className="mt-2 text-4xl font-black tracking-tight">Quản trị nền tảng học.</h1><p className="mt-3 text-slate-600 dark:text-slate-300">Vai trò được kiểm tra ở database bằng Row Level Security, không chỉ trên giao diện.</p><AdminPanel /></main>; }

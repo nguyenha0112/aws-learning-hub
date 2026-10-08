@@ -1,0 +1,12 @@
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { Bot, LoaderCircle, Sparkles } from "lucide-react";
+import { requestAIExplanation, useAI } from "./AIProvider";
+
+export function AIExplainer({ question, options, selectedIndex, correctIndex, explanation }: { question: string; options: string[]; selectedIndex: number; correctIndex: number; explanation?: string }) {
+  const { settings, configured } = useAI(); const [result, setResult] = useState(""); const [error, setError] = useState(""); const [loading, setLoading] = useState(false);
+  async function ask() { setLoading(true); setError(""); try { setResult(await requestAIExplanation(settings, `Question: ${question}\nOptions:\n${options.map((option, index) => `${String.fromCharCode(65 + index)}. ${option}`).join("\n")}\nLearner chose: ${String.fromCharCode(65 + selectedIndex)}\nCorrect option: ${String.fromCharCode(65 + correctIndex)}\nOfficial explanation: ${explanation || "Not supplied"}\nExplain why the chosen answer is right or wrong, compare it with the best answer, then give one short exam-memory tip.`)); } catch (reason) { setError(reason instanceof Error ? reason.message : "Không gọi được AI provider."); } finally { setLoading(false); } }
+  if (!configured) return <Link href="/ai" className="mt-4 inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-orange-50 px-3 py-2 text-sm font-bold text-orange-800 hover:bg-orange-100 dark:border-orange-500/30 dark:bg-orange-500/10 dark:text-orange-200"><Sparkles className="h-4 w-4" />Cấu hình AI cá nhân để được giải thích</Link>;
+  return <div className="mt-4"><button onClick={() => void ask()} disabled={loading} className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-3 py-2 text-sm font-bold text-white hover:bg-slate-700 disabled:opacity-60 dark:bg-orange-500 dark:hover:bg-orange-400">{loading ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Bot className="h-4 w-4" />}{loading ? "AI đang phân tích..." : "Hỏi AI giải thích đáp án"}</button>{error && <p className="mt-3 text-sm text-rose-600 dark:text-rose-300">{error}</p>}{result && <div className="mt-3 whitespace-pre-wrap rounded-xl border border-violet-200 bg-violet-50/70 p-4 text-sm leading-6 text-slate-700 dark:border-violet-400/20 dark:bg-violet-500/10 dark:text-slate-200"><p className="mb-2 flex items-center gap-2 font-extrabold text-violet-700 dark:text-violet-300"><Sparkles className="h-4 w-4" />Giải thích từ AI của bạn</p>{result}</div>}</div>;
+}
