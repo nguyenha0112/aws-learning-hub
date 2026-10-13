@@ -2,6 +2,20 @@
 
 Kho tài liệu cá nhân để vừa ôn chứng chỉ AWS vừa tra cứu khi làm việc.
 
+## Chạy website và backend
+
+Mở PowerShell tại thư mục gốc `aws-learning-hub`, sau đó chạy một lệnh:
+
+```powershell
+npm run dev
+```
+
+- Website: `http://localhost:3000`
+- Backend health check: `http://localhost:3101/api/health`
+- Dừng cả hai: `Ctrl + C`
+
+Backend hiện có health/API foundation cho các tính năng server-side về sau. Auth và database vẫn do Supabase đảm nhiệm.
+
 ## Cách dùng
 
 1. Bắt đầu tại `01-certification-paths` và làm checklist theo chứng chỉ.

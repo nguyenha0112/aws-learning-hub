@@ -1,0 +1,10 @@
+{
+  "name": "aws-learning-hub",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/dev.mjs",
+    "dev": "node scripts/dev.mjs",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend"
+  }
+}
