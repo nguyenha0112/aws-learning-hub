@@ -16,6 +16,8 @@ Do not place this promotion in a public app route. The database's RLS policies p
 
 The app supports direct browser requests to OpenRouter or Groq. A learner's key, chosen model, temperature, and output limit are kept in browser `sessionStorage`; they are not written to Supabase, application logs, Git, or an API route. The learner can clear it in **AI** settings.
 
+The current Groq default is `openai/gpt-oss-20b`. Learners can replace it with any chat-capable model their own Groq key can access.
+
 Provider browser policies can change. If a provider blocks a browser request (for example through CORS), the app displays its returned error; it never proxies the key through this project.
 
 ## Supabase Free-plan keep-alive

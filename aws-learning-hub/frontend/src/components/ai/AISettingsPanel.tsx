@@ -5,7 +5,7 @@ import { CheckCircle2, Eye, EyeOff, KeyRound, ShieldCheck, Trash2 } from "lucide
 import { useAuth } from "@/components/AuthProvider";
 import { useAI, type AIProviderName, type AISettings } from "./AIProvider";
 
-const defaults: Record<AIProviderName, string> = { openrouter: "openai/gpt-4.1-mini", groq: "llama-3.3-70b-versatile" };
+const defaults: Record<AIProviderName, string> = { openrouter: "openai/gpt-4.1-mini", groq: "openai/gpt-oss-20b" };
 export function AISettingsPanel() {
   const { session, loading } = useAuth(); const { settings, save, clearKey } = useAI(); const [draft, setDraft] = useState<AISettings>(settings); const [saved, setSaved] = useState(false); const [visible, setVisible] = useState(false);
   useEffect(() => setDraft(settings), [settings]);
