@@ -1,3 +1,6 @@
-import mockExams from "@/data/mock-exam.json";
-import { MockExam } from "@/components/exam/MockExam";
-export default function MockExamsPage(){const exam=mockExams.exams[0];return <div className="mx-auto max-w-3xl"><p className="mb-2 text-sm font-bold tracking-[0.16em] text-orange-600">PRACTICE TEST</p><MockExam exam={exam}/></div>}
+import mockExams from "@/data/mock-exams.json";
+import { MockExamLibrary } from "@/components/exam/MockExam";
+
+export default function MockExamsPage() {
+  return <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6"><MockExamLibrary exams={mockExams.exams} /></main>;
+}
