@@ -28,3 +28,13 @@ export async function requestAIExplanation(settings: AISettings, prompt: string)
   if (typeof content !== "string") throw new Error("AI provider returned no text response.");
   return content;
 }
+
+export async function requestAIJSON(settings: AISettings, prompt: string) {
+  const endpoint = settings.provider === "groq" ? "https://api.groq.com/openai/v1/chat/completions" : "https://openrouter.ai/api/v1/chat/completions";
+  const response = await fetch(endpoint, { method: "POST", headers: { Authorization: `Bearer ${settings.apiKey}`, "Content-Type": "application/json", ...(settings.provider === "openrouter" ? { "HTTP-Referer": window.location.origin, "X-Title": "AWS Learning Hub" } : {}) }, body: JSON.stringify({ model: settings.model, temperature: 0, max_tokens: Math.max(settings.maxTokens, 700), messages: [{ role: "system", content: "You are an English-to-Vietnamese vocabulary coach. Return only valid JSON, no markdown, no commentary. Use concise, accurate Vietnamese." }, { role: "user", content: prompt }] }) });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data?.error?.message || `Provider returned ${response.status}`);
+  const content = data?.choices?.[0]?.message?.content;
+  if (typeof content !== "string" || !content.trim()) throw new Error("AI provider returned no text response.");
+  return content;
+}
