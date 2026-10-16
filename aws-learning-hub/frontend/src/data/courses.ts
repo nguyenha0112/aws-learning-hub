@@ -20,8 +20,8 @@ export const courses: Course[] = [
     id: "english-for-cloud-it",
     title: { vi: "Tiếng Anh cho Cloud & IT", en: "English for Cloud & IT" },
     description: { vi: "Từ vựng, đọc tài liệu kỹ thuật và giao tiếp cho kỹ sư cloud.", en: "Vocabulary, technical reading, and communication for cloud engineers." },
-    badge: "COMING SOON",
-    status: "coming-soon",
+    badge: "VOCABULARY",
+    status: "available",
     accent: "sky",
   },
   {
