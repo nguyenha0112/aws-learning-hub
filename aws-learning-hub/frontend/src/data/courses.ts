@@ -25,6 +25,14 @@ export const courses: Course[] = [
     accent: "sky",
   },
   {
+    id: "toeic-vocabulary",
+    title: { vi: "TOEIC Vocabulary", en: "TOEIC Vocabulary" },
+    description: { vi: "Từ vựng TOEIC, nghĩa, từ loại, ví dụ và flashcard theo nhịp ôn khó/bình thường/dễ.", en: "TOEIC vocabulary, definitions, parts of speech, examples, and difficulty-based flashcards." },
+    badge: "TOEIC",
+    status: "available",
+    accent: "violet",
+  },
+  {
     id: "aws-solutions-architect-associate",
     title: { vi: "AWS Solutions Architect Associate", en: "AWS Solutions Architect Associate" },
     description: { vi: "Thiết kế kiến trúc AWS và ôn chứng chỉ SAA-C03 theo scenario.", en: "AWS architecture design and scenario-based SAA-C03 preparation." },
