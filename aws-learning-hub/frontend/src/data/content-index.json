@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T01:31:09.184Z",
+  "generated_at": "2026-10-27T01:33:57.214Z",
   "lessons": [
     {
       "id": "saa-glue",
@@ -206,6 +206,43 @@
       "source_file": "content/lessons/ec2.md"
     },
     {
+      "id": "saa-elb-auto-scaling",
+      "title": "SAA: Elastic Load Balancing & Auto Scaling",
+      "domain": "Compute",
+      "duration_minutes": 45,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# ELB & Auto Scaling\n\nELB phân phối traffic, Auto Scaling thay đổi số EC2 theo nhu cầu. Trong đề SAA, hai dịch vụ này thường đi cùng để tạo kiến trúc highly available và elastic.\n\n| Yêu cầu | Chọn |\n| --- | --- |\n| HTTP/HTTPS, path/host routing, WebSocket | Application Load Balancer (ALB) |\n| TCP/UDP, static IP, cực thấp latency | Network Load Balancer (NLB) |\n| Legacy Layer 4/7 đơn giản | Classic Load Balancer (legacy) |\n\n## Điểm thi quan trọng\n\n- ALB là Layer 7 và có thể route `/api` đến target group A, `/images` đến target group B.\n- NLB là Layer 4; hỗ trợ static/Elastic IP và preserve source IP.\n- Target group có health check; instance unhealthy không nhận request.\n- Auto Scaling Group trải trên nhiều AZ, dùng launch template và thay instance không healthy.\n- Target tracking là cách đơn giản để giữ metric, ví dụ average CPU 50%.\n\n## Scenario\n\nỨng dụng web tăng traffic vào giờ cao điểm, cần tự thêm EC2 ở nhiều AZ và chỉ gửi HTTPS traffic đến instance khỏe: dùng ALB public + ASG multi-AZ + health checks.",
+      "quiz": {
+        "question": "Một ứng dụng cần route /payments và /catalog đến hai nhóm EC2 khác nhau qua HTTPS. Dịch vụ load balancer phù hợp nhất?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Network Load Balancer",
+            "correct": false
+          },
+          {
+            "text": "Application Load Balancer",
+            "correct": true
+          },
+          {
+            "text": "Gateway Load Balancer",
+            "correct": false
+          },
+          {
+            "text": "Amazon Route 53 failover record",
+            "correct": false
+          }
+        ],
+        "explanation": "ALB hoạt động Layer 7 và hỗ trợ host/path-based routing tới nhiều target groups.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-elb-auto-scaling.md"
+    },
+    {
       "id": "dynamodb",
       "title": "DynamoDB: Thiết kế NoSQL theo access pattern",
       "domain": "Database",
@@ -306,6 +343,80 @@
       },
       "section_quizzes": [],
       "source_file": "content/02-service-reference/aws-core-services-summary.md"
+    },
+    {
+      "id": "saa-messaging",
+      "title": "SAA: SQS, SNS & EventBridge",
+      "domain": "Integration",
+      "duration_minutes": 50,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# Decoupling: SQS, SNS & EventBridge\n\nCác câu hỏi yêu cầu loose coupling, chống spike traffic hoặc fan-out thường cần SQS/SNS/EventBridge.\n\n| Requirement | Dùng |\n| --- | --- |\n| Buffer queue, consumer xử lý theo tốc độ riêng | SQS |\n| Một message gửi đến nhiều subscriber | SNS topic |\n| Route event theo rule, SaaS/AWS events, event bus | EventBridge |\n| Giữ message lỗi để phân tích | Dead-Letter Queue (DLQ) |\n\n## SQS cần nhớ\n\n- Standard queue: at-least-once delivery, best-effort ordering; consumer phải idempotent.\n- FIFO queue: ordering theo message group, exactly-once processing semantics; throughput thấp hơn Standard.\n- Visibility timeout: message tạm ẩn khi consumer xử lý; nếu không delete nó có thể được giao lại.\n- Long polling giảm empty responses và chi phí.\n\n## Fan-out scenario\n\nOrder được tạo cần thông báo email, cập nhật analytics, và xử lý fulfillment độc lập: publish vào SNS topic, mỗi workflow nhận từ SQS queue riêng. Như vậy consumer chậm không làm ảnh hưởng consumer khác.",
+      "quiz": {
+        "question": "Một hệ thống cần nhận event từ nhiều AWS service rồi route theo nội dung event đến Lambda hoặc SaaS target. Chọn dịch vụ nào?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon SQS FIFO queue",
+            "correct": false
+          },
+          {
+            "text": "Amazon EventBridge",
+            "correct": true
+          },
+          {
+            "text": "Amazon EFS",
+            "correct": false
+          },
+          {
+            "text": "AWS KMS",
+            "correct": false
+          }
+        ],
+        "explanation": "EventBridge là event bus có rule-based routing cho AWS events, ứng dụng riêng và đối tác/SaaS.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-messaging.md"
+    },
+    {
+      "id": "saa-route53-cloudfront",
+      "title": "SAA: Route 53, CloudFront & Global Delivery",
+      "domain": "Networking",
+      "duration_minutes": 45,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# Route 53 & CloudFront\n\nRoute 53 xử lý DNS, health check và routing policy. CloudFront cache và phân phối nội dung từ edge locations gần người dùng.\n\n| Requirement | Dịch vụ/cơ chế |\n| --- | --- |\n| Static/dynamic content global, giảm latency | CloudFront |\n| DNS routing theo latency hoặc geolocation | Route 53 routing policy |\n| Active-passive DR DNS | Route 53 failover + health check |\n| Chỉ CloudFront được đọc S3 origin | Origin Access Control (OAC) |\n\n## Routing policies cần nhớ\n\n- **Simple**: một record đơn giản, không health check.\n- **Weighted**: chia traffic theo tỉ lệ/canary deployment.\n- **Latency**: đưa user đến Region latency thấp nhất.\n- **Failover**: active-passive khi health check primary lỗi.\n- **Geolocation/Geoproximity**: theo vị trí user hoặc resource.\n\n## Bẫy hay gặp\n\n- CloudFront không thay Route 53; CloudFront là CDN, Route 53 là DNS.\n- Alias record trỏ trực tiếp AWS resource (ALB, CloudFront, S3 website) và không tính phí DNS query.\n- Dùng OAC thay vì public S3 bucket khi CloudFront là đường truy cập duy nhất.",
+      "quiz": {
+        "question": "Site tĩnh S3 cần phục vụ toàn cầu, cache tại edge và bucket không được public. Kiến trúc tốt nhất?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Public S3 bucket + Route 53 simple record",
+            "correct": false
+          },
+          {
+            "text": "CloudFront với S3 origin và Origin Access Control",
+            "correct": true
+          },
+          {
+            "text": "NLB trước S3 bucket",
+            "correct": false
+          },
+          {
+            "text": "AWS Global Accelerator thay S3 bucket policy",
+            "correct": false
+          }
+        ],
+        "explanation": "CloudFront cung cấp edge cache; OAC cho phép bucket chỉ chấp nhận truy cập từ CloudFront.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-route53-cloudfront.md"
     },
     {
       "id": "vpc",
@@ -995,6 +1106,43 @@
       "source_file": "content/lessons/iam.md"
     },
     {
+      "id": "saa-kms-secrets",
+      "title": "SAA: KMS, Secrets Manager & Encryption",
+      "domain": "Security",
+      "duration_minutes": 45,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# KMS & Secrets Manager\n\nKMS quản lý encryption keys. Secrets Manager lưu, kiểm soát quyền và có thể tự rotate credentials. Đề thi thường kiểm tra ai được phép dùng key, encryption at rest và cách tránh hard-code secrets.\n\n| Nhu cầu | Dùng |\n| --- | --- |\n| Encrypt EBS/S3/RDS, audit key usage | AWS KMS |\n| Lưu DB password/API key và tự rotation | Secrets Manager |\n| Config không nhạy cảm hoặc secret đơn giản chi phí thấp | Systems Manager Parameter Store |\n\n## KMS cần nhớ\n\n- AWS managed key do AWS quản lý; customer managed key cho policy, rotation và quyền kiểm soát chi tiết hơn.\n- Để dùng KMS key, principal cần được key policy và IAM policy cho phép (tùy cách policy thiết kế).\n- Envelope encryption: KMS tạo/bảo vệ data key; app dùng data key để encrypt dữ liệu lớn.\n- Copy snapshot mã hóa cross-Region cần key phù hợp ở Region đích.\n\n## Scenario\n\nRDS database password không được hard-code và phải tự đổi định kỳ: dùng Secrets Manager rotation (thường qua Lambda). Không trả password vào source code hoặc user data.",
+      "quiz": {
+        "question": "Ứng dụng cần lấy password RDS an toàn và password phải tự xoay vòng. Dịch vụ phù hợp nhất?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "AWS KMS key policy",
+            "correct": false
+          },
+          {
+            "text": "AWS Secrets Manager",
+            "correct": true
+          },
+          {
+            "text": "Amazon S3 versioning",
+            "correct": false
+          },
+          {
+            "text": "AWS Artifact",
+            "correct": false
+          }
+        ],
+        "explanation": "Secrets Manager được thiết kế để lưu và rotate secrets; KMS bảo vệ encryption keys chứ không thay cơ chế quản lý credentials.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-kms-secrets.md"
+    },
+    {
       "id": "clf-c02-security-compliance",
       "title": "Security & Compliance (CLF-C02)",
       "domain": "Security",
@@ -1095,6 +1243,43 @@
       },
       "section_quizzes": [],
       "source_file": "content/lessons/saa-ebs.md"
+    },
+    {
+      "id": "saa-efs-fsx",
+      "title": "SAA: EFS, FSx & Shared File Storage",
+      "domain": "Storage",
+      "duration_minutes": 40,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# EFS & FSx\n\nKhi đề yêu cầu nhiều instance cùng mount một file system, đừng chọn EBS. Hãy xác định OS, giao thức và workload để chọn EFS hoặc FSx.\n\n| Yêu cầu | Chọn |\n| --- | --- |\n| Shared POSIX file system cho Linux, multi-AZ | EFS |\n| Windows file shares SMB/Active Directory | FSx for Windows File Server |\n| HPC, throughput/IOPS cực cao, Lustre | FSx for Lustre |\n| NetApp features, NFS/SMB/iSCSI | FSx for NetApp ONTAP |\n\n## EFS facts\n\n- EFS là regional service, mount targets đặt trong từng AZ cần dùng.\n- Hỗ trợ NFS, Linux instances, scale tự động.\n- EFS Standard lưu multi-AZ; EFS One Zone rẻ hơn nhưng chỉ một AZ.\n- Lifecycle management có thể chuyển file ít truy cập sang EFS Infrequent Access/Archive.\n\n## Scenario\n\nWeb farm Linux trên nhiều EC2/AZ cần dùng chung avatar upload: EFS với mount target ở mỗi AZ. Nếu cần Windows home directory tích hợp AD: FSx for Windows.",
+      "quiz": {
+        "question": "Nhiều Windows EC2 cần chung thư mục SMB, hỗ trợ Microsoft Active Directory. Chọn gì?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon EFS",
+            "correct": false
+          },
+          {
+            "text": "Amazon FSx for Windows File Server",
+            "correct": true
+          },
+          {
+            "text": "Amazon S3 Glacier",
+            "correct": false
+          },
+          {
+            "text": "EBS Multi-Attach cho gp3",
+            "correct": false
+          }
+        ],
+        "explanation": "FSx for Windows cung cấp managed Windows file share SMB và tích hợp Active Directory.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-efs-fsx.md"
     },
     {
       "id": "saa-s3-storage-classes",
