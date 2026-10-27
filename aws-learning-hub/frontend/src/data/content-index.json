@@ -1,6 +1,42 @@
 {
-  "generated_at": "2026-10-07T04:51:00.385Z",
+  "generated_at": "2026-10-27T01:31:09.184Z",
   "lessons": [
+    {
+      "id": "saa-glue",
+      "title": "SAA: AWS Glue ETL & Data Catalog",
+      "domain": "Analytics",
+      "duration_minutes": 35,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "published": "true",
+      "markdown": "# AWS Glue\n\nGlue là dịch vụ serverless cho ETL: extract, transform, load. Nó thường nằm giữa raw data và analytics trên S3, Athena, Redshift hoặc data lake.\n\n| Thành phần | Vai trò |\n| --- | --- |\n| Glue Crawler | Quét S3/RDS, suy luận schema |\n| Glue Data Catalog | Lưu metadata: table, schema, partition, location |\n| Glue ETL Job | Transform/load bằng serverless Spark hoặc Python shell |\n\n## Chọn dịch vụ đúng\n\n- Transform dữ liệu, CSV sang Parquet, partition dữ liệu: **Glue**.\n- Chỉ SQL trực tiếp trên S3: **Athena**.\n- Data warehouse analytics lớn: **Redshift**.\n- Migrate database ít downtime: **DMS**.\n- Streaming ingestion: **Kinesis**.\n\n## Scenario\n\nCSV/JSON logs trong S3 cần phát hiện schema, đổi thành Parquet và query với Athena: Glue Crawler tạo catalog rồi Glue ETL Job transform vào curated S3 zone.",
+      "quiz": {
+        "question": "Công ty có file CSV trong S3, cần tự khám phá schema và tạo metadata table để Athena query. Chọn thành phần nào?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "AWS Glue Crawler",
+            "correct": true
+          },
+          {
+            "text": "Amazon Redshift",
+            "correct": false
+          },
+          {
+            "text": "AWS DMS",
+            "correct": false
+          },
+          {
+            "text": "Amazon Kinesis Data Streams",
+            "correct": false
+          }
+        ],
+        "explanation": "Glue Crawler quét nguồn dữ liệu, suy luận schema và tạo/cập nhật metadata trong Glue Data Catalog cho Athena.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-glue.md"
+    },
     {
       "id": "clf-c02-cloud-concepts",
       "title": "Cloud Concepts & Pricing (CLF-C02)",
@@ -1023,6 +1059,78 @@
       },
       "section_quizzes": [],
       "source_file": "content/lessons/s3.md"
+    },
+    {
+      "id": "saa-ebs",
+      "title": "SAA: Amazon EBS, Snapshot & Encryption",
+      "domain": "Storage",
+      "duration_minutes": 50,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "published": "true",
+      "markdown": "# Amazon EBS\n\nEBS là block storage bền vững cho EC2: root volume, database tự quản và application data. Volume và EC2 phải cùng Availability Zone.\n\n| Dấu hiệu đề bài | Chọn |\n| --- | --- |\n| Disk persistent cho một EC2/database | EBS |\n| Nhiều Linux mount chung file system | EFS |\n| Object, backup, data lake | S3 |\n| Cache/scratch local chấp nhận mất dữ liệu | Instance Store |\n\n## Volume types\n\n- **gp3**: mặc định cho app, boot volume, database vừa phải.\n- **io2**: database mission-critical, IOPS cao và ổn định.\n- **st1**: HDD cho sequential throughput như log/big data.\n- **sc1**: cold HDD chi phí thấp.\n\n`st1` và `sc1` không dùng làm boot/root volume. Database random I/O thường ưu tiên SSD.\n\n## Snapshot & encryption\n\nSnapshot incremental sau snapshot đầu tiên; có thể tạo volume ở AZ khác, copy sang Region khác hoặc tạo AMI. Muốn mã hóa volume/snapshot chưa mã hóa: snapshot → copy snapshot và bật KMS encryption → tạo volume mới. Snapshot đã mã hóa sẽ tạo volume mã hóa.",
+      "quiz": {
+        "question": "Database chạy trên EC2 dùng EBS cần disaster recovery khi AZ lỗi. Giải pháp đúng nhất là gì?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Attach trực tiếp volume EBS AZ cũ vào EC2 ở AZ mới",
+            "correct": false
+          },
+          {
+            "text": "Tạo EBS snapshot và tạo volume mới từ snapshot tại AZ đích",
+            "correct": true
+          },
+          {
+            "text": "Dùng st1 làm root volume ở AZ mới",
+            "correct": false
+          },
+          {
+            "text": "Chuyển EBS volume giữa AZ mà không cần snapshot",
+            "correct": false
+          }
+        ],
+        "explanation": "EBS là AZ-scoped. Snapshot cho phép tạo volume mới ở AZ khác; copy snapshot khi cần DR cross-Region.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-ebs.md"
+    },
+    {
+      "id": "saa-s3-storage-classes",
+      "title": "SAA: S3 Storage Classes & Lifecycle",
+      "domain": "Storage",
+      "duration_minutes": 35,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "published": "true",
+      "markdown": "# S3 Storage Classes\n\nChọn lớp S3 theo tần suất truy cập, tốc độ khôi phục và yêu cầu chịu lỗi Availability Zone.\n\n| Tình huống | Lựa chọn SAA |\n| --- | --- |\n| Truy cập thường xuyên | S3 Standard |\n| Không đoán được access pattern | Intelligent-Tiering |\n| Ít truy cập nhưng lấy ngay | Standard-IA |\n| Có thể tạo lại dữ liệu, chấp nhận mất một AZ | One Zone-IA |\n| Archive nhưng lấy ngay | Glacier Instant Retrieval |\n| Archive, chờ phút đến giờ | Glacier Flexible Retrieval |\n| Compliance/lưu rất lâu, rẻ nhất | Glacier Deep Archive |\n\n## Bẫy hay gặp\n\n- Standard-IA và One Zone-IA đều có retrieval fee; One Zone-IA chỉ ở một AZ.\n- Glacier Instant Retrieval đọc được ngay; Flexible và Deep Archive cần restore.\n- Intelligent-Tiering phù hợp khi access pattern không biết trước và có phí monitoring/automation nhỏ.\n- Lifecycle có thể tự chuyển tier hoặc xóa object hết hạn.\n\n## Lifecycle ví dụ\n\n`Day 0: Standard → Day 30: Standard-IA → Day 90: Glacier Flexible Retrieval → Year 7: delete`",
+      "quiz": {
+        "question": "Dữ liệu archive hiếm truy cập nhưng ứng dụng vẫn phải đọc ngay với độ trễ milliseconds. Chọn lớp nào?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "S3 Glacier Flexible Retrieval",
+            "correct": false
+          },
+          {
+            "text": "S3 Glacier Instant Retrieval",
+            "correct": true
+          },
+          {
+            "text": "S3 Glacier Deep Archive",
+            "correct": false
+          },
+          {
+            "text": "S3 One Zone-IA",
+            "correct": false
+          }
+        ],
+        "explanation": "Glacier Instant Retrieval dành cho archive hiếm truy cập nhưng vẫn truy xuất milliseconds; Flexible và Deep Archive cần restore.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-s3-storage-classes.md"
     }
   ]
 }

@@ -37,7 +37,7 @@ export const courses: Course[] = [
     title: { vi: "AWS Solutions Architect Associate", en: "AWS Solutions Architect Associate" },
     description: { vi: "Thiết kế kiến trúc AWS và ôn chứng chỉ SAA-C03 theo scenario.", en: "AWS architecture design and scenario-based SAA-C03 preparation." },
     badge: "SAA-C03",
-    status: "coming-soon",
+    status: "available",
     accent: "violet",
   },
 ];
