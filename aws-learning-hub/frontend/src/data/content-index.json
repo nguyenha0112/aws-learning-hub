@@ -1,6 +1,43 @@
 {
-  "generated_at": "2026-10-27T01:33:57.214Z",
+  "generated_at": "2026-10-30T07:04:19.932Z",
   "lessons": [
+    {
+      "id": "saa-opensearch",
+      "title": "SAA: Amazon OpenSearch Service",
+      "domain": "Analytics",
+      "duration_minutes": 30,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# Amazon OpenSearch Service\n\nOpenSearch phù hợp full-text search, log analytics và near-real-time search/dashboard. Nó không phải transactional source of truth.\n\n| Requirement | Chọn |\n| --- | --- |\n| Full-text/fuzzy product search | OpenSearch |\n| Query ad-hoc dữ liệu S3 | Athena |\n| Data warehouse BI | Redshift |\n\nĐặt OpenSearch trong VPC khi cần private access; kiểm soát IAM/resource policy và encryption. Snapshot là cơ chế backup/restore index.",
+      "quiz": {
+        "question": "Một catalog cần search theo từ khóa, typo và relevance gần thời gian thực. Chọn dịch vụ nào?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon RDS Multi-AZ",
+            "correct": false
+          },
+          {
+            "text": "Amazon OpenSearch Service",
+            "correct": true
+          },
+          {
+            "text": "Amazon S3 Standard",
+            "correct": false
+          },
+          {
+            "text": "AWS Glue Crawler",
+            "correct": false
+          }
+        ],
+        "explanation": "OpenSearch được tối ưu cho indexing và full-text search, không phải OLTP database chính.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-opensearch.md"
+    },
     {
       "id": "saa-glue",
       "title": "SAA: AWS Glue ETL & Data Catalog",
@@ -36,6 +73,43 @@
       },
       "section_quizzes": [],
       "source_file": "content/lessons/saa-glue.md"
+    },
+    {
+      "id": "saa-lake-formation",
+      "title": "SAA: Lake Formation & Data Lake Governance",
+      "domain": "Analytics",
+      "duration_minutes": 35,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# Lake Formation\n\nLake Formation quản trị fine-grained permissions trong data lake, thường kết hợp S3, Glue Data Catalog và Athena/Redshift Spectrum.\n\n| Requirement | Dịch vụ |\n| --- | --- |\n| Lưu dữ liệu vật lý | S3 |\n| Metadata/schema | Glue Data Catalog |\n| Transform | Glue ETL |\n| SQL trên S3 | Athena |\n| Quyền table/column data lake | Lake Formation |\n\nPartition dữ liệu và dùng Parquet giúp Athena scan ít dữ liệu hơn, thường giảm chi phí query.",
+      "quiz": {
+        "question": "Analyst chỉ được xem một số columns trong table data lake trên S3. Dịch vụ governance phù hợp?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "AWS Lake Formation",
+            "correct": true
+          },
+          {
+            "text": "Amazon CloudFront",
+            "correct": false
+          },
+          {
+            "text": "AWS Global Accelerator",
+            "correct": false
+          },
+          {
+            "text": "Amazon EC2 Auto Scaling",
+            "correct": false
+          }
+        ],
+        "explanation": "Lake Formation hỗ trợ centralized, fine-grained permissions cho tables/columns trong data lake.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-lake-formation.md"
     },
     {
       "id": "clf-c02-cloud-concepts",
@@ -204,6 +278,43 @@
       },
       "section_quizzes": [],
       "source_file": "content/lessons/ec2.md"
+    },
+    {
+      "id": "saa-containers",
+      "title": "SAA: ECS, Fargate & EKS",
+      "domain": "Compute",
+      "duration_minutes": 45,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# ECS, Fargate & EKS\n\n| Requirement | Chọn |\n| --- | --- |\n| Container, không quản node EC2 | ECS on Fargate |\n| AWS-native container orchestration | ECS |\n| Kubernetes ecosystem/APIs | EKS |\n\nECS task definition mô tả image, CPU/memory, networking, logging và IAM task role. Fargate là compute serverless cho ECS/EKS. Dùng task role thay vì access key trong image/container.\n\n## Bẫy SAA\n\n- EKS vẫn là Kubernetes; tính cả worker nodes hoặc Fargate profiles.\n- Lambda không thay container khi job chạy dài hoặc cần runtime đặc thù.\n- ECR là nơi lưu container images.",
+      "quiz": {
+        "question": "Công ty muốn chạy Docker container nhưng không muốn quản lý EC2 instances hoặc Kubernetes nodes. Đáp án phù hợp nhất?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon EC2 Auto Scaling",
+            "correct": false
+          },
+          {
+            "text": "Amazon ECS on AWS Fargate",
+            "correct": true
+          },
+          {
+            "text": "Amazon EKS managed node group bắt buộc",
+            "correct": false
+          },
+          {
+            "text": "AWS Lambda layer",
+            "correct": false
+          }
+        ],
+        "explanation": "Fargate chạy ECS tasks mà không cần quản lý server/node; ECS vẫn quản lý task orchestration.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-containers.md"
     },
     {
       "id": "saa-elb-auto-scaling",
@@ -380,6 +491,117 @@
       },
       "section_quizzes": [],
       "source_file": "content/lessons/saa-messaging.md"
+    },
+    {
+      "id": "saa-observability-operations",
+      "title": "SAA: CloudWatch & Systems Manager",
+      "domain": "Management",
+      "duration_minutes": 40,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# Observability & operations\n\n| Requirement | Dịch vụ |\n| --- | --- |\n| Metrics, logs, alarms, dashboard | CloudWatch |\n| Ai gọi AWS API nào | CloudTrail |\n| Inventory, patch, Run Command | Systems Manager |\n| Config/secret đơn giản | Parameter Store |\n\nCloudWatch Alarm có thể trigger Auto Scaling hoặc SNS. Systems Manager Session Manager cho phép truy cập EC2 audited mà không cần mở inbound SSH, khi agent/role/network đã được chuẩn bị phù hợp.",
+      "quiz": {
+        "question": "Cần patch và chạy command trên hàng trăm EC2 mà không mở port 22 inbound. Chọn gì?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon Inspector",
+            "correct": false
+          },
+          {
+            "text": "AWS Systems Manager",
+            "correct": true
+          },
+          {
+            "text": "AWS CloudTrail",
+            "correct": false
+          },
+          {
+            "text": "Amazon Route 53",
+            "correct": false
+          }
+        ],
+        "explanation": "Systems Manager cung cấp Run Command, Patch Manager và Session Manager để vận hành fleet tập trung.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-observability-operations.md"
+    },
+    {
+      "id": "saa-migration-dr",
+      "title": "SAA: MGN, DRS, DMS & DataSync",
+      "domain": "Migration",
+      "duration_minutes": 45,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# Migration & disaster recovery services\n\n| Requirement | Chọn |\n| --- | --- |\n| Lift-and-shift server/VM | Application Migration Service (MGN) |\n| Database migration + CDC | Database Migration Service (DMS) |\n| Continuous server replication cho DR | Elastic Disaster Recovery (DRS) |\n| Online file copy NFS/SMB | DataSync |\n| Offline large-scale data | Snowball |\n\nMGN dành cho server migration; DRS dành cho recovery. DMS phù hợp database migration/replication với downtime thấp, nhưng source/target compatibility vẫn cần được xác minh theo engine.",
+      "quiz": {
+        "question": "Công ty cần migrate VM on-premises lên AWS theo lift-and-shift, tối thiểu thay đổi ứng dụng. Dịch vụ chính?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "AWS Application Migration Service (MGN)",
+            "correct": true
+          },
+          {
+            "text": "AWS Database Migration Service",
+            "correct": false
+          },
+          {
+            "text": "Amazon Kinesis Data Streams",
+            "correct": false
+          },
+          {
+            "text": "AWS Glue",
+            "correct": false
+          }
+        ],
+        "explanation": "MGN được thiết kế cho lift-and-shift server migration; DMS tập trung dữ liệu database.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-migration-dr.md"
+    },
+    {
+      "id": "saa-global-accelerator",
+      "title": "SAA: AWS Global Accelerator",
+      "domain": "Networking",
+      "duration_minutes": 25,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# AWS Global Accelerator\n\nGlobal Accelerator cung cấp static anycast IP và đưa TCP/UDP traffic vào AWS global network đến endpoint khỏe, như ALB, NLB hoặc EC2 ở nhiều Region.\n\n| Requirement | Chọn |\n| --- | --- |\n| Global TCP/UDP, static IP | Global Accelerator |\n| HTTP(S) edge cache | CloudFront |\n| DNS policy/canary | Route 53 |\n\nGlobal Accelerator không cache objects như CloudFront; nó tăng performance/failover ở network layer.",
+      "quiz": {
+        "question": "Game TCP toàn cầu cần hai static IP và latency ổn định qua AWS backbone. Dịch vụ phù hợp nhất?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon CloudFront",
+            "correct": false
+          },
+          {
+            "text": "AWS Global Accelerator",
+            "correct": true
+          },
+          {
+            "text": "Route 53 geolocation chỉ riêng nó",
+            "correct": false
+          },
+          {
+            "text": "Amazon EFS",
+            "correct": false
+          }
+        ],
+        "explanation": "Global Accelerator cung cấp static anycast IP và định tuyến traffic TCP/UDP qua AWS global network đến endpoint khỏe.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-global-accelerator.md"
     },
     {
       "id": "saa-route53-cloudfront",
@@ -1106,6 +1328,43 @@
       "source_file": "content/lessons/iam.md"
     },
     {
+      "id": "saa-backup-resilience",
+      "title": "SAA: AWS Backup, RTO & RPO",
+      "domain": "Security",
+      "duration_minutes": 40,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# Backup & resilience\n\nAWS Backup dùng backup plans và backup vaults để quản lý tập trung backup của RDS, EBS, EFS và nhiều AWS resources khác.\n\n| Requirement | Pattern |\n| --- | --- |\n| Rẻ nhất, chấp nhận khôi phục lâu | Backup and restore |\n| Core system chạy sẵn tối thiểu | Pilot light |\n| Hệ thống thu nhỏ sẵn sàng scale | Warm standby |\n| RTO/RPO rất thấp đa Region | Active-active |\n\n**RTO** là thời gian tối đa để khôi phục; **RPO** là lượng dữ liệu có thể mất tính theo thời gian.",
+      "quiz": {
+        "question": "Đội vận hành muốn đặt policy backup tập trung và copy recovery points của RDS/EBS sang account khác. Dịch vụ phù hợp nhất?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon CloudTrail",
+            "correct": false
+          },
+          {
+            "text": "AWS Backup",
+            "correct": true
+          },
+          {
+            "text": "Amazon SQS",
+            "correct": false
+          },
+          {
+            "text": "AWS Config",
+            "correct": false
+          }
+        ],
+        "explanation": "AWS Backup cung cấp backup plan, vault và các tùy chọn central governance/copy backup cho nhiều AWS resources.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-backup-resilience.md"
+    },
+    {
       "id": "saa-kms-secrets",
       "title": "SAA: KMS, Secrets Manager & Encryption",
       "domain": "Security",
@@ -1243,6 +1502,43 @@
       },
       "section_quizzes": [],
       "source_file": "content/lessons/saa-ebs.md"
+    },
+    {
+      "id": "saa-efs-file-storage",
+      "title": "SAA: EFS & File Storage Patterns",
+      "domain": "Storage",
+      "duration_minutes": 35,
+      "level": "Associate",
+      "course_id": "aws-solutions-architect-associate",
+      "video_url": "",
+      "published": "true",
+      "markdown": "# EFS & file storage\n\n| Requirement | Chọn |\n| --- | --- |\n| Shared Linux NFS, multi-AZ | EFS |\n| Windows SMB + Active Directory | FSx for Windows |\n| HPC Lustre | FSx for Lustre |\n| Disk cho một EC2 | EBS |\n\nEFS là regional service với mount targets ở các AZ client sử dụng. EFS lifecycle management có thể chuyển file ít truy cập sang IA/Archive. EFS One Zone rẻ hơn nhưng không thay thế EFS Standard nếu đề yêu cầu multi-AZ resilience.",
+      "quiz": {
+        "question": "Web farm Linux ở nhiều AZ cần mount chung upload directory. Dịch vụ đúng nhất?",
+        "question_en": "",
+        "options": [
+          {
+            "text": "Amazon EBS gp3",
+            "correct": false
+          },
+          {
+            "text": "Amazon EFS",
+            "correct": true
+          },
+          {
+            "text": "Amazon S3 Glacier",
+            "correct": false
+          },
+          {
+            "text": "FSx for Windows File Server",
+            "correct": false
+          }
+        ],
+        "explanation": "EFS là shared NFS file system cho Linux workloads và có mount target multi-AZ.",
+        "explanation_en": ""
+      },
+      "section_quizzes": [],
+      "source_file": "content/lessons/saa-efs-file-storage.md"
     },
     {
       "id": "saa-efs-fsx",
