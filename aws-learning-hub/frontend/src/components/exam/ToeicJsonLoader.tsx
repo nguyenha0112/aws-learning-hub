@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { FileJson, Upload, Sparkles, AlertCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { FileJson, Upload, Sparkles, AlertCircle, Shuffle, Trash2, Play } from "lucide-react";
 import { MockExamLibrary, type Exam } from "@/components/exam/MockExam";
 
 type ToeicQuestion = {
@@ -18,13 +18,23 @@ type ToeicQuestion = {
 };
 
 type ToeicDocument = { title?: string; questions?: ToeicQuestion[] };
+const storageKey = "aws-learning-hub:toeic-imported-exam";
+
+const shuffled = <T,>(items: T[]) => {
+  const copy = [...items];
+  for (let index = copy.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+  }
+  return copy;
+};
 
 const toTip = (item: ToeicQuestion) => {
   const words = item.vocabulary ? Object.entries(item.vocabulary).map(([word, meaning]) => `${word}: ${meaning}`).join(" · ") : "";
   return [item.type && `Dạng: ${item.type}`, item.key_words && `Từ khóa: ${item.key_words}`, item.form && `Công thức: ${item.form}`, words && `Từ vựng: ${words}`].filter(Boolean).join("\n");
 };
 
-const toExam = (source: ToeicDocument): Exam => ({
+const toExam = (source: ToeicDocument, randomize: boolean): Exam => ({
   id: "toeic-part5-imported",
   title: source.title || "TOEIC Part 5 Practice",
   certification: "TOEIC Part 5",
@@ -32,7 +42,7 @@ const toExam = (source: ToeicDocument): Exam => ({
   passing_score: 80,
   question_count: source.questions?.length ?? 0,
   source_quality: "verified",
-  questions: (source.questions ?? []).map((item) => ({
+  questions: (randomize ? shuffled(source.questions ?? []) : source.questions ?? []).map((item) => ({
     id: String(item.id),
     domain: ["TOEIC PART 5", item.type].filter(Boolean).join(" · "),
     question: item.question,
@@ -46,7 +56,18 @@ const toExam = (source: ToeicDocument): Exam => ({
 export function ToeicJsonLoader() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [exam, setExam] = useState<Exam | null>(null);
+  const [savedSource, setSavedSource] = useState<ToeicDocument | null>(null);
+  const [randomize, setRandomize] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(storageKey);
+      if (saved) setSavedSource(JSON.parse(saved) as ToeicDocument);
+    } catch {
+      window.localStorage.removeItem(storageKey);
+    }
+  }, []);
 
   const importFile = async (file?: File) => {
     if (!file) return;
@@ -55,10 +76,10 @@ export function ToeicJsonLoader() {
       if (!Array.isArray(parsed.questions) || parsed.questions.length === 0) throw new Error("Không tìm thấy mảng questions.");
       const invalid = parsed.questions.find((question) => !question.question || !question.choices || !question.answer || !question.explanation);
       if (invalid) throw new Error(`Câu ${invalid.id ?? "không rõ"} thiếu question, choices, answer hoặc explanation.`);
-      setExam(toExam(parsed));
+      window.localStorage.setItem(storageKey, JSON.stringify(parsed));
+      setSavedSource(parsed);
       setError(null);
     } catch (cause) {
-      setExam(null);
       setError(cause instanceof Error ? cause.message : "Không thể đọc file JSON này.");
     }
   };
@@ -74,8 +95,7 @@ export function ToeicJsonLoader() {
         <p className="mt-3 max-w-2xl leading-7 text-slate-600 dark:text-slate-300">Trang sẽ đọc đề ngay trên trình duyệt. Dữ liệu đề không được gửi lên máy chủ; sau khi nạp, bạn có thể thi mô phỏng hoặc luyện tập có giải thích, dịch nghĩa và từ vựng.</p>
 
         <input ref={inputRef} type="file" accept="application/json,.json" className="hidden" onChange={(event) => void importFile(event.target.files?.[0])} />
-        <button onClick={() => inputRef.current?.click()} className="mt-7 inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3.5 font-extrabold text-white shadow-lg shadow-indigo-500/20 transition hover:bg-indigo-500"><Upload className="h-4 w-4" />Chọn file đề JSON</button>
-        <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">Chọn file <b>toeic_part5_study4_101_130.json</b> trong thư mục Downloads của bạn.</p>
+        {savedSource ? <div className="mt-7 rounded-2xl border border-indigo-200 bg-white/80 p-5 dark:border-indigo-400/25 dark:bg-white/5"><p className="text-xs font-extrabold tracking-[.14em] text-indigo-600 dark:text-indigo-300">ĐỀ ĐÃ LƯU TRÊN TRÌNH DUYỆT</p><h2 className="mt-1 text-lg font-black">{savedSource.title || "TOEIC Part 5 Practice"}</h2><p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{savedSource.questions?.length ?? 0} câu · mở lại không cần chọn file lần nữa.</p><label className="mt-4 flex w-fit cursor-pointer items-center gap-2 rounded-xl border border-indigo-200 px-3 py-2 text-sm font-bold text-indigo-900 dark:border-indigo-400/25 dark:text-indigo-100"><input type="checkbox" checked={randomize} onChange={(event) => setRandomize(event.target.checked)} className="h-4 w-4 accent-indigo-600" /><Shuffle className="h-4 w-4 text-indigo-600" />Xáo thứ tự câu hỏi</label><div className="mt-4 flex flex-wrap gap-2"><button onClick={() => setExam(toExam(savedSource, randomize))} className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-extrabold text-white hover:bg-indigo-500"><Play className="h-4 w-4" />Mở đề đã lưu</button><button onClick={() => inputRef.current?.click()} className="inline-flex items-center gap-2 rounded-xl border border-indigo-300 px-4 py-2.5 text-sm font-extrabold text-indigo-700 hover:bg-indigo-50 dark:border-indigo-400/35 dark:text-indigo-200 dark:hover:bg-indigo-500/10"><Upload className="h-4 w-4" />Thay file khác</button><button onClick={() => { window.localStorage.removeItem(storageKey); setSavedSource(null); }} className="inline-flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5"><Trash2 className="h-4 w-4" />Xóa đề</button></div></div> : <><button onClick={() => inputRef.current?.click()} className="mt-7 inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3.5 font-extrabold text-white shadow-lg shadow-indigo-500/20 transition hover:bg-indigo-500"><Upload className="h-4 w-4" />Chọn file đề JSON</button><p className="mt-3 text-sm text-slate-500 dark:text-slate-400">Chọn file <b>toeic_part5_study4_101_130.json</b> trong thư mục Downloads của bạn. Lần sau web sẽ tự nhớ đề.</p></>}
       </div>
 
       <div className="mt-5 grid gap-4 sm:grid-cols-3">
