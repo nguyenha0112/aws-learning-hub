@@ -48,7 +48,12 @@ const toExam = (source: ToeicDocument, randomize: boolean): Exam => ({
     question: item.question,
     options: (["A", "B", "C", "D"] as const).map((id) => ({ id, text: item.choices[id] })),
     correct_option: item.answer,
-    explanation: item.explanation,
+    explanation: [
+      item.key_words && `Bước 1 — Nhìn dấu hiệu: “${item.key_words}”.`,
+      item.form && `Bước 2 — Áp dụng cấu trúc: ${item.form}.`,
+      `Bước 3 — Chọn (${item.answer}) ${item.choices[item.answer]}. ${item.explanation}`,
+      "Loại đáp án khác vì chúng không thỏa vị trí ngữ pháp hoặc không đúng collocation/ngữ cảnh của câu.",
+    ].filter(Boolean).join("\n\n"),
     tip: toTip(item),
     translation: item.translation,
     questionType: item.type,
