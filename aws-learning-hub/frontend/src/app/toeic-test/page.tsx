@@ -1,5 +1,5 @@
 import { ToeicJsonLoader } from "@/components/exam/ToeicJsonLoader";
 
 export default function ToeicTestPage() {
-  return <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6"><ToeicJsonLoader /></main>;
+  return <main className="toeic-exam-surface w-full py-3 sm:py-5"><ToeicJsonLoader /></main>;
 }

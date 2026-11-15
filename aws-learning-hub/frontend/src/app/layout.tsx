@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen bg-[#f6f7fb] text-slate-900 antialiased dark:bg-[#090b12] dark:text-slate-100`}
+        className={`${inter.className} min-h-screen bg-[#f6f7fb] text-slate-900 antialiased dark:bg-[#101827] dark:text-slate-100`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />

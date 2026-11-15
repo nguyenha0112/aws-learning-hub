@@ -74,3 +74,17 @@ body {
 .dark .lesson-prose blockquote {
   background: rgb(249 115 22 / 0.09);
 }
+
+/* TOEIC exam: calm blue-grey dark surface with clearer card separation. */
+.dark .toeic-exam-surface .rounded-3xl.border.border-slate-200.bg-white {
+  border-color: rgb(71 85 105 / 0.9);
+  background-color: #182235;
+}
+
+.dark .toeic-exam-surface .border-slate-200 {
+  border-color: rgb(71 85 105 / 0.72);
+}
+
+.dark .toeic-exam-surface .bg-slate-900 {
+  background-color: #24314a;
+}
