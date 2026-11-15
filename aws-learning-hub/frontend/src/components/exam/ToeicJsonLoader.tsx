@@ -48,8 +48,13 @@ const toExam = (source: ToeicDocument, randomize: boolean): Exam => ({
     question: item.question,
     options: (["A", "B", "C", "D"] as const).map((id) => ({ id, text: item.choices[id] })),
     correct_option: item.answer,
-    explanation: [item.explanation, item.translation && `Dịch nghĩa: ${item.translation}`].filter(Boolean).join("\n\n"),
+    explanation: item.explanation,
     tip: toTip(item),
+    translation: item.translation,
+    questionType: item.type,
+    keyWords: item.key_words,
+    form: item.form,
+    vocabulary: item.vocabulary,
   })),
 });
 
@@ -63,7 +68,15 @@ export function ToeicJsonLoader() {
   useEffect(() => {
     try {
       const saved = window.localStorage.getItem(storageKey);
-      if (saved) setSavedSource(JSON.parse(saved) as ToeicDocument);
+      if (saved) { setSavedSource(JSON.parse(saved) as ToeicDocument); return; }
+      void fetch("/api/toeic-study4").then(async (response) => {
+        if (!response.ok) return;
+        const source = await response.json() as ToeicDocument;
+        if (Array.isArray(source.questions) && source.questions.length) {
+          window.localStorage.setItem(storageKey, JSON.stringify(source));
+          setSavedSource(source);
+        }
+      });
     } catch {
       window.localStorage.removeItem(storageKey);
     }
